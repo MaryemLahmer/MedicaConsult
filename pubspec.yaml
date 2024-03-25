@@ -1,0 +1,83 @@
+name: medica_consult
+description: "Projet de conception et de developpement"
+
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.2.6 <4.0.0'
+
+#-----PACKAGES-----#
+dependencies:
+  flutter:
+    sdk: flutter
+
+#UTILITY PACKAGES
+  http: ^1.1.0
+  intl: ^0.19.0
+  logger: ^2.0.1
+  lottie: ^3.1.0
+  url_launcher: ^6.1.12
+  connectivity_plus: ^5.0.2
+  flutter_native_splash: ^2.3.9
+  smooth_page_indicator: ^1.1.0
+
+#ICONS
+  iconsax: ^0.0.8
+  cupertino_icons: ^1.0.2
+
+#STATE MANAGEMENT
+  get: ^4.6.5
+  get_storage: ^2.1.1
+
+#PRODUCT SPECIFIC
+
+
+#Firebase
+  firebase_core: ^2.25.4
+
+#------ ./ PACKAGES END -----#
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^2.0.0
+
+flutter:
+  uses-material-design: true
+
+
+
+#-----LOCAL ASSETS-----#
+  assets:
+    - assets/logos/
+    - assets/icons/
+    - assets/images/
+    - assets/icons/categoryIcons/
+    - assets/images/on_boarding_images/
+    - assets/images/animations/
+    - assets/images/banners/
+    - assets/images/user/
+    - assets/images/reviews/
+    - assets/icons/payment_methods/
+
+#-----LOCAL FONTS-----#
+  fonts:
+    - family: Poppins
+      fonts:
+        - asset: assets/fonts/Poppins-Light.ttf
+          weight: 300
+        - asset: assets/fonts/Poppins-Light.ttf
+          weight: 400
+        - asset: assets/fonts/Poppins-Italic.ttf
+          style: italic
+        - asset: assets/fonts/Poppins-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/Poppins-MediumItalic.ttf
+          weight: 500
+          style: italic
+        - asset: assets/fonts/Poppins-SemiBold.ttf
+          weight: 600
+        - asset: assets/fonts/Poppins-Bold.ttf
+          weight: 800
