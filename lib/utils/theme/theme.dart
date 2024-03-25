@@ -9,8 +9,8 @@ import 'custom_themes/outlined_button_theme.dart';
 import 'custom_themes/text_field_theme.dart';
 import 'custom_themes/text_theme.dart';
 
-class MAppTheme {
-  MAppTheme._();
+class MedicaAppTheme {
+  MedicaAppTheme._();
 
   ///Light Theme
   static ThemeData lightTheme = ThemeData(
