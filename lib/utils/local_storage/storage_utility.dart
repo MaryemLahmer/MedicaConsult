@@ -1,13 +1,13 @@
 import 'package:get_storage/get_storage.dart';
 
-class MLocalStorage{
-  static final MLocalStorage _instance = MLocalStorage._internal();
+class MedicaLocalStorage{
+  static final MedicaLocalStorage _instance = MedicaLocalStorage._internal();
 
-  factory MLocalStorage(){
+  factory MedicaLocalStorage(){
     return _instance;
   }
 
-  MLocalStorage._internal();
+  MedicaLocalStorage._internal();
 
   final _storage =GetStorage();
 

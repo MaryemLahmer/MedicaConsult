@@ -1,6 +1,6 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
-class MHttpHelper {
+class MedicaHttpHelper {
   static const String _baseUrl='https://your-api-base-url';
 
   // Helper method to make a get request
