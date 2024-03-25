@@ -15,7 +15,7 @@ class App extends StatelessWidget {
         darkTheme: MedicaAppTheme.darkTheme,
         ///home: const OnBoardingScreen(),
         ///show loader or circular progress indicator meanwhile authentication repository is deciding to show relevant screen
-        home:const Scaffold(backgroundColor: MedicaColors.primary,body: Center(child: CircularProgressIndicator(color: Colors.white,),),)
+        ///home:const Scaffold(backgroundColor: MedicaColors.primary,body: Center(child: CircularProgressIndicator(color: Colors.white,),),)
 
     );
   }
