@@ -3,8 +3,7 @@
 class MedicaImages{
 
   //-- App logos
-  static const String darkAppLogo="";
-  static const String lightAppLogo="";
+  static const String appLogo="";
 
   //-- Social logos
   static const String google="assets/logos/google-icon.png";
