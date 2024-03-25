@@ -10,6 +10,9 @@ class MedicaImages{
   static const String facebook="assets/logos/facebook-icon.png";
 
   // -- Onboarding Images
+  static const String onboardingScreen1="assets/images/on_boarding_images/online.gif";
+  static const String onboardingScreen2="assets/images/on_boarding_images/consultation.gif";
+  static const String onboardingScreen3="assets/images/on_boarding_images/medicine.gif";
 
 
   // -- Animations
