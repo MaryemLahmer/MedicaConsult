@@ -57,7 +57,6 @@ flutter:
     - assets/icons/categoryIcons/
     - assets/images/on_boarding_images/
     - assets/images/animations/
-    - assets/images/banners/
     - assets/images/user/
     - assets/images/reviews/
     - assets/icons/payment_methods/
