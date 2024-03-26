@@ -15,6 +15,9 @@ class MedicaTexts{
   static const String onBoardingSubTitle2 = "";
   static const String onBoardingSubTitle3 = "";
 
+  static const String optionTitle = "Let’s get started !";
+  static const String optionSubtitle = "Log in to try different features with our application.";
+
   //-- Home
   static const String homeAppBarTitle = "";
   static const String homeAppBarSubTitle = "";
