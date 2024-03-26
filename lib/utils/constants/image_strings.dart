@@ -3,15 +3,15 @@
 class MedicaImages{
 
   //-- App logos
-  static const String appLogo="";
+  static const String appLogo="assets/logos/appLogo.png";
 
   //-- Social logos
   static const String google="assets/logos/google-icon.png";
   static const String facebook="assets/logos/facebook-icon.png";
 
   // -- Onboarding Images
-  static const String onboardingScreen1="assets/images/on_boarding_images/online.gif";
-  static const String onboardingScreen2="assets/images/on_boarding_images/consultation.gif";
+  static const String onboardingScreen1="assets/images/on_boarding_images/consultation.gif";
+  static const String onboardingScreen2="assets/images/on_boarding_images/online.gif";
   static const String onboardingScreen3="assets/images/on_boarding_images/medicine.gif";
 
 
