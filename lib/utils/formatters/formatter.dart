@@ -1,22 +1,21 @@
 import 'package:intl/intl.dart';
 
-class MedicaFormatter{
-  static String formatDate(DateTime? date){
+class MedicaFormatter {
+  static String formatDate(DateTime? date) {
     date ??= DateTime.now();
-    return DateFormat('dd-MMM-YYYY').format(date);
+    return DateFormat('dd-MM-yyyy').format(date);
   }
-  
-  static String formatCurrency(double amount){
+
+  static String formatCurrency(double amount) {
     return NumberFormat.currency(locale: 'en_US', symbol: '\$').format(amount);
   }
 
-
   //still needs testing
-  static String formatPhoneNumber(String phoneNumber){
+  static String formatPhoneNumber(String phoneNumber) {
     //tunisian phone number : 12 345 678
-    if(phoneNumber.length==8){
+    if (phoneNumber.length == 8) {
       return phoneNumber;
-    }else{
+    } else {
       return ('wrong phone number');
     }
   }
@@ -49,5 +48,4 @@ class MedicaFormatter{
   //     i=end;
   //   }
   // }
-
 }
