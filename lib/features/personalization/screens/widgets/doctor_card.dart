@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:iconsax/iconsax.dart';
-import 'package:flutter/services.dart';
+import 'package:medica_consult/features/personalization/screens/widgets/rating.dart';
 import 'package:medica_consult/utils/constants/colors.dart';
-import 'package:medica_consult/utils/constants/image_strings.dart';
 import 'package:medica_consult/utils/constants/sizes.dart';
-import 'package:medica_consult/utils/formatters/formatter.dart';
 
 class DoctorCard extends StatelessWidget {
   final String profileImage;
@@ -28,7 +25,8 @@ class DoctorCard extends StatelessWidget {
     return GestureDetector(
       onTap: onPressed,
       child: SizedBox(
-        width: 132.0,
+        height: 164.0,
+        width: 134.0,
         child: Padding(
           padding: const EdgeInsets.only(
               left: MedicaSizes.sm, right: MedicaSizes.sm),
@@ -45,6 +43,7 @@ class DoctorCard extends StatelessWidget {
               child: Padding(
                 padding: const EdgeInsets.all(MedicaSizes.sm),
                 child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     ClipRRect(
                       borderRadius:
@@ -89,7 +88,7 @@ class DoctorCard extends StatelessWidget {
                                   size: 10.0,
                                 ),
                                 Text(
-                                  '$distance away',
+                                  '${distance}m away',
                                   style: const TextStyle(
                                     color: MedicaColors.textSecondary,
                                     fontSize: 8.0,
@@ -105,37 +104,6 @@ class DoctorCard extends StatelessWidget {
                 ),
               ),
             ),
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-class Rating extends StatelessWidget {
-  final double rating;
-  const Rating({
-    Key? key,
-    required this.rating,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return SizedBox(
-      child: ClipRRect(
-        borderRadius: BorderRadius.circular(2.0),
-        child: Container(
-          color: const Color(0xFFE8F3F1),
-          padding: const EdgeInsets.all(2.0),
-          child: Row(
-            children: [
-              const Icon(Icons.star, size: 10.0, color: MedicaColors.primary),
-              Text(
-                '$rating',
-                style:
-                    const TextStyle(fontSize: 9.0, color: MedicaColors.primary),
-              )
-            ],
           ),
         ),
       ),

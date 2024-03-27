@@ -4,11 +4,10 @@ import 'package:medica_consult/utils/constants/sizes.dart';
 
 class SectionHeader extends StatelessWidget {
   final String text;
+  final VoidCallback action;
 
-  const SectionHeader({
-    Key? key,
-    required this.text,
-  }) : super(key: key);
+  const SectionHeader({Key? key, required this.text, required this.action})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +25,7 @@ class SectionHeader extends StatelessWidget {
                 style: const TextStyle(fontWeight: FontWeight.w600),
               ),
               TextButton(
-                onPressed: () {},
+                onPressed: action,
                 style: ButtonStyle(
                   overlayColor: MaterialStateProperty.all(Colors.transparent),
                 ),

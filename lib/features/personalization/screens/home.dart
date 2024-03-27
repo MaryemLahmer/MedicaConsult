@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
-import 'package:medica_consult/features/personalization/screens/data.dart';
+import 'package:medica_consult/data/data.dart';
+import 'package:medica_consult/features/personalization/screens/article.dart';
+import 'package:medica_consult/features/personalization/screens/top_doctor.dart';
 import 'package:medica_consult/features/personalization/screens/widgets/article_card.dart';
 import 'package:medica_consult/features/personalization/screens/widgets/clickacble_icon_button.dart';
 import 'package:medica_consult/features/personalization/screens/widgets/doctor_card.dart';
@@ -22,7 +24,9 @@ class Home extends StatelessWidget {
           children: [
             Padding(
               padding: const EdgeInsets.only(
-                  right: MedicaSizes.lg, left: MedicaSizes.lg),
+                  right: MedicaSizes.lg,
+                  left: MedicaSizes.lg,
+                  top: MedicaSizes.lg),
               child: Column(
                 children: <Widget>[
                   SafeArea(
@@ -206,12 +210,12 @@ class Home extends StatelessWidget {
                             ),
                             Expanded(
                               flex: 4,
-                              child: Container(
+                              child: SizedBox(
                                 height: 140.0,
                                 child: Transform.translate(
-                                  offset: Offset(10.0,
+                                  offset: const Offset(10.0,
                                       20.0), // Adjust the Y offset as needed
-                                  child: Image(
+                                  child: const Image(
                                     width: MedicaSizes.imageThumbSize,
                                     image: AssetImage(MedicaImages.image1),
                                     fit: BoxFit.cover,
@@ -224,16 +228,21 @@ class Home extends StatelessWidget {
                       ),
                     ),
                   ),
-                  const SectionHeader(text: "Top Doctor"),
+                  SectionHeader(
+                      text: "Top Doctor",
+                      action: () {
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (context) {
+                          return const TopDoctorPage();
+                        }));
+                      }),
                 ],
               ),
             ),
             SingleChildScrollView(
               scrollDirection: Axis.horizontal,
               child: Row(
-                children: doctorData.asMap().entries.map((entry) {
-                  final index = entry.key;
-                  final data = entry.value;
+                children: doctorData.take(6).map((data) {
                   return DoctorCard(
                     profileImage: data['profileImage'],
                     name: data['name'],
@@ -241,7 +250,8 @@ class Home extends StatelessWidget {
                     rating: data['rating'],
                     distance: data['distance'],
                     onPressed: () {
-                      MedicaLoggerHelper.info("Index: $index");
+                      MedicaLoggerHelper.info(
+                          "Index: ${doctorData.indexOf(data)}");
                     },
                   );
                 }).toList(),
@@ -252,18 +262,24 @@ class Home extends StatelessWidget {
                   right: MedicaSizes.lg, left: MedicaSizes.lg),
               child: Column(
                 children: [
-                  const SectionHeader(text: "Health Article"),
+                  SectionHeader(
+                      text: "Health Article",
+                      action: () {
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (context) {
+                          return ArticlePage();
+                        }));
+                      }),
                   Column(
-                    children: articleData.asMap().entries.map((entry) {
-                      final index = entry.key;
-                      final data = entry.value;
+                    children: articleData.take(3).map((data) {
                       return ArticleCard(
                         image: data['image'],
                         title: data['title'],
                         date: data['date'],
                         length: data['length'],
                         onPressed: () {
-                          MedicaLoggerHelper.info("Index: $index");
+                          MedicaLoggerHelper.info(
+                              "Index: ${articleData.indexOf(data)}");
                         },
                       );
                     }).toList(),
