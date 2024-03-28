@@ -4,6 +4,7 @@ import 'package:medica_consult/data/data.dart';
 import 'package:medica_consult/features/personalization/screens/widgets/appointment_card.dart';
 import 'package:medica_consult/features/personalization/screens/widgets/article_card.dart';
 import 'package:medica_consult/utils/constants/colors.dart';
+import 'package:medica_consult/utils/constants/image_strings.dart';
 import 'package:medica_consult/utils/constants/sizes.dart';
 import 'package:medica_consult/utils/logging/logger.dart';
 
@@ -40,12 +41,37 @@ class _SchedualPageState extends State<SchedualPage> {
 
   @override
   Widget build(BuildContext context) {
+    List<Map<String, dynamic>> filteredAppointments = getFilteredAppointments();
+
+    Widget buildNoAppointmentsImage(String imageAsset, String text1) {
+      return Column(
+        children: [
+          const SizedBox(
+            height: 120.0,
+          ),
+          Image.asset(
+            imageAsset,
+            height: 120.0,
+            fit: BoxFit.cover,
+          ),
+          const SizedBox(height: 10.0),
+          Text(
+            text1,
+            style: const TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold),
+          ),
+          const SizedBox(height: 5.0),
+        ],
+      );
+    }
+
     return Scaffold(
       appBar: AppBar(
         title: const Padding(
           padding: EdgeInsets.only(left: MedicaSizes.md),
-          child: Text('Articles',
-              style: TextStyle(fontSize: MedicaSizes.fontSizeLg)),
+          child: Text(
+            'Articles',
+            style: TextStyle(fontSize: MedicaSizes.fontSizeLg),
+          ),
         ),
         actions: [
           Padding(
@@ -86,9 +112,10 @@ class _SchedualPageState extends State<SchedualPage> {
                               : MaterialStateProperty.all<Color>(Colors.black),
                           shape:
                               MaterialStateProperty.all<RoundedRectangleBorder>(
-                                  RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10.0),
-                          )),
+                            RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10.0),
+                            ),
+                          ),
                         ),
                         onPressed: () {
                           setState(() {
@@ -113,9 +140,10 @@ class _SchedualPageState extends State<SchedualPage> {
                               : MaterialStateProperty.all<Color>(Colors.black),
                           shape:
                               MaterialStateProperty.all<RoundedRectangleBorder>(
-                                  RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10.0),
-                          )),
+                            RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10.0),
+                            ),
+                          ),
                         ),
                         onPressed: () {
                           setState(() {
@@ -140,9 +168,10 @@ class _SchedualPageState extends State<SchedualPage> {
                               : MaterialStateProperty.all<Color>(Colors.black),
                           shape:
                               MaterialStateProperty.all<RoundedRectangleBorder>(
-                                  RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10.0),
-                          )),
+                            RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10.0),
+                            ),
+                          ),
                         ),
                         onPressed: () {
                           setState(() {
@@ -158,21 +187,34 @@ class _SchedualPageState extends State<SchedualPage> {
             ),
             Expanded(
               child: SingleChildScrollView(
-                child: Column(
-                  children:
-                      getFilteredAppointments().asMap().entries.map((entry) {
-                    final index = entry.key;
-                    final data = entry.value;
-                    return AppointmentCard(
-                      doctorProfileImage: data['doctorProfileImage'],
-                      doctorName: data['doctorName'],
-                      doctorSpeciality: data['doctorSpeciality'],
-                      date: data['date'],
-                      time: data['time'],
-                      status: data['status'],
-                    );
-                  }).toList(),
-                ),
+                child: filteredAppointments.isEmpty
+                    ? buildNoAppointmentsImage(
+                        _selectedCategoryIndex == 0
+                            ? MedicaImages.placeholder1
+                            : _selectedCategoryIndex == 1
+                                ? MedicaImages.placeholder2
+                                : MedicaImages.placeholder2,
+                        _selectedCategoryIndex == 0
+                            ? 'You don’t have any appointments yet'
+                            : _selectedCategoryIndex == 1
+                                ? 'You don’t have any completed appointments.'
+                                : 'You don’t have any canceled appointments.',
+                      )
+                    : Column(
+                        children:
+                            filteredAppointments.asMap().entries.map((entry) {
+                          final index = entry.key;
+                          final data = entry.value;
+                          return AppointmentCard(
+                            doctorProfileImage: data['doctorProfileImage'],
+                            doctorName: data['doctorName'],
+                            doctorSpeciality: data['doctorSpeciality'],
+                            date: data['date'],
+                            time: data['time'],
+                            status: data['status'],
+                          );
+                        }).toList(),
+                      ),
               ),
             ),
           ],

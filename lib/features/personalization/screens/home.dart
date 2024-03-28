@@ -4,7 +4,7 @@ import 'package:medica_consult/data/data.dart';
 import 'package:medica_consult/features/personalization/screens/article.dart';
 import 'package:medica_consult/features/personalization/screens/top_doctor.dart';
 import 'package:medica_consult/features/personalization/screens/widgets/article_card.dart';
-import 'package:medica_consult/features/personalization/screens/widgets/clickacble_icon_button.dart';
+import 'package:medica_consult/features/personalization/screens/widgets/clickable_icon_button.dart';
 import 'package:medica_consult/features/personalization/screens/widgets/doctor_card.dart';
 import 'package:medica_consult/features/personalization/screens/widgets/section_header.dart';
 import 'package:medica_consult/utils/constants/colors.dart';

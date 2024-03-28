@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:medica_consult/features/personalization/screens/home.dart';
+import 'package:medica_consult/features/personalization/screens/notifications.dart';
 import 'package:medica_consult/features/personalization/screens/schedual.dart';
 import 'package:medica_consult/utils/constants/colors.dart';
 import 'package:medica_consult/utils/helpers/helper_functions.dart';
@@ -80,7 +81,7 @@ class NavigationController extends GetxController {
 
   final screens = [
     const Home(title: "home"),
-    Container(color: Colors.green),
+    const NotificationsPage(),
     const SchedualPage(),
     Container(color: Colors.yellow),
     Container(color: Colors.purple),

@@ -14,6 +14,64 @@ List<String> articleCategories = [
   'Therapy',
 ];
 
+List<Map<String, dynamic>> notifications = [
+  {
+    'subject': 'Appointment reminder',
+    'type': 'reminder',
+    'time': DateTime.now(),
+    'content': "click to see all your upcoming appointments."
+  },
+  {
+    'subject': 'Appointment success',
+    'type': 'success',
+    'time': DateTime.now(),
+    'content': "click to check your appointment history."
+  },
+  {
+    'subject': 'Credit card connected',
+    'type': 'payment',
+    'time': DateTime.now(),
+    'content': "click to check you payment settings."
+  },
+  {
+    'subject': 'Appointment canceled',
+    'type': 'cancel',
+    'time': DateTime.now(),
+    'content': "click to check your appointment history."
+  },
+];
+
+List<Map<String, dynamic>> messages = [
+  {
+    'senderProfileImage': MedicaImages.user1,
+    'senderName': 'Dr. John Doe',
+    'time': DateTime.now(),
+    'content':
+        "I’ve been suffering from headache and cold for 3 days, I took 2 tablets of dolo, but still pain"
+  },
+  {
+    'senderProfileImage': MedicaImages.user2,
+    'senderName': 'Dr. John Doe',
+    'time': DateTime.now(),
+    'content':
+        "I’ve been suffering from headache and cold for 3 days, I took 2 tablets of dolo, but still pain"
+  },
+  {
+    'senderProfileImage': MedicaImages.user3,
+    'senderName': 'Dr. John Doe',
+    'time': DateTime.now(),
+    'content':
+        "I’ve been suffering from headache and cold for 3 days, I took 2 tablets of dolo, but still pain"
+  },
+  {
+    'senderProfileImage': MedicaImages.user1,
+    'senderName': 'Dr. John Doe',
+    'time': DateTime.now(),
+    'content':
+        "I’ve been suffering from headache and cold for 3 days, I took 2 tablets of dolo, but still pain"
+  },
+];
+
 List<Map<String, dynamic>> appointmentData = [
   {
     'doctorProfileImage': MedicaImages.user1,

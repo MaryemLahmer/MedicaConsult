@@ -38,4 +38,15 @@ class MedicaImages {
   static const String user2 = "assets/images/doc2.jpg";
   static const String user3 = "assets/images/doc3.jpg";
   static const String image1 = "assets/images/Image.png";
+
+  //placeholder images
+  static const String placeholder1 = "assets/images/Bored.png";
+  static const String placeholder2 = "assets/images/Time_management.png";
+  static const String placeholder3 = "assets/images/Task_management.png";
+
+  //icons
+  static const String reminder = "assets/images/Ellipse5.png";
+  static const String canceled = "assets/images/Ellipse.png";
+  static const String success = "assets/images/Ellipse3.png";
+  static const String payment = "assets/images/Ellipse2.png";
 }

@@ -89,27 +89,23 @@ class AppointmentCard extends StatelessWidget {
                                 children: [
                                   const Icon(
                                     Icons.calendar_today,
-                                    color: MedicaColors.black,
                                     size: 14.0,
                                   ),
                                   Text(
                                     MedicaFormatter.formatDate(date),
                                     style: const TextStyle(
                                       fontSize: 10.0,
-                                      color: MedicaColors.black,
                                     ),
                                   ),
                                   const SizedBox(width: 10),
                                   const Icon(
                                     Icons.access_time,
-                                    color: MedicaColors.black,
                                     size: 14.0,
                                   ),
                                   Text(
                                     MedicaFormatter.formatTime(time),
                                     style: const TextStyle(
                                       fontSize: 10.0,
-                                      color: MedicaColors.black,
                                     ),
                                   ),
                                   const SizedBox(width: 10),
