@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:medica_consult/utils/constants/sizes.dart';
 
 class CustomCurvedEdges extends CustomClipper<Path> {
   @override
@@ -13,13 +14,13 @@ class CustomCurvedEdges extends CustomClipper<Path> {
 
     final secondFirstCurve = Offset(0, size.height - 20);
     final secondLastCurve = Offset(size.width - 30, size.height - 20);
-    path.quadraticBezierTo(
-        secondFirstCurve.dx, secondFirstCurve.dy, secondLastCurve.dx, secondLastCurve.dy);
+    path.quadraticBezierTo(secondFirstCurve.dx, secondFirstCurve.dy,
+        secondLastCurve.dx, secondLastCurve.dy);
 
     final thirdFirstCurve = Offset(size.width, size.height - 20);
     final thirdLastCurve = Offset(size.width, size.height);
-    path.quadraticBezierTo(
-        thirdFirstCurve.dx, thirdFirstCurve.dy, thirdLastCurve.dx, thirdLastCurve.dy);
+    path.quadraticBezierTo(thirdFirstCurve.dx, thirdFirstCurve.dy,
+        thirdLastCurve.dx, thirdLastCurve.dy);
 
     path.lineTo(size.width, 0);
     path.close();
@@ -31,4 +32,3 @@ class CustomCurvedEdges extends CustomClipper<Path> {
     return true;
   }
 }
-

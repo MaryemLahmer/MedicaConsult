@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:medica_consult/utils/constants/sizes.dart';
 import 'package:medica_consult/data/data.dart';
 import 'package:medica_consult/features/personalization/screens/widgets/doctor_horizontal_card.dart';
-import 'package:medica_consult/utils/constants/sizes.dart';
 import 'package:medica_consult/utils/logging/logger.dart';
 
 class TopDoctorPage extends StatelessWidget {

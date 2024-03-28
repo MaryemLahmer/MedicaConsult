@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:medica_consult/utils/constants/sizes.dart';
 import '../../../utils/constants/colors.dart';
 import '../../../utils/helpers/helper_functions.dart';
 
@@ -30,8 +31,9 @@ class CircularImage extends StatelessWidget {
       padding: EdgeInsets.all(padding),
       decoration: BoxDecoration(
         // if image background color is null then switch it to light and dark mode color design
-        color:
-        MedicaHelperFunctions.isDarkMode(context) ? MedicaColors.dark : MedicaColors.white,
+        color: MedicaHelperFunctions.isDarkMode(context)
+            ? MedicaColors.dark
+            : MedicaColors.white,
         borderRadius: BorderRadius.circular(150),
       ),
       child: Center(

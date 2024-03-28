@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:medica_consult/utils/constants/sizes.dart';
 import 'package:get/get.dart';
 import 'package:medica_consult/features/authentication/screens/onboarding_screens/widgets/onboarding_dot_navigation.dart';
 import 'package:medica_consult/features/authentication/screens/onboarding_screens/widgets/onboarding_next_button.dart';
@@ -7,7 +8,6 @@ import 'package:medica_consult/features/authentication/screens/onboarding_screen
 import '../../../../utils/constants/image_strings.dart';
 import '../../../../utils/constants/text_strings.dart';
 import '../../controllers/onboarding/onboarding_controller.dart';
-
 
 class OnBoardingScreen extends StatelessWidget {
   const OnBoardingScreen({super.key});
@@ -22,7 +22,7 @@ class OnBoardingScreen extends StatelessWidget {
           PageView(
             controller: controller.pageController,
             onPageChanged: controller.updatePageIndicator,
-            children:  const [
+            children: const [
               OnBoardingPage(
                   image: MedicaImages.onboardingScreen1,
                   title: MedicaTexts.onBoardingTitle1,
@@ -50,4 +50,3 @@ class OnBoardingScreen extends StatelessWidget {
     );
   }
 }
-

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:medica_consult/utils/constants/sizes.dart';
 import 'package:medica_consult/utils/constants/colors.dart';
 
 class MedicaCircularContainer extends StatelessWidget {
@@ -9,8 +10,7 @@ class MedicaCircularContainer extends StatelessWidget {
       this.radius = 400,
       this.padding = 0,
       this.child,
-       this.backgroundColor = MedicaColors.white
-      });
+      this.backgroundColor = MedicaColors.white});
 
   final double? width;
   final double? height;

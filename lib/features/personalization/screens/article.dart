@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:medica_consult/utils/constants/sizes.dart';
 import 'package:medica_consult/data/data.dart';
 import 'package:medica_consult/features/personalization/screens/widgets/article_card.dart';
 import 'package:medica_consult/utils/constants/colors.dart';
-import 'package:medica_consult/utils/constants/sizes.dart';
 import 'package:medica_consult/utils/logging/logger.dart';
 
 class ArticlePage extends StatefulWidget {

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:medica_consult/utils/constants/sizes.dart';
 import 'package:medica_consult/features/personalization/screens/widgets/rating.dart';
 import 'package:medica_consult/utils/constants/colors.dart';
-import 'package:medica_consult/utils/constants/sizes.dart';
 
 class DoctorCard extends StatelessWidget {
   final String profileImage;

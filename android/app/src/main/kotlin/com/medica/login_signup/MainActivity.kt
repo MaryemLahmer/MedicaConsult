@@ -1,4 +1,4 @@
-package com.medica.login_signup
+package com.medica.medica_consult
 
 import io.flutter.embedding.android.FlutterActivity
 

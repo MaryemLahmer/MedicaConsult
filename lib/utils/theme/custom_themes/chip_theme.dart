@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-class MedicaChipTheme{
+class MedicaChipTheme {
   MedicaChipTheme._();
 
-  static ChipThemeData lightChipTheme= ChipThemeData(
+  static ChipThemeData lightChipTheme = ChipThemeData(
     disabledColor: Colors.grey.withOpacity(0.4),
     labelStyle: const TextStyle(color: Colors.black),
     selectedColor: Colors.blue,
@@ -11,7 +11,7 @@ class MedicaChipTheme{
     checkmarkColor: Colors.white,
   );
 
-  static ChipThemeData darkChipTheme= const ChipThemeData(
+  static ChipThemeData darkChipTheme = const ChipThemeData(
     disabledColor: Colors.grey,
     labelStyle: TextStyle(color: Colors.white),
     selectedColor: Colors.blue,

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:medica_consult/utils/constants/sizes.dart';
 import 'package:medica_consult/data/data.dart';
 import 'package:medica_consult/features/personalization/screens/widgets/message_card.dart';
 import 'package:medica_consult/features/personalization/screens/widgets/notification_card.dart';
 import 'package:medica_consult/utils/constants/colors.dart';
 import 'package:medica_consult/utils/constants/image_strings.dart';
-import 'package:medica_consult/utils/constants/sizes.dart';
 
 class NotificationsPage extends StatefulWidget {
   const NotificationsPage({super.key});
