@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:medica_consult/utils/constants/sizes.dart';
 import 'package:medica_consult/features/personalization/screens/widgets/rating.dart';
 import 'package:medica_consult/utils/constants/colors.dart';
-import 'package:medica_consult/utils/constants/sizes.dart';
 
 class DoctorHorziontalCard extends StatelessWidget {
   final String profileImage;
@@ -11,14 +11,14 @@ class DoctorHorziontalCard extends StatelessWidget {
   final double distance;
   final VoidCallback onPressed;
   const DoctorHorziontalCard({
-    Key? key,
+    super.key,
     required this.profileImage,
     required this.name,
     required this.speciality,
     required this.rating,
     required this.distance,
     required this.onPressed,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

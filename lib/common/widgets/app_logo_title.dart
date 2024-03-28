@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:medica_consult/utils/constants/sizes.dart';
 
 import '../../utils/constants/image_strings.dart';
 import '../../utils/constants/text_strings.dart';
@@ -18,7 +19,10 @@ class AppLogoAndTitle extends StatelessWidget {
           height: 150,
           image: AssetImage(MedicaImages.appLogo),
         ),
-        Text(MedicaTexts.appName, style: Theme.of(context).textTheme.headlineLarge, ),
+        Text(
+          MedicaTexts.appName,
+          style: Theme.of(context).textTheme.headlineLarge,
+        ),
       ],
     );
   }

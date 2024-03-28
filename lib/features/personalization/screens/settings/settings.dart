@@ -1,13 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:medica_consult/utils/constants/sizes.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:medica_consult/common/widgets/appbar/custom_appbar.dart';
 import 'package:medica_consult/common/widgets/custom_shapes/containers/header_container.dart';
-import 'package:medica_consult/common/widgets/divider.dart';
-import 'package:medica_consult/common/widgets/images/circular_image.dart';
 import 'package:medica_consult/features/personalization/screens/settings/widgets/settings_menu_tile.dart';
 import 'package:medica_consult/utils/constants/colors.dart';
-import 'package:medica_consult/utils/constants/image_strings.dart';
-import 'package:medica_consult/utils/constants/sizes.dart';
 
 import '../profile/user_profile_card.dart';
 

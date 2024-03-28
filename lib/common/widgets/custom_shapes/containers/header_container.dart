@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:medica_consult/utils/constants/sizes.dart';
 import '../../../../utils/constants/colors.dart';
 import '../curved_edges/curved_edges_widget.dart';
 import 'circular_container.dart';

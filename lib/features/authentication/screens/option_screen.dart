@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:medica_consult/utils/constants/sizes.dart';
 import 'package:medica_consult/common/styles/spacing_styles.dart';
 import 'package:medica_consult/features/personalization/screens/settings/settings.dart';
-import 'package:medica_consult/utils/constants/sizes.dart';
 import 'package:medica_consult/utils/constants/text_strings.dart';
 import 'package:get/get.dart';
 import '../../../common/widgets/app_logo_title.dart';

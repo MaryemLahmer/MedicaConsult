@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:medica_consult/common/styles/spacing_styles.dart';
+import 'package:medica_consult/utils/constants/image_strings.dart';
+import 'package:medica_consult/utils/constants/sizes.dart';
 
 import 'package:iconsax/iconsax.dart';
-import 'package:login_signup/common/styles/spacing_styles.dart';
-import 'package:login_signup/utils/constants/colors.dart';
-import 'package:login_signup/utils/constants/image_strings.dart';
-import 'package:login_signup/utils/constants/sizes.dart';
-import 'package:login_signup/utils/constants/text_strings.dart';
+import 'package:medica_consult/utils/constants/colors.dart';
+import 'package:medica_consult/utils/constants/text_strings.dart';
 
 void main() {
   runApp(const LoginScreen());
 }
 
 class LoginScreen extends StatelessWidget {
-  const LoginScreen({Key? key}) : super(key: key);
+  const LoginScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +22,7 @@ class LoginScreen extends StatelessWidget {
           return Scaffold(
             body: SingleChildScrollView(
               child: Padding(
-                padding: TSpacingStyle.paddingWithAppBarHeight,
+                padding: MedicaSpacingStyle.paddingWithAppBarHeight,
                 child: Column(
                   children: [
                     /// Logo and the the title and then the subtext
@@ -31,7 +31,7 @@ class LoginScreen extends StatelessWidget {
                       children: [
                         const Image(
                           height: 150,
-                          image: AssetImage(TImages.logo),
+                          image: AssetImage(MedicaImages.appLogo),
                         ),
                         Text(
                           MedicaTexts.loginTitle,
@@ -44,7 +44,7 @@ class LoginScreen extends StatelessWidget {
                     Form(
                       child: Padding(
                         padding: const EdgeInsets.symmetric(
-                            vertical: TSizes.spaceBetweenSections),
+                            vertical: MedicaSizes.spaceBetweenSections),
                         child: Column(
                           children: [
                             /// Mail
@@ -55,7 +55,7 @@ class LoginScreen extends StatelessWidget {
                               ),
                             ),
                             const SizedBox(
-                              height: TSizes.spaceBtwInputFields,
+                              height: MedicaSizes.spaceBtwInputFields,
                             ),
 
                             /// Password
@@ -70,7 +70,7 @@ class LoginScreen extends StatelessWidget {
                             ),
 
                             const SizedBox(
-                              height: TSizes.spaceBtwInputFields / 2,
+                              height: MedicaSizes.spaceBtwInputFields / 2,
                             ),
 
                             /// Remember me & forgot pass
@@ -89,7 +89,7 @@ class LoginScreen extends StatelessWidget {
                             ),
 
                             const SizedBox(
-                              height: TSizes.spaceBtwInputFields,
+                              height: MedicaSizes.spaceBtwInputFields,
                             ),
 
                             /// Sign In
@@ -102,7 +102,7 @@ class LoginScreen extends StatelessWidget {
                             ),
 
                             const SizedBox(
-                              height: TSizes.spaceBetweenItems,
+                              height: MedicaSizes.spaceBetweenItems,
                             ),
 
                             //// Create account
@@ -115,7 +115,7 @@ class LoginScreen extends StatelessWidget {
                             ),
 
                             const SizedBox(
-                              height: TSizes.spaceBtwInputFields,
+                              height: MedicaSizes.spaceBtwInputFields,
                             ),
                           ],
                         ),
@@ -123,7 +123,7 @@ class LoginScreen extends StatelessWidget {
                     ),
 
                     /// Divider
-                    Row(
+                    const Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Flexible(

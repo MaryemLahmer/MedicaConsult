@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:medica_consult/utils/constants/colors.dart';
 import 'package:medica_consult/utils/constants/sizes.dart';
+import 'package:medica_consult/utils/constants/colors.dart';
 import 'package:medica_consult/utils/formatters/formatter.dart';
 import 'package:medica_consult/utils/logging/logger.dart';
 
@@ -12,13 +12,12 @@ class ArticleCard extends StatelessWidget {
   final VoidCallback onPressed;
 
   const ArticleCard(
-      {Key? key,
+      {super.key,
       required this.image,
       required this.title,
       required this.date,
       required this.length,
-      required this.onPressed})
-      : super(key: key);
+      required this.onPressed});
   @override
   Widget build(BuildContext context) {
     return GestureDetector(

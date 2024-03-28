@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:medica_consult/utils/constants/colors.dart';
 import 'package:medica_consult/utils/constants/sizes.dart';
+import 'package:medica_consult/utils/constants/colors.dart';
 
 class ClickableIconButton extends StatelessWidget {
   final IconData icon;
@@ -8,11 +8,11 @@ class ClickableIconButton extends StatelessWidget {
   final VoidCallback onPressed;
 
   const ClickableIconButton({
-    Key? key,
+    super.key,
     required this.icon,
     required this.text,
     required this.onPressed,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

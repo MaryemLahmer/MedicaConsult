@@ -1,43 +1,42 @@
 import 'package:flutter/material.dart';
 
-
 ///Custom Class for Light & Dark Text Themes
-class MedicaCheckboxTheme{
+class MedicaCheckboxTheme {
   MedicaCheckboxTheme._();
 
   ///Customizable Light text theme
-  static CheckboxThemeData lightCheckBoxTheme=CheckboxThemeData(
+  static CheckboxThemeData lightCheckBoxTheme = CheckboxThemeData(
     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4)),
     checkColor: MaterialStateProperty.resolveWith((states) {
-      if(states.contains(MaterialState.selected)){
+      if (states.contains(MaterialState.selected)) {
         return Colors.white;
-      }else{
+      } else {
         return Colors.black;
       }
     }),
     fillColor: MaterialStateProperty.resolveWith((states) {
-      if(states.contains(MaterialState.selected)){
+      if (states.contains(MaterialState.selected)) {
         return Colors.blue;
-      }else{
+      } else {
         return Colors.transparent;
       }
     }),
   );
 
   ///Customizable Dark text theme
-  static CheckboxThemeData darkCheckBoxTheme=CheckboxThemeData(
+  static CheckboxThemeData darkCheckBoxTheme = CheckboxThemeData(
     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4)),
     checkColor: MaterialStateProperty.resolveWith((states) {
-      if(states.contains(MaterialState.selected)){
+      if (states.contains(MaterialState.selected)) {
         return Colors.white;
-      }else{
+      } else {
         return Colors.black;
       }
     }),
     fillColor: MaterialStateProperty.resolveWith((states) {
-      if(states.contains(MaterialState.selected)){
+      if (states.contains(MaterialState.selected)) {
         return Colors.blue;
-      }else{
+      } else {
         return Colors.transparent;
       }
     }),

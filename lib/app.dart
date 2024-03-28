@@ -10,14 +10,14 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-        debugShowCheckedModeBanner: false,
-        themeMode: ThemeMode.system,
-        theme: MedicaAppTheme.lightTheme,
-        darkTheme: MedicaAppTheme.darkTheme,
-        home: const OnBoardingScreen(),
-        ///show loader or circular progress indicator meanwhile authentication repository is deciding to show relevant screen
-        ///home:const Scaffold(backgroundColor: MedicaColors.primary,body: Center(child: CircularProgressIndicator(color: Colors.white,),),)
+      debugShowCheckedModeBanner: false,
+      themeMode: ThemeMode.system,
+      theme: MedicaAppTheme.lightTheme,
+      darkTheme: MedicaAppTheme.darkTheme,
+      home: const OnBoardingScreen(),
 
+      ///show loader or circular progress indicator meanwhile authentication repository is deciding to show relevant screen
+      ///home:const Scaffold(backgroundColor: MedicaColors.primary,body: Center(child: CircularProgressIndicator(color: Colors.white,),),)
     );
   }
 }

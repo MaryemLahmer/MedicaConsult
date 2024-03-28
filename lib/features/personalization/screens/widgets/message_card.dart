@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:medica_consult/utils/constants/colors.dart';
 import 'package:medica_consult/utils/constants/sizes.dart';
 import 'package:medica_consult/utils/formatters/formatter.dart';
 
@@ -10,12 +9,12 @@ class MessageCard extends StatelessWidget {
   final String content;
 
   const MessageCard({
-    Key? key,
+    super.key,
     required this.senderProfileImage,
     required this.senderName,
     required this.time,
     required this.content,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:medica_consult/utils/constants/colors.dart';
 import 'package:medica_consult/utils/constants/sizes.dart';
+import 'package:medica_consult/utils/constants/colors.dart';
 import 'package:medica_consult/utils/formatters/formatter.dart';
 
 class AppointmentCard extends StatelessWidget {
@@ -12,14 +12,14 @@ class AppointmentCard extends StatelessWidget {
   final String status;
 
   const AppointmentCard({
-    Key? key,
+    super.key,
     required this.doctorProfileImage,
     required this.doctorName,
     required this.doctorSpeciality,
     required this.date,
     required this.time,
     required this.status,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

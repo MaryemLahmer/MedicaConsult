@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:medica_consult/utils/constants/colors.dart';
 import 'package:medica_consult/utils/constants/sizes.dart';
+import 'package:medica_consult/utils/constants/colors.dart';
 
 class SectionHeader extends StatelessWidget {
   final String text;
   final VoidCallback action;
 
-  const SectionHeader({Key? key, required this.text, required this.action})
-      : super(key: key);
+  const SectionHeader({super.key, required this.text, required this.action});
 
   @override
   Widget build(BuildContext context) {
