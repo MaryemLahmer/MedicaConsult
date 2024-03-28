@@ -3,13 +3,16 @@
 class MedicaImages{
 
   //-- App logos
-  static const String appLogo="";
+  static const String appLogo="assets/logos/appLogo.png";
 
   //-- Social logos
   static const String google="assets/logos/google-icon.png";
   static const String facebook="assets/logos/facebook-icon.png";
 
   // -- Onboarding Images
+  static const String onboardingScreen1="assets/images/on_boarding_images/consultation.gif";
+  static const String onboardingScreen2="assets/images/on_boarding_images/online.gif";
+  static const String onboardingScreen3="assets/images/on_boarding_images/medicine.gif";
 
 
   // -- Animations
@@ -35,7 +38,14 @@ class MedicaImages{
   static const String visa ="assets/icons/payment_methods/visa.png";
 
   // -- User Profile
-  static const String user="";
+  static const String cuteUser="assets/images/user/cuteUser.jpg";
+  static const String cuteUser1="assets/images/user/cuteUser1.jpg";
+  static const String cuteUser3="assets/images/user/cuteUser3.jpg";
+  static const String dominantUser="assets/images/user/dominantUser.jpg";
+  static const String lunetteUser="assets/images/user/cuteUser.webp";
+  static const String manUser="assets/images/user/manUser.avif";
+  static const String oldUser="assets/images/user/oldUser.avif";
+  static const String userTegher="assets/images/user/userTegher.webp";
 
 
 
