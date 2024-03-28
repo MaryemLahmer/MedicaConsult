@@ -38,7 +38,14 @@ class MedicaImages{
   static const String visa ="assets/icons/payment_methods/visa.png";
 
   // -- User Profile
-  static const String user="";
+  static const String cuteUser="assets/images/user/cuteUser.jpg";
+  static const String cuteUser1="assets/images/user/cuteUser1.jpg";
+  static const String cuteUser3="assets/images/user/cuteUser3.jpg";
+  static const String dominantUser="assets/images/user/dominantUser.jpg";
+  static const String lunetteUser="assets/images/user/cuteUser.webp";
+  static const String manUser="assets/images/user/manUser.avif";
+  static const String oldUser="assets/images/user/oldUser.avif";
+  static const String userTegher="assets/images/user/userTegher.webp";
 
 
 
