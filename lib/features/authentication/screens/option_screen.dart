@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:medica_consult/common/styles/spacing_styles.dart';
-import 'package:medica_consult/utils/constants/colors.dart';
+import 'package:medica_consult/features/personalization/screens/settings/settings.dart';
 import 'package:medica_consult/utils/constants/sizes.dart';
 import 'package:medica_consult/utils/constants/text_strings.dart';
-
+import 'package:get/get.dart';
 import '../../../common/widgets/app_logo_title.dart';
-import '../../../utils/constants/image_strings.dart';
 
 class OptionScreen extends StatelessWidget {
   const OptionScreen({super.key});
@@ -62,7 +61,7 @@ class OptionScreen extends StatelessWidget {
               SizedBox(
                   width: double.infinity,
                   child: OutlinedButton(
-                    onPressed: () {},
+                    onPressed: () => Get.off(() => const SettingsScreen()),
                     child: const Text(MedicaTexts.createAccount),
                   )),
             ],
