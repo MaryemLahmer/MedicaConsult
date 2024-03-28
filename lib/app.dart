@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:medica_consult/utils/constants/colors.dart';
 import 'package:medica_consult/utils/theme/theme.dart';
 import 'features/authentication/screens/onboarding_screens/onboarding.dart';
 
