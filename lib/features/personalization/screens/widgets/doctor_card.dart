@@ -11,14 +11,14 @@ class DoctorCard extends StatelessWidget {
   final double distance;
   final VoidCallback onPressed;
   const DoctorCard({
-    Key? key,
+    super.key,
     required this.profileImage,
     required this.name,
     required this.speciality,
     required this.rating,
     required this.distance,
     required this.onPressed,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

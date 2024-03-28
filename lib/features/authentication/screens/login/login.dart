@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:iconsax/iconsax.dart';
-import 'package:login_signup/common/styles/spacing_styles.dart';
 import 'package:login_signup/utils/constants/colors.dart';
-import 'package:login_signup/utils/constants/image_strings.dart';
 import 'package:login_signup/utils/constants/sizes.dart';
 import 'package:login_signup/utils/constants/text_strings.dart';
 
@@ -12,7 +10,7 @@ void main() {
 }
 
 class LoginScreen extends StatelessWidget {
-  const LoginScreen({Key? key}) : super(key: key);
+  const LoginScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -123,7 +121,7 @@ class LoginScreen extends StatelessWidget {
                     ),
 
                     /// Divider
-                    Row(
+                    const Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Flexible(

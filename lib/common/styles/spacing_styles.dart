@@ -1,5 +1,4 @@
 import 'package:flutter/cupertino.dart';
-import '../../utils/constants/sizes.dart';
 
 class MedicaSpacingStyle{
   static const EdgeInsetsGeometry paddingWithAppBarHeight = EdgeInsets.only(

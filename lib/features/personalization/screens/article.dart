@@ -6,7 +6,7 @@ import 'package:medica_consult/utils/constants/sizes.dart';
 import 'package:medica_consult/utils/logging/logger.dart';
 
 class ArticlePage extends StatefulWidget {
-  const ArticlePage({Key? key}) : super(key: key);
+  const ArticlePage({super.key});
 
   @override
   _ArticlePageState createState() => _ArticlePageState();

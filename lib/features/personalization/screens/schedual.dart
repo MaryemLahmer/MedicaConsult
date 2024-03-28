@@ -9,7 +9,7 @@ import 'package:medica_consult/utils/constants/sizes.dart';
 import 'package:medica_consult/utils/logging/logger.dart';
 
 class SchedualPage extends StatefulWidget {
-  const SchedualPage({Key? key}) : super(key: key);
+  const SchedualPage({super.key});
 
   @override
   _SchedualPageState createState() => _SchedualPageState();

@@ -6,8 +6,7 @@ class SectionHeader extends StatelessWidget {
   final String text;
   final VoidCallback action;
 
-  const SectionHeader({Key? key, required this.text, required this.action})
-      : super(key: key);
+  const SectionHeader({super.key, required this.text, required this.action});
 
   @override
   Widget build(BuildContext context) {

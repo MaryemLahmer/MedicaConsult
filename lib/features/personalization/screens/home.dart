@@ -1,19 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
-import 'package:medica_consult/data/data.dart';
-import 'package:medica_consult/features/personalization/screens/article.dart';
-import 'package:medica_consult/features/personalization/screens/top_doctor.dart';
-import 'package:medica_consult/features/personalization/screens/widgets/article_card.dart';
-import 'package:medica_consult/features/personalization/screens/widgets/clickable_icon_button.dart';
-import 'package:medica_consult/features/personalization/screens/widgets/doctor_card.dart';
-import 'package:medica_consult/features/personalization/screens/widgets/section_header.dart';
-import 'package:medica_consult/utils/constants/colors.dart';
-import 'package:medica_consult/utils/constants/image_strings.dart';
-import 'package:medica_consult/utils/constants/sizes.dart';
-import 'package:medica_consult/utils/logging/logger.dart';
+
+import '../../../utils/constants/colors.dart';
+import '../../../utils/constants/image_strings.dart';
+import '../../../utils/constants/sizes.dart';
+import '../../../utils/logging/logger.dart';
 
 class Home extends StatelessWidget {
-  const Home({Key? key, required this.title}) : super(key: key);
+  const Home({super.key, required this.title});
   final String title;
 
   @override

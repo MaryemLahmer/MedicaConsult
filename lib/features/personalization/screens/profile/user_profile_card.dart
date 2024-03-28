@@ -3,7 +3,6 @@ import 'package:iconsax/iconsax.dart';
 
 import '../../../../utils/constants/colors.dart';
 import '../../../../utils/constants/image_strings.dart';
-import '../../../../utils/constants/sizes.dart';
 
 class UserProfileCard extends StatelessWidget {
   const UserProfileCard({

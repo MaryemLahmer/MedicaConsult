@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:medica_consult/utils/theme/theme.dart';
+import 'package:login_signup/utils/theme/theme.dart';
 import 'features/authentication/screens/onboarding_screens/onboarding.dart';
 
 //--Use this Class to setup themes, initial Bindings, any animations and much more

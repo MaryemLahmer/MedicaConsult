@@ -10,12 +10,12 @@ class NotificationCard extends StatelessWidget {
   final String content;
 
   const NotificationCard({
-    Key? key,
+    super.key,
     required this.subject,
     required this.type,
     required this.time,
     required this.content,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

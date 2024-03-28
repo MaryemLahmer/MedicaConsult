@@ -5,7 +5,7 @@ import 'package:medica_consult/utils/constants/sizes.dart';
 import 'package:medica_consult/utils/logging/logger.dart';
 
 class TopDoctorPage extends StatelessWidget {
-  const TopDoctorPage({Key? key}) : super(key: key);
+  const TopDoctorPage({super.key});
 
   @override
   Widget build(BuildContext context) {

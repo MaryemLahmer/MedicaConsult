@@ -4,9 +4,9 @@ import 'package:medica_consult/utils/constants/colors.dart';
 class Rating extends StatelessWidget {
   final double rating;
   const Rating({
-    Key? key,
+    super.key,
     required this.rating,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

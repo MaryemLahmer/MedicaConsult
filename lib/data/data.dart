@@ -1,4 +1,5 @@
-import 'package:medica_consult/utils/constants/image_strings.dart';
+
+import '../utils/constants/image_strings.dart';
 
 List<String> articleCategories = [
   'Newest',

@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
-import 'package:medica_consult/features/personalization/screens/home.dart';
-import 'package:medica_consult/features/personalization/screens/notifications.dart';
-import 'package:medica_consult/features/personalization/screens/schedual.dart';
-import 'package:medica_consult/utils/constants/colors.dart';
-import 'package:medica_consult/utils/helpers/helper_functions.dart';
+import 'features/personalization/screens/home.dart';
+import 'features/personalization/screens/notifications.dart';
+import 'features/personalization/screens/schedual.dart';
+import 'utils/constants/colors.dart';
+import 'utils/helpers/helper_function.dart';
 
 class NavigationMenu extends StatelessWidget {
   const NavigationMenu({super.key});
