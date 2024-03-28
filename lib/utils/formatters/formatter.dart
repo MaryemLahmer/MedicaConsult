@@ -6,6 +6,11 @@ class MedicaFormatter {
     return DateFormat('dd-MM-yyyy').format(date);
   }
 
+  static String formatTime(DateTime? time) {
+    time ??= DateTime.now();
+    return DateFormat('hh:mm a').format(time);
+  }
+
   static String formatCurrency(double amount) {
     return NumberFormat.currency(locale: 'en_US', symbol: '\$').format(amount);
   }

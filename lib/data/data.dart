@@ -14,6 +14,105 @@ List<String> articleCategories = [
   'Therapy',
 ];
 
+List<Map<String, dynamic>> appointmentData = [
+  {
+    'doctorProfileImage': MedicaImages.user1,
+    'doctorName': 'Dr. John Doe',
+    'doctorSpeciality': 'Cardiologist',
+    'date': DateTime.now(),
+    'time': DateTime.now(),
+    'status': "Confirmed"
+  },
+  {
+    'doctorProfileImage': MedicaImages.user2,
+    'doctorName': 'Dr. John Doe',
+    'doctorSpeciality': 'Cardiologist',
+    'date': DateTime.now(),
+    'time': DateTime.now(),
+    'status': "Pending"
+  },
+  {
+    'doctorProfileImage': MedicaImages.user3,
+    'doctorName': 'Dr. John Doe',
+    'doctorSpeciality': 'Cardiologist',
+    'date': DateTime.now(),
+    'time': DateTime.now(),
+    'status': "Canceled"
+  },
+  {
+    'doctorProfileImage': MedicaImages.user1,
+    'doctorName': 'Dr. John Doe',
+    'doctorSpeciality': 'Cardiologist',
+    'date': DateTime.now(),
+    'time': DateTime.now(),
+    'status': "Completed"
+  },
+  {
+    'doctorProfileImage': MedicaImages.user1,
+    'doctorName': 'Dr. John Doe',
+    'doctorSpeciality': 'Cardiologist',
+    'date': DateTime.now(),
+    'time': DateTime.now(),
+    'status': "Confirmed"
+  },
+  {
+    'doctorProfileImage': MedicaImages.user2,
+    'doctorName': 'Dr. John Doe',
+    'doctorSpeciality': 'Cardiologist',
+    'date': DateTime.now(),
+    'time': DateTime.now(),
+    'status': "Pending"
+  },
+  {
+    'doctorProfileImage': MedicaImages.user3,
+    'doctorName': 'Dr. John Doe',
+    'doctorSpeciality': 'Cardiologist',
+    'date': DateTime.now(),
+    'time': DateTime.now(),
+    'status': "Canceled"
+  },
+  {
+    'doctorProfileImage': MedicaImages.user1,
+    'doctorName': 'Dr. John Doe',
+    'doctorSpeciality': 'Cardiologist',
+    'date': DateTime.now(),
+    'time': DateTime.now(),
+    'status': "Completed"
+  },
+  {
+    'doctorProfileImage': MedicaImages.user1,
+    'doctorName': 'Dr. John Doe',
+    'doctorSpeciality': 'Cardiologist',
+    'date': DateTime.now(),
+    'time': DateTime.now(),
+    'status': "Confirmed"
+  },
+  {
+    'doctorProfileImage': MedicaImages.user2,
+    'doctorName': 'Dr. John Doe',
+    'doctorSpeciality': 'Cardiologist',
+    'date': DateTime.now(),
+    'time': DateTime.now(),
+    'status': "Pending"
+  },
+  {
+    'doctorProfileImage': MedicaImages.user3,
+    'doctorName': 'Dr. John Doe',
+    'doctorSpeciality': 'Cardiologist',
+    'date': DateTime.now(),
+    'time': DateTime.now(),
+    'status': "Canceled"
+  },
+  {
+    'doctorProfileImage': MedicaImages.user1,
+    'doctorName': 'Dr. John Doe',
+    'doctorSpeciality': 'Cardiologist',
+    'date': DateTime.now(),
+    'time': DateTime.now(),
+    'status': "Completed"
+  },
+];
+
 List<Map<String, dynamic>> doctorData = [
   {
     'profileImage': MedicaImages.user1,
