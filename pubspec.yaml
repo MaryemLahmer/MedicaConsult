@@ -16,11 +16,7 @@ dependencies:
   cupertino_icons: ^1.0.6
   iconsax: ^0.0.8
 
-
-
-
-
-  get: ^4.6.5
+  get: ^4.6.6
   get_storage: ^2.1.1
 
   #UTILITY PACKAGES
@@ -29,7 +25,7 @@ dependencies:
   logger: ^2.0.1
   lottie: ^3.1.0
   url_launcher: ^6.1.12
-  connectivity_plus: ^5.0.2
+  connectivity_plus: ^6.0.1
   flutter_native_splash: ^2.3.9
   smooth_page_indicator: ^1.1.0
 
@@ -44,7 +40,12 @@ flutter:
     - assets/fonts/
     - assets/icons/
     - assets/images/
+    - assets/images/on_boarding_images/
+    - assets/images/animations/
+    - assets/images/user/
     - assets/logos/
 
   uses-material-design: true
+
+
 
