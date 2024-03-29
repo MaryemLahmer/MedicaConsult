@@ -10,6 +10,7 @@ class DoctorCard extends StatelessWidget {
   final double rating;
   final double distance;
   final VoidCallback onPressed;
+
   const DoctorCard({
     super.key,
     required this.profileImage,
@@ -36,7 +37,7 @@ class DoctorCard extends StatelessWidget {
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10.0),
                 border: Border.all(
-                  color: MedicaColors.softGrey,
+                  color: MedicaColors.accent,
                   width: 1.0,
                 ),
               ),
@@ -61,19 +62,12 @@ class DoctorCard extends StatelessWidget {
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(
-                          name,
-                          overflow: TextOverflow.ellipsis,
-                          style: const TextStyle(fontSize: 14.0),
-                        ),
-                        Text(
-                          speciality,
-                          overflow: TextOverflow.ellipsis,
-                          style: const TextStyle(
-                            fontSize: 10.0,
-                            color: MedicaColors.textSecondary,
-                          ),
-                        ),
+                        Text(name,
+                            overflow: TextOverflow.ellipsis,
+                            style: Theme.of(context).textTheme.bodyLarge),
+                        Text(speciality,
+                            overflow: TextOverflow.ellipsis,
+                            style: Theme.of(context).textTheme.bodySmall),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
