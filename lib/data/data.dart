@@ -174,63 +174,63 @@ List<Map<String, dynamic>> appointmentData = [
 
 List<Map<String, dynamic>> doctorData = [
   {
-    'profileImage': MedicaImages.user1,
+    'profileImage': MedicaImages.doctorFemale1,
     'name': 'Dr. John Doe',
     'speciality': 'Cardiologist',
     'rating': 4.8,
     'distance': 700.0,
   },
   {
-    'profileImage': MedicaImages.user2,
+    'profileImage': MedicaImages.doctorFemale2,
     'name': 'Dr. Jane Smith',
     'speciality': 'Dermatologist',
     'rating': 4.5,
     'distance': 900.0,
   },
   {
-    'profileImage': MedicaImages.user3,
+    'profileImage': MedicaImages.doctorFemale3,
     'name': 'Dr. John Doe',
     'speciality': 'Cardiologist',
     'rating': 4.8,
     'distance': 700.0,
   },
   {
-    'profileImage': MedicaImages.user1,
+    'profileImage': MedicaImages.doctorMale1,
     'name': 'Dr. Jane Smith',
     'speciality': 'Dermatologist',
     'rating': 4.5,
     'distance': 900.0,
   },
   {
-    'profileImage': MedicaImages.user2,
+    'profileImage': MedicaImages.doctorMale2,
     'name': 'Dr. John Doe',
     'speciality': 'Cardiologist',
     'rating': 4.8,
     'distance': 700.0,
   },
   {
-    'profileImage': MedicaImages.user3,
+    'profileImage': MedicaImages.cuteUser,
     'name': 'Dr. Jane Smith',
     'speciality': 'Dermatologist',
     'rating': 4.5,
     'distance': 900.0,
   },
   {
-    'profileImage': MedicaImages.user1,
+    'profileImage': MedicaImages.cuteUser1,
     'name': 'Dr. Jane Smith',
     'speciality': 'Dermatologist',
     'rating': 4.5,
     'distance': 900.0,
   },
   {
-    'profileImage': MedicaImages.user2,
+    'profileImage': MedicaImages.cuteUser3,
     'name': 'Dr. John Doe',
     'speciality': 'Cardiologist',
     'rating': 4.8,
     'distance': 700.0,
   },
   {
-    'profileImage': MedicaImages.user3,
+    'profileImage': MedicaImages.oldUser,
     'name': 'Dr. Jane Smith',
     'speciality': 'Dermatologist',
     'rating': 4.5,
@@ -261,42 +261,42 @@ List<Map<String, dynamic>> doctorData = [
 
 List<Map<String, dynamic>> articleData = [
   {
-    'image': MedicaImages.user1,
+    'image': MedicaImages.fuck_off,
     'title':
         "The 25 Healthiest Fruits You Can Eat, According to a Nutritionist",
     'date': DateTime.now(),
     'length': 5,
   },
   {
-    'image': MedicaImages.user2,
+    'image': MedicaImages.lemon,
     'title':
         "The 25 Healthiest Fruits You Can Eat, According to a Nutritionist",
     'date': DateTime.now(),
     'length': 5,
   },
   {
-    'image': MedicaImages.user3,
+    'image': MedicaImages.virus,
     'title':
         "The 25 Healthiest Fruits You Can Eat, According to a Nutritionist",
     'date': DateTime.now(),
     'length': 5,
   },
   {
-    'image': MedicaImages.user1,
+    'image': MedicaImages.vaccine,
     'title':
         "The 25 Healthiest Fruits You Can Eat, According to a Nutritionist",
     'date': DateTime.now(),
     'length': 5,
   },
   {
-    'image': MedicaImages.user2,
+    'image': MedicaImages.stethoscope,
     'title':
         "The 25 Healthiest Fruits You Can Eat, According to a Nutritionist",
     'date': DateTime.now(),
     'length': 5,
   },
   {
-    'image': MedicaImages.user3,
+    'image': MedicaImages.dna,
     'title':
         "The 25 Healthiest Fruits You Can Eat, According to a Nutritionist",
     'date': DateTime.now(),
