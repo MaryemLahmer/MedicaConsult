@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
+import 'package:medica_consult/features/personalization/screens/settings/settings.dart';
 import 'features/personalization/screens/home.dart';
 import 'features/personalization/screens/notifications.dart';
 import 'features/personalization/screens/schedual.dart';
@@ -84,6 +85,6 @@ class NavigationController extends GetxController {
     const NotificationsPage(),
     const SchedualPage(),
     Container(color: Colors.yellow),
-    Container(color: Colors.purple),
+    const SettingsScreen(),
   ];
 }
