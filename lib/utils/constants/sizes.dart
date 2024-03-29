@@ -30,7 +30,7 @@ class MedicaSizes {
   static const double imageThumbSize = 80.0;
 
   // Default space between sections
-  static const double defaultSpace = 24.0;
+  static const double defaultSpace = 20.0;
   static const double spaceBetweenItems = 16.0;
   static const double spaceBetweenSections = 32.0;
 
