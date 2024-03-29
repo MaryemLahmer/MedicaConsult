@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:medica_consult/features/authentication/screens/onboarding_screens/option_screen.dart';
 import 'package:medica_consult/utils/constants/sizes.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
-
+import 'package:medica_consult/utils/helpers/helper_function.dart';
+import '../../../utils/constants/colors.dart';
 import '../../../utils/device/device_utility.dart';
 
 class MedicaAppBar extends StatelessWidget implements PreferredSizeWidget {
@@ -22,17 +24,22 @@ class MedicaAppBar extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
+    final dark = MedicaHelperFunctions.isDarkMode(context);
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: MedicaSizes.md),
       child: AppBar(
         automaticallyImplyLeading: false,
         leading: showBackArrow
             ? IconButton(
+                icon: Icon(
+                  Iconsax.arrow_left,
+                  color: dark ? MedicaColors.white : MedicaColors.black,
+                ),
                 onPressed: () => Get.back(),
-                icon: const Icon(Iconsax.arrow_left))
+              )
             : leadingIcon != null
                 ? IconButton(
-                    onPressed: leadingOnPressed, icon: Icon(leadingIcon))
+                    onPressed: () => Get.back(), icon: Icon(leadingIcon))
                 : null,
         title: title,
         actions: actions,
