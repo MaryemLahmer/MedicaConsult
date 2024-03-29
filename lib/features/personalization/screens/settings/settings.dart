@@ -6,7 +6,7 @@ import 'package:medica_consult/common/widgets/custom_shapes/containers/header_co
 import 'package:medica_consult/features/personalization/screens/settings/widgets/settings_menu_tile.dart';
 import 'package:medica_consult/utils/constants/colors.dart';
 
-import '../profile/user_profile_card.dart';
+import '../profile/widgets/user_profile_card.dart';
 
 class SettingsScreen extends StatelessWidget {
   const SettingsScreen({super.key});
