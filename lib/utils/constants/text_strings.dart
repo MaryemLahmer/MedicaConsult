@@ -21,8 +21,8 @@ class MedicaTexts {
   static const String optionSubtitle = "Log in to try different features with our application.";
 
   //-- Home
-  static const String homeAppBarTitle = "";
-  static const String homeAppBarSubTitle = "";
+  static const String homeAppBarTitle = "Welcome Back,";
+  static const String homeAppBarSubTitle = "Sick User";
 
   // -- Authentication Form Text
   static const String firstName = "First Name";
