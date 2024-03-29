@@ -5,240 +5,134 @@ import 'package:medica_consult/data/data.dart';
 import 'package:medica_consult/features/personalization/screens/article.dart';
 import 'package:medica_consult/features/personalization/screens/top_doctor.dart';
 import 'package:medica_consult/features/personalization/screens/widgets/article_card.dart';
-import 'package:medica_consult/features/personalization/screens/widgets/clickable_icon_button.dart';
 import 'package:medica_consult/features/personalization/screens/widgets/doctor_card.dart';
 import 'package:medica_consult/features/personalization/screens/widgets/section_header.dart';
 import 'package:medica_consult/utils/constants/colors.dart';
 import 'package:medica_consult/utils/constants/image_strings.dart';
 import 'package:medica_consult/utils/logging/logger.dart';
+import 'package:get/get.dart';
+
+import '../../../common/widgets/custom_shapes/containers/header_container.dart';
+import '../../../common/widgets/images/image_text.dart';
+import 'notifications.dart';
 
 class Home extends StatelessWidget {
   const Home({super.key, required this.title});
+
   final String title;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SingleChildScrollView(
+        /// Header: user image + greeting message + notification icon
         child: Column(
           children: [
-            Padding(
-              padding: const EdgeInsets.only(
-                  right: MedicaSizes.lg,
-                  left: MedicaSizes.lg,
-                  top: MedicaSizes.lg),
-              child: Column(
-                children: <Widget>[
-                  SafeArea(
-                    child: Row(
-                      children: <Widget>[
-                        ClipRRect(
-                          borderRadius: BorderRadius.circular(
-                              MedicaSizes.imageThumbSize / 2),
-                          child: const Image(
-                            width: MedicaSizes.imageThumbSize,
-                            height: MedicaSizes.imageThumbSize,
-                            image: AssetImage(MedicaImages.user2),
-                            fit: BoxFit.cover,
-                          ),
-                        ),
-                        const Expanded(
-                          child: Padding(
-                            padding: EdgeInsets.all(MedicaSizes.md),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  "Welcome back,",
-                                  style: TextStyle(
-                                    color: MedicaColors.textSecondary,
-                                    fontSize: MedicaSizes.fontSizeSm,
-                                    fontWeight: FontWeight.w600,
-                                  ),
-                                ),
-                                SizedBox(
-                                  height: 6.0,
-                                ),
-                                Text(
-                                  "TheFerrMann",
-                                  style: TextStyle(
-                                    fontSize: MedicaSizes.fontSizeMd,
-                                    fontWeight: FontWeight.w700,
-                                  ),
-                                ),
-                              ],
+            PrimaryHeaderContainer(
+              child: Padding(
+                padding: const EdgeInsets.all(MedicaSizes.defaultSpace),
+                child: Column(
+                  children: [
+                    SafeArea(
+                      child: Row(
+                        children: [
+                          ClipRRect(
+                            borderRadius: BorderRadius.circular(
+                                MedicaSizes.imageThumbSize / 2),
+                            child: const Image(
+                              width: MedicaSizes.imageThumbSize,
+                              height: MedicaSizes.imageThumbSize,
+                              image: AssetImage(MedicaImages.cuteUser3),
+                              fit: BoxFit.cover,
                             ),
                           ),
-                        ),
-                        IconButton(
-                          icon: const Icon(
-                              Icons.notifications_outlined), // Bell icon
-                          onPressed: () {
-                            // Add your onPressed callback here
-                            // This will be triggered when the button is pressed
-                          },
-                        ),
-                      ],
-                    ),
-                  ),
-                  const SizedBox(
-                    height: MedicaSizes.spaceBetweenSections,
-                  ),
-                  TextField(
-                    style: const TextStyle(fontSize: 12.0, height: 0.9),
-                    decoration: InputDecoration(
-                      filled: true,
-                      fillColor: MedicaColors.lightGrey,
-                      enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(36.0),
-                        borderSide:
-                            const BorderSide(color: MedicaColors.borderPrimary),
-                      ),
-                      focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(36.0),
-                        borderSide:
-                            const BorderSide(color: MedicaColors.borderPrimary),
-                      ),
-                      hintText:
-                          'Search, doctor, drugs, articles...', // Added search icon in the hint text
-                      hintStyle: const TextStyle(
-                        color: MedicaColors.textSecondary,
-                      ),
-                      prefixIcon: const Icon(Icons
-                          .search), // Adding the search icon using Icon widget
-                    ),
-                    cursorColor: MedicaColors.black,
-                  ),
-                  const SizedBox(
-                    height: MedicaSizes.spaceBetweenSections,
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: <Widget>[
-                      ClickableIconButton(
-                        icon: Icons.home_repair_service_outlined,
-                        text: 'Doctor',
-                        onPressed: () {
-                          MedicaLoggerHelper.info(
-                              'Notifications button clicked');
-                        },
-                      ),
-                      ClickableIconButton(
-                        icon: Icons.local_pharmacy_outlined,
-                        text: 'Pharmacy',
-                        onPressed: () {
-                          MedicaLoggerHelper.info('Messages button clicked');
-                        },
-                      ),
-                      ClickableIconButton(
-                        icon: Iconsax.hospital,
-                        text: 'Hospital',
-                        onPressed: () {
-                          MedicaLoggerHelper.info('Settings button clicked');
-                        },
-                      ),
-                    ],
-                  ),
-                  const SizedBox(
-                    height: MedicaSizes.spaceBetweenSections,
-                  ),
-                  ClipRRect(
-                    borderRadius: BorderRadius.circular(
-                        10.0), // Adjust the radius as needed
-                    child: Container(
-                      color: const Color(0xFFE8F3F1), // Background color
-                      child: Padding(
-                        padding: const EdgeInsets.all(MedicaSizes.md),
-                        child: Row(
-                          children: [
-                            Expanded(
-                              flex: 6,
+                          Expanded(
+                            child: Padding(
+                              padding: const EdgeInsets.all(MedicaSizes.md),
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  const Text(
-                                    "Medical checks!",
-                                    style: TextStyle(
-                                        color: MedicaColors.textPrimary,
-                                        fontSize: MedicaSizes.fontSizeLg,
-                                        fontWeight: FontWeight.w600),
+                                  Text(
+                                    "Welcome Back,",
+                                    style:
+                                        Theme.of(context).textTheme.titleLarge,
                                   ),
                                   const SizedBox(
-                                    height: MedicaSizes.sm,
+                                    height: 6.0,
                                   ),
-                                  const Text(
-                                    "Don’t forget your regular checks.",
-                                    style: TextStyle(
-                                        color: MedicaColors.textSecondary,
-                                        fontSize: 9.0),
-                                  ),
-                                  const Text(
-                                    "Keep track of your health.",
-                                    style: TextStyle(
-                                        color: MedicaColors.textSecondary,
-                                        fontSize: 9.0),
-                                  ),
-                                  const SizedBox(
-                                    height: MedicaSizes.sm,
-                                  ),
-                                  TextButton(
-                                    onPressed: () {},
-                                    style: ButtonStyle(
-                                      backgroundColor: MaterialStateProperty
-                                          .all<Color>(MedicaColors
-                                              .primary), // Background color set to green
-                                      fixedSize: MaterialStateProperty
-                                          .all<Size>(const Size(120,
-                                              40)), // Set the desired width and height
-                                      shape: MaterialStateProperty.all<
-                                          RoundedRectangleBorder>(
-                                        RoundedRectangleBorder(
-                                          borderRadius: BorderRadius.circular(
-                                              20.0), // Border radius to create semi-circles
-                                        ),
-                                      ),
-                                    ),
-                                    child: const Text(
-                                      "Check now",
-                                      style: TextStyle(
-                                          fontSize: 10.0,
-                                          color: MedicaColors.textWhite),
-                                    ),
-                                  ),
+                                  Text("TheFerrMann",
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .headlineMedium!
+                                          .apply(color: MedicaColors.white)),
                                 ],
                               ),
                             ),
-                            Expanded(
-                              flex: 4,
-                              child: SizedBox(
-                                height: 140.0,
-                                child: Transform.translate(
-                                  offset: const Offset(10.0,
-                                      20.0), // Adjust the Y offset as needed
-                                  child: const Image(
-                                    width: MedicaSizes.imageThumbSize,
-                                    image: AssetImage(MedicaImages.image1),
-                                    fit: BoxFit.cover,
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
+                          ),
+                          IconButton(
+                            icon: const Icon(
+                              Iconsax.notification,
+                              size: 30,
+                            ), // Bell icon
+                            onPressed: () =>
+                                Get.to(() => const NotificationsPage()),
+                          ),
+                        ],
                       ),
                     ),
-                  ),
-                  SectionHeader(
-                      text: "Top Doctor",
-                      action: () {
-                        Navigator.push(context,
-                            MaterialPageRoute(builder: (context) {
-                          return const TopDoctorPage();
-                        }));
-                      }),
-                ],
+                    const SizedBox(
+                      height: MedicaSizes.spaceBetweenSections,
+                    ),
+                    TextField(
+                      style: Theme.of(context).textTheme.bodyMedium,
+                      decoration: InputDecoration(
+                        filled: true,
+                        fillColor: MedicaColors.lightGrey,
+                        enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(36.0),
+                          borderSide:
+                              const BorderSide(color: MedicaColors.accent),
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(36.0),
+                          borderSide: const BorderSide(
+                              color: MedicaColors.borderPrimary),
+                        ),
+                        hintText: 'Search Doctors, Drugs, Articles...',
+                        // Added search icon in the hint text
+                        hintStyle: const TextStyle(
+                          color: MedicaColors.textSecondary,
+                        ),
+                        prefixIcon: const Icon(Icons
+                            .search), // Adding the search icon using Icon widget
+                      ),
+                      cursorColor: MedicaColors.black,
+                    ),
+                    const SizedBox(
+                      height: MedicaSizes.spaceBetweenSections,
+                    ),
+                  ],
+                ),
               ),
             ),
+            const Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                CategorySection(),
+                SizedBox(
+                  height: MedicaSizes.spaceBetweenItems/2,
+                ),
+              ],
+            ),
+            MedicalBanner(),
+            SectionHeader(
+                text: "Top Doctor",
+                action: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) {
+                    return const TopDoctorPage();
+                  }));
+                }),
             SingleChildScrollView(
               scrollDirection: Axis.horizontal,
               child: Row(
@@ -290,6 +184,130 @@ class Home extends StatelessWidget {
           ],
         ),
       ),
+    );
+  }
+}
+
+class MedicalBanner extends StatelessWidget {
+  const MedicalBanner({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: EdgeInsets.all(MedicaSizes.defaultSpace),
+      child: ClipRRect(
+        borderRadius:
+            BorderRadius.circular(10.0), // Adjust the radius as needed
+        child: Container(
+          color:  Color(0xFFE8F3F1), // Background color
+          child: Padding(
+            padding: EdgeInsets.all(MedicaSizes.md),
+            child: Row(
+              children: [
+                Expanded(
+                  flex: 6,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                       Text(
+                        "Medical checks!",
+                        style: Theme.of(context).textTheme.headlineMedium,
+                      ),
+                      const SizedBox(
+                        height: MedicaSizes.sm,
+                      ),
+                      const Text(
+                        "Don’t forget your regular checks.",
+                        style: TextStyle(
+                            color: MedicaColors.textSecondary,
+                            fontSize: 9.0),
+                      ),
+                      const Text(
+                        "Keep track of your health.",
+                        style: TextStyle(
+                            color: MedicaColors.textSecondary,
+                            fontSize: 9.0),
+                      ),
+                      const SizedBox(
+                        height: MedicaSizes.sm,
+                      ),
+                      TextButton(
+                        onPressed: () {},
+                        style: ButtonStyle(
+                          backgroundColor:
+                              MaterialStateProperty.all<Color>(
+                                  MedicaColors.primary),
+                          // Background color set to green
+                          fixedSize: MaterialStateProperty.all<Size>(
+                              const Size(120, 40)),
+                          // Set the desired width and height
+                          shape: MaterialStateProperty.all<
+                              RoundedRectangleBorder>(
+                            RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(
+                                  20.0), // Border radius to create semi-circles
+                            ),
+                          ),
+                        ),
+                        child: const Text(
+                          "Check now",
+                          style: TextStyle(
+                              fontSize: 10.0,
+                              color: MedicaColors.textWhite),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                Expanded(
+                  flex: 4,
+                  child: SizedBox(
+                    height: 140.0,
+                    child: Transform.translate(
+                      offset: const Offset(
+                          10.0, 20.0), // Adjust the Y offset as needed
+                      child: const Image(
+                        width: MedicaSizes.imageThumbSize,
+                        image: AssetImage(MedicaImages.image1),
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class CategorySection extends StatelessWidget {
+  const CategorySection({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        VerticalImageText(
+          image: MedicaImages.doctor,
+          title: 'Doctor',
+        ),
+        VerticalImageText(
+          image: MedicaImages.pharmacy,
+          title: 'Pharmacy',
+        ),
+        VerticalImageText(
+          image: MedicaImages.hospital,
+          title: 'Hospital',
+        ),
+      ],
     );
   }
 }
