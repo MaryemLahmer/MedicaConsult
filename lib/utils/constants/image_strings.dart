@@ -45,7 +45,6 @@ class MedicaImages {
   static const String user1 = "assets/images/doc1.jpg";
   static const String user2 = "assets/images/doc2.jpg";
   static const String user3 = "assets/images/doc3.jpg";
-  static const String image1 = "assets/images/Image.png";
   static const String cuteUser = "assets/images/user/cuteUser.jpg";
   static const String cuteUser1 = "assets/images/user/cuteUser1.jpg";
   static const String cuteUser3 = "assets/images/user/cuteUser3.jpg";
@@ -54,6 +53,25 @@ class MedicaImages {
   static const String manUser = "assets/images/user/manUser.avif";
   static const String oldUser = "assets/images/user/oldUser.avif";
   static const String userTegher = "assets/images/user/userTegher.webp";
+
+  // -- Doctor Images
+  static const String doctorFemale1 = "assets/images/doctors/doctorFemale1.avif";
+  static const String doctorFemale2 = "assets/images/doctors/doctorFemale2.webp";
+  static const String doctorFemale3 = "assets/images/doctors/doctorFemale3.jpg";
+  static const String doctorMale1 = "assets/images/doctors/doctorMale1.webp";
+  static const String doctorMale2 = "assets/images/doctors/doctorMale2.avif";
+  static const String doctorBanner = "assets/images/doctors/doctorBanner.png";
+
+  // -- Article Images
+  static const String dna = "assets/images/article/dna.png";
+  static const String fuck_off = "assets/images/article/fuck_off.png";
+  static const String lemon = "assets/images/article/lemon.png";
+  static const String vaccine = "assets/images/article/vaccine.png";
+  static const String virus = "assets/images/article/virus.png";
+  static const String stethoscope = "assets/images/article/stethoscope.png";
+
+
+
 
   //placeholder images
   static const String placeholder1 = "assets/images/Bored.png";
