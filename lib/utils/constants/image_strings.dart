@@ -20,7 +20,9 @@ class MedicaImages {
       "assets/images/animations/verify-mail.gif";
 
   // -- Category Icons
-
+  static const String doctor="assets/icons/categoryIcons/stethoscope.png";
+  static const String pharmacy="assets/icons/categoryIcons/medicine.png";
+  static const String hospital="assets/icons/categoryIcons/hospital.png";
   // -- Banners
 
   // Reviews
