@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:medica_consult/features/booking/screens/doctor/doctor_profile.dart';
 import 'package:medica_consult/features/booking/screens/doctor/widgets/doctor_card.dart';
 import '../../../../../data/data.dart';
-import '../../../../../utils/logging/logger.dart';
+import 'package:get/get.dart';
 
 class TopDoctorCategory extends StatelessWidget {
   const TopDoctorCategory({
@@ -25,10 +26,11 @@ class TopDoctorCategory extends StatelessWidget {
                 speciality: data['speciality'],
                 rating: data['rating'],
                 distance: data['distance'],
-                onPressed: () {
-                  MedicaLoggerHelper.info(
-                      "Index: ${doctorData.indexOf(data)}");
-                },
+                onPressed: ()=> Get.to(()=> const DoctorProfile()),
+                // onPressed: () {
+                //   MedicaLoggerHelper.info(
+                //       "Index: ${doctorData.indexOf(data)}");
+                // },
               );
             }).toList(),
           );
