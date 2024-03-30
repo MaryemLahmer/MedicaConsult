@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:medica_consult/utils/constants/sizes.dart';
 
-import '../../utils/constants/image_strings.dart';
-import '../../utils/constants/text_strings.dart';
+import '../../../utils/constants/image_strings.dart';
+import '../../../utils/constants/text_strings.dart';
 
 class AppLogoAndTitle extends StatelessWidget {
   const AppLogoAndTitle({

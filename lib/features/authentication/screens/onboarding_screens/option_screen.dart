@@ -3,7 +3,7 @@ import 'package:medica_consult/utils/constants/sizes.dart';
 import 'package:medica_consult/common/styles/spacing_styles.dart';
 import 'package:medica_consult/utils/constants/text_strings.dart';
 import 'package:get/get.dart';
-import '../../../../common/widgets/app_logo_title.dart';
+import '../../../../common/widgets/appbar/app_logo_title.dart';
 import '../login/login.dart';
 
 class OptionScreen extends StatelessWidget {

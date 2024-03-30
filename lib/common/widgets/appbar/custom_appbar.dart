@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:medica_consult/features/authentication/screens/onboarding_screens/option_screen.dart';
 import 'package:medica_consult/utils/constants/sizes.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';

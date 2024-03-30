@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:medica_consult/features/personalization/screens/widgets/doctor_card.dart';
+import 'package:medica_consult/features/booking/screens/doctor/widgets/doctor_card.dart';
 import '../../../../../data/data.dart';
 import '../../../../../utils/logging/logger.dart';
 

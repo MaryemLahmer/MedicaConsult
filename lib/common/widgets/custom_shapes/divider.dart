@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:medica_consult/utils/constants/sizes.dart';
 import 'package:medica_consult/utils/helpers/helper_functions.dart';
 
-import '../../utils/constants/colors.dart';
+import '../../../utils/constants/colors.dart';
 
 class MedicaDivider extends StatelessWidget {
   const MedicaDivider({

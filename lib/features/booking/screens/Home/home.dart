@@ -2,20 +2,20 @@ import 'package:flutter/material.dart';
 import 'package:medica_consult/features/booking/screens/Home/widgets/category_section.dart';
 import 'package:medica_consult/features/booking/screens/Home/widgets/medical_banner.dart';
 import 'package:medica_consult/features/booking/screens/Home/widgets/top_doctor_category.dart';
-import 'package:medica_consult/features/personalization/screens/top_doctor.dart';
+import 'package:medica_consult/features/booking/screens/doctor/top_doctor.dart';
 import 'package:medica_consult/utils/constants/sizes.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:medica_consult/data/data.dart';
-import 'package:medica_consult/features/personalization/screens/article.dart';
-import 'package:medica_consult/features/personalization/screens/widgets/article_card.dart';
+import 'package:medica_consult/features/booking/screens/article/article.dart';
+import 'package:medica_consult/features/booking/screens/article/widgets/article_card.dart';
 import 'package:medica_consult/utils/constants/image_strings.dart';
 import 'package:medica_consult/utils/logging/logger.dart';
 import 'package:get/get.dart';
 import '../../../../common/widgets/appbar/App_Bar_Profile_Card.dart';
 import '../../../../common/widgets/custom_shapes/containers/header_container.dart';
-import '../../../../common/widgets/serachbar.dart';
+import '../../../../common/widgets/searchbar/serachbar.dart';
 import '../../../../common/widgets/texts/section_heading.dart';
-import '../../../personalization/screens/notifications.dart';
+import '../notification/notifications.dart';
 
 class Home extends StatelessWidget {
   const Home({super.key, required this.title});
