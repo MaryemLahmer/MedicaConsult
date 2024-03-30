@@ -21,7 +21,8 @@ class VerticalImageText extends StatelessWidget {
       onTap: onTap,
       child: Padding(
         padding: const EdgeInsets.only(right: MedicaSizes.spaceBetweenItems),
-        child: Column(
+        child:
+        Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             /// Circular Icon
