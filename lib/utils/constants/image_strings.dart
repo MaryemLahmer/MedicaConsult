@@ -20,9 +20,9 @@ class MedicaImages {
       "assets/images/animations/verify-mail.gif";
 
   // -- Category Icons
-  static const String doctor="assets/icons/categoryIcons/stethoscope.png";
-  static const String pharmacy="assets/icons/categoryIcons/medicine.png";
-  static const String hospital="assets/icons/categoryIcons/hospital.png";
+  static const String doctor = "assets/icons/categoryIcons/stethoscope.png";
+  static const String pharmacy = "assets/icons/categoryIcons/medicine.png";
+  static const String hospital = "assets/icons/categoryIcons/hospital.png";
   // -- Banners
 
   // Reviews
@@ -65,4 +65,6 @@ class MedicaImages {
   static const String canceled = "assets/images/Ellipse.png";
   static const String success = "assets/images/Ellipse3.png";
   static const String payment = "assets/images/Ellipse2.png";
+
+  static const String loading = "assets/images/animations/icons8-loading.gif";
 }

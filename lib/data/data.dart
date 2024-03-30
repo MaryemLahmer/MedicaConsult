@@ -1,5 +1,37 @@
+import 'package:flutter/material.dart';
 
 import '../utils/constants/image_strings.dart';
+
+List<Map<String, dynamic>> doctorCategories = [
+  {
+    'name': 'General',
+    'icon': Icons.local_hospital,
+  },
+  {
+    'name': 'Lungs',
+    'icon': Icons.local_hospital,
+  },
+  {
+    'name': 'Dentist',
+    'icon': Icons.local_hospital,
+  },
+  {
+    'name': 'Psychiatrist',
+    'icon': Icons.local_hospital,
+  },
+  {
+    'name': 'Covid-19',
+    'icon': Icons.local_hospital,
+  },
+  {
+    'name': 'Surgeon',
+    'icon': Icons.local_hospital,
+  },
+  {
+    'name': 'Cardiologist',
+    'icon': Icons.local_hospital,
+  },
+];
 
 List<String> articleCategories = [
   'Newest',
@@ -183,77 +215,77 @@ List<Map<String, dynamic>> doctorData = [
   {
     'profileImage': MedicaImages.user2,
     'name': 'Dr. Jane Smith',
-    'speciality': 'Dermatologist',
+    'speciality': 'General',
     'rating': 4.5,
     'distance': 900.0,
   },
   {
     'profileImage': MedicaImages.user3,
     'name': 'Dr. John Doe',
-    'speciality': 'Cardiologist',
+    'speciality': 'Dentist',
     'rating': 4.8,
     'distance': 700.0,
   },
   {
     'profileImage': MedicaImages.user1,
     'name': 'Dr. Jane Smith',
-    'speciality': 'Dermatologist',
+    'speciality': 'Surgeon',
     'rating': 4.5,
     'distance': 900.0,
   },
   {
     'profileImage': MedicaImages.user2,
     'name': 'Dr. John Doe',
-    'speciality': 'Cardiologist',
+    'speciality': 'Covid-19',
     'rating': 4.8,
     'distance': 700.0,
   },
   {
     'profileImage': MedicaImages.user3,
     'name': 'Dr. Jane Smith',
-    'speciality': 'Dermatologist',
+    'speciality': 'Psychiatrist',
     'rating': 4.5,
     'distance': 900.0,
   },
   {
     'profileImage': MedicaImages.user1,
     'name': 'Dr. Jane Smith',
-    'speciality': 'Dermatologist',
+    'speciality': 'Lungs',
     'rating': 4.5,
     'distance': 900.0,
   },
   {
     'profileImage': MedicaImages.user2,
     'name': 'Dr. John Doe',
-    'speciality': 'Cardiologist',
+    'speciality': 'General',
     'rating': 4.8,
     'distance': 700.0,
   },
   {
     'profileImage': MedicaImages.user3,
     'name': 'Dr. Jane Smith',
-    'speciality': 'Dermatologist',
+    'speciality': 'Cardiologist',
     'rating': 4.5,
     'distance': 900.0,
   },
   {
     'profileImage': MedicaImages.user1,
     'name': 'Dr. Jane Smith',
-    'speciality': 'Dermatologist',
+    'speciality': 'Cardiologist',
     'rating': 4.5,
     'distance': 900.0,
   },
   {
     'profileImage': MedicaImages.user2,
     'name': 'Dr. John Doe',
-    'speciality': 'Cardiologist',
+    'speciality': 'Desntist',
     'rating': 4.8,
     'distance': 700.0,
   },
   {
     'profileImage': MedicaImages.user3,
     'name': 'Dr. Jane Smith',
-    'speciality': 'Dermatologist',
+    'speciality': 'Lungs',
     'rating': 4.5,
     'distance': 900.0,
   },

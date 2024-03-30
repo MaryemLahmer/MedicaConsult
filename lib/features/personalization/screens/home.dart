@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:medica_consult/features/personalization/screens/find_doctors.dart';
 import 'package:medica_consult/utils/constants/sizes.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:medica_consult/data/data.dart';
@@ -25,7 +26,7 @@ class Home extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SingleChildScrollView(
-        /// Header: user image + greeting message + notification icon
+        // Header: user image + greeting message + notification icon
         child: Column(
           children: [
             PrimaryHeaderContainer(
@@ -42,7 +43,7 @@ class Home extends StatelessWidget {
                             child: const Image(
                               width: MedicaSizes.imageThumbSize,
                               height: MedicaSizes.imageThumbSize,
-                              image: AssetImage(MedicaImages.cuteUser3),
+                              image: AssetImage(MedicaImages.user2),
                               fit: BoxFit.cover,
                             ),
                           ),
@@ -115,24 +116,30 @@ class Home extends StatelessWidget {
                 ),
               ),
             ),
-            const Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                CategorySection(),
-                SizedBox(
-                  height: MedicaSizes.spaceBetweenItems/2,
-                ),
-              ],
+            Padding(
+              padding: const EdgeInsets.only(
+                  left: MedicaSizes.defaultSpace,
+                  right: MedicaSizes.defaultSpace),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  const CategorySection(),
+                  const SizedBox(
+                    height: MedicaSizes.spaceBetweenItems,
+                  ),
+                  const MedicalBanner(),
+                  SectionHeader(
+                      text: "Top Doctor",
+                      action: () {
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (context) {
+                          return const TopDoctorPage();
+                        }));
+                      }),
+                ],
+              ),
             ),
-            MedicalBanner(),
-            SectionHeader(
-                text: "Top Doctor",
-                action: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context) {
-                    return const TopDoctorPage();
-                  }));
-                }),
             SingleChildScrollView(
               scrollDirection: Axis.horizontal,
               child: Row(
@@ -195,89 +202,81 @@ class MedicalBanner extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.all(MedicaSizes.defaultSpace),
-      child: ClipRRect(
-        borderRadius:
-            BorderRadius.circular(10.0), // Adjust the radius as needed
-        child: Container(
-          color:  Color(0xFFE8F3F1), // Background color
-          child: Padding(
-            padding: EdgeInsets.all(MedicaSizes.md),
-            child: Row(
-              children: [
-                Expanded(
-                  flex: 6,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                       Text(
-                        "Medical checks!",
-                        style: Theme.of(context).textTheme.headlineMedium,
-                      ),
-                      const SizedBox(
-                        height: MedicaSizes.sm,
-                      ),
-                      const Text(
-                        "Don’t forget your regular checks.",
-                        style: TextStyle(
-                            color: MedicaColors.textSecondary,
-                            fontSize: 9.0),
-                      ),
-                      const Text(
-                        "Keep track of your health.",
-                        style: TextStyle(
-                            color: MedicaColors.textSecondary,
-                            fontSize: 9.0),
-                      ),
-                      const SizedBox(
-                        height: MedicaSizes.sm,
-                      ),
-                      TextButton(
-                        onPressed: () {},
-                        style: ButtonStyle(
-                          backgroundColor:
-                              MaterialStateProperty.all<Color>(
-                                  MedicaColors.primary),
-                          // Background color set to green
-                          fixedSize: MaterialStateProperty.all<Size>(
-                              const Size(120, 40)),
-                          // Set the desired width and height
-                          shape: MaterialStateProperty.all<
-                              RoundedRectangleBorder>(
-                            RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(
-                                  20.0), // Border radius to create semi-circles
-                            ),
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(10.0), // Adjust the radius as needed
+      child: Container(
+        color: const Color(0xFFE8F3F1), // Background color
+        child: Padding(
+          padding: const EdgeInsets.all(MedicaSizes.md),
+          child: Row(
+            children: [
+              Expanded(
+                flex: 6,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      "Medical checks!",
+                      style: Theme.of(context).textTheme.headlineMedium,
+                    ),
+                    const SizedBox(
+                      height: MedicaSizes.sm,
+                    ),
+                    const Text(
+                      "Don’t forget your regular checks.",
+                      style: TextStyle(
+                          color: MedicaColors.textSecondary, fontSize: 9.0),
+                    ),
+                    const Text(
+                      "Keep track of your health.",
+                      style: TextStyle(
+                          color: MedicaColors.textSecondary, fontSize: 9.0),
+                    ),
+                    const SizedBox(
+                      height: MedicaSizes.sm,
+                    ),
+                    TextButton(
+                      onPressed: () {},
+                      style: ButtonStyle(
+                        backgroundColor: MaterialStateProperty.all<Color>(
+                            MedicaColors.primary),
+                        // Background color set to green
+                        fixedSize: MaterialStateProperty.all<Size>(
+                            const Size(120, 40)),
+                        // Set the desired width and height
+                        shape:
+                            MaterialStateProperty.all<RoundedRectangleBorder>(
+                          RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(
+                                20.0), // Border radius to create semi-circles
                           ),
                         ),
-                        child: const Text(
-                          "Check now",
-                          style: TextStyle(
-                              fontSize: 10.0,
-                              color: MedicaColors.textWhite),
-                        ),
                       ),
-                    ],
-                  ),
+                      child: const Text(
+                        "Check now",
+                        style: TextStyle(
+                            fontSize: 10.0, color: MedicaColors.textWhite),
+                      ),
+                    ),
+                  ],
                 ),
-                Expanded(
-                  flex: 4,
-                  child: SizedBox(
-                    height: 140.0,
-                    child: Transform.translate(
-                      offset: const Offset(
-                          10.0, 20.0), // Adjust the Y offset as needed
-                      child: const Image(
-                        width: MedicaSizes.imageThumbSize,
-                        image: AssetImage(MedicaImages.image1),
-                        fit: BoxFit.cover,
-                      ),
+              ),
+              Expanded(
+                flex: 4,
+                child: SizedBox(
+                  height: 140.0,
+                  child: Transform.translate(
+                    offset: const Offset(
+                        10.0, 20.0), // Adjust the Y offset as needed
+                    child: const Image(
+                      width: MedicaSizes.imageThumbSize,
+                      image: AssetImage(MedicaImages.image1),
+                      fit: BoxFit.cover,
                     ),
                   ),
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
         ),
       ),
@@ -298,14 +297,29 @@ class CategorySection extends StatelessWidget {
         VerticalImageText(
           image: MedicaImages.doctor,
           title: 'Doctor',
+          onTap: () {
+            Navigator.push(context, MaterialPageRoute(builder: (context) {
+              return const FindDoctorsPage();
+            }));
+          },
         ),
         VerticalImageText(
           image: MedicaImages.pharmacy,
           title: 'Pharmacy',
+          onTap: () {
+            Navigator.push(context, MaterialPageRoute(builder: (context) {
+              return const FindDoctorsPage();
+            }));
+          },
         ),
         VerticalImageText(
           image: MedicaImages.hospital,
           title: 'Hospital',
+          onTap: () {
+            Navigator.push(context, MaterialPageRoute(builder: (context) {
+              return const FindDoctorsPage();
+            }));
+          },
         ),
       ],
     );
