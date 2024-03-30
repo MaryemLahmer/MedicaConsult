@@ -61,6 +61,7 @@ class MedicaImages {
   static const String doctorMale1 = "assets/images/doctors/doctorMale1.webp";
   static const String doctorMale2 = "assets/images/doctors/doctorMale2.avif";
   static const String doctorBanner = "assets/images/doctors/doctorBanner.png";
+  static const String doctorReal = "assets/images/doctors/doctorReal.avif";
 
   // -- Article Images
   static const String dna = "assets/images/article/dna.png";
