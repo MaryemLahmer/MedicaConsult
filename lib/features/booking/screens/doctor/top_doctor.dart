@@ -2,11 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:medica_consult/utils/constants/sizes.dart';
 import 'package:medica_consult/data/data.dart';
 import 'package:medica_consult/features/booking/screens/doctor/widgets/doctor_horizontal_card.dart';
-import 'package:medica_consult/utils/logging/logger.dart';
-
 import '../../../../common/widgets/appbar/custom_appbar.dart';
-import '../../../../utils/constants/colors.dart';
+import 'package:get/get.dart';
 
+import 'doctor_profile.dart';
 class TopDoctorPage extends StatelessWidget {
   const TopDoctorPage({super.key});
 
@@ -32,9 +31,7 @@ class TopDoctorPage extends StatelessWidget {
                 speciality: data['speciality'],
                 rating: data['rating'],
                 distance: data['distance'],
-                onPressed: () {
-                  MedicaLoggerHelper.info("Index: $index");
-                },
+                onPressed: ()=> Get.to(()=> const DoctorProfile()),
               );
             }).toList(),
           ),
