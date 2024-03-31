@@ -8,8 +8,10 @@ import 'package:medica_consult/features/booking/screens/doctor/widgets/doctor_pr
 import 'package:medica_consult/utils/constants/colors.dart';
 import 'package:medica_consult/utils/constants/image_strings.dart';
 import 'package:medica_consult/utils/constants/sizes.dart';
-
+import 'package:get/get.dart';
 import '../../../../common/widgets/texts/text_discription.dart';
+import '../doctor_reviews/doctor_reviews.dart';
+import '../doctor_reviews/widgets/user_review_widget.dart';
 
 class DoctorProfile extends StatelessWidget {
   const DoctorProfile({super.key});
@@ -75,17 +77,47 @@ class DoctorProfile extends StatelessWidget {
                 ),
               ],
             ),
-            const Padding(
-              padding: EdgeInsets.all(MedicaSizes.defaultSpace),
+            Padding(
+              padding: const EdgeInsets.all(MedicaSizes.defaultSpace),
               child: Column(
                 children: [
-                  SectionHeading(
+                  const SectionHeading(
                     textHeading: 'About',
                     showActionButton: false,
                   ),
-                  TextDescription(
+                  const SizedBox(
+                    height: MedicaSizes.xs,
+                  ),
+                  const TextDescription(
                       textDescription:
-                          'I am Dr.Mohsen from jandouba. I am the best of the best. If you wanna get checked baby girl, just hit that button and let’s chat. I am always free, always available ... Read more'),
+                          'I am Dr.Mohsen from jandouba. I am the best of the best. If you wanna get checked baby girl, just hit that button and let’s chat. I am always free, always available.'),
+                  const SizedBox(
+                    height: MedicaSizes.spaceBetweenItems,
+                  ),
+                  const SectionHeading(
+                    textHeading: 'Working Time',
+                    showActionButton: false,
+                  ),
+                  const SizedBox(
+                    height: MedicaSizes.xs,
+                  ),
+                  const TextDescription(
+                      textDescription: 'Monday - Friday, 9:00 AM to 3 PM'),
+                  const SizedBox(
+                    height: MedicaSizes.spaceBetweenItems,
+                  ),
+                  SectionHeading(
+                    textHeading: 'Reviews',
+                    onPressed: () => Get.to(() => const DoctorReviewsScreen()),
+                  ),
+                  const UserReviewCard(
+                    name: 'Madame Karima',
+                    image: MedicaImages.userTegher,
+                    date: '30-03-2024',
+                    rating: 4.5,
+                    feedbackText:
+                        'Oh la la! this one is a player, he knows exactly where i mean what to do. 5 stars you bet !!',
+                  ),
                 ],
               ),
             )
