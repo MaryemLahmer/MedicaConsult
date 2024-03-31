@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:medica_consult/utils/constants/colors.dart';
+import 'package:medica_consult/utils/helpers/helper_function.dart';
 class SectionHeading extends StatelessWidget {
   const SectionHeading({
     super.key, required this.textHeading, this.buttonTitle='View All', this.textColor, this.showActionButton=true, this.onPressed,
@@ -14,6 +16,7 @@ class SectionHeading extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final dark = MedicaHelperFunctions.isDarkMode(context);
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
@@ -23,7 +26,7 @@ class SectionHeading extends StatelessWidget {
               .of(context)
               .textTheme
               .headlineSmall!
-              .apply(color: textColor),
+              .apply(color: dark ? MedicaColors.primary: textColor),
           maxLines: 1,
           overflow: TextOverflow.ellipsis,
         ),
