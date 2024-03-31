@@ -111,14 +111,21 @@ class DoctorHorziontalCard extends StatelessWidget {
                                 ],
                               ),
                             ),
-
                           ],
                         ),
                       ),
                     ),
-                     SizedBox(
-                      width: 44,
-                      child: Center(child: Text('Consult',style: Theme.of(context).textTheme.labelSmall!.apply(color: MedicaColors.accent),),),
+                    SizedBox(
+                      width: 50,
+                      child: Center(
+                        child: Text(
+                          'Consult',
+                          style: Theme.of(context)
+                              .textTheme
+                              .labelSmall!
+                              .apply(color: MedicaColors.accent),
+                        ),
+                      ),
                     ),
                   ],
                 ),
