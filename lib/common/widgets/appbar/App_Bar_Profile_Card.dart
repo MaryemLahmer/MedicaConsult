@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
+import 'package:medica_consult/utils/helpers/helper_function.dart';
 
 import '../../../utils/constants/colors.dart';
 import '../../../utils/constants/image_strings.dart';
@@ -17,6 +18,7 @@ class UserImageAndNameWIthIcon extends StatelessWidget {
     this.icon,
     this.iconSize,
     this.onPressed,
+    this.rating
   });
 
   final double height;
@@ -28,9 +30,11 @@ class UserImageAndNameWIthIcon extends StatelessWidget {
   final IconData? icon;
   final double? iconSize;
   final VoidCallback? onPressed;
+  final Widget? rating;
 
   @override
   Widget build(BuildContext context) {
+    final dark = MedicaHelperFunctions.isDarkMode(context);
     return SafeArea(
       child: Row(
         children: [
@@ -45,7 +49,7 @@ class UserImageAndNameWIthIcon extends StatelessWidget {
           ),
           Expanded(
             child: Padding(
-              padding: const EdgeInsets.all(MedicaSizes.md),
+              padding: const EdgeInsets.all(MedicaSizes.sm),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -54,13 +58,14 @@ class UserImageAndNameWIthIcon extends StatelessWidget {
                     style: Theme.of(context).textTheme.titleLarge,
                   ),
                   const SizedBox(
-                    height: 6.0,
+                    height: MedicaSizes.xs,
                   ),
                   Text(subtitle,
                       style: Theme.of(context)
                           .textTheme
-                          .headlineMedium!
-                          .apply(color: MedicaColors.white)),
+                          .bodyMedium!
+                          .apply(color: dark? MedicaColors.white:MedicaColors.darkerGrey)),
+                  Padding(padding: const EdgeInsets.all(MedicaSizes.xs/3),child: rating,)
                 ],
               ),
             ),
