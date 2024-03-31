@@ -9,22 +9,21 @@ class TextDescription extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: ReadMoreText(
-        textDescription,
-        trimExpandedText: ' Show Less',
-        trimCollapsedText: '  Show More',
-        trimMode: TrimMode.Line,
-        trimLines: 2,
-        moreStyle: const TextStyle(
-            fontSize: 14,
-            fontWeight: FontWeight.bold,
-            color: MedicaColors.primary),
-        lessStyle: const TextStyle(
-            fontSize: 14,
-            fontWeight: FontWeight.bold,
-            color: MedicaColors.primary),
-      ),
+    return ReadMoreText(
+      textDescription,
+      textAlign: TextAlign.left,
+      trimExpandedText: ' Show Less',
+      trimCollapsedText: '  Show More',
+      trimMode: TrimMode.Line,
+      trimLines: 2,
+      moreStyle: const TextStyle(
+          fontSize: 14,
+          fontWeight: FontWeight.bold,
+          color: MedicaColors.primary),
+      lessStyle: const TextStyle(
+          fontSize: 14,
+          fontWeight: FontWeight.bold,
+          color: MedicaColors.primary),
     );
   }
 }
