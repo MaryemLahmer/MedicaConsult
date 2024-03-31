@@ -84,8 +84,7 @@ class _ArticlePageState extends State<ArticlePage> {
                         setState(() {
                           _selectedCategoryIndex = index;
                         });
-                        MedicaLoggerHelper.info(
-                            "Sellected category: $category");
+                        MedicaLoggerHelper.info("Selected category: $category");
                       },
                       child: Text(category),
                     );
