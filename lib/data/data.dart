@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 
 import '../utils/constants/image_strings.dart';
 
+List<int> ratings = [1, 2, 3, 4, 5];
+List<int> distances = [600, 1000];
+
 List<Map<String, dynamic>> doctorCategories = [
   {
     'name': 'General',

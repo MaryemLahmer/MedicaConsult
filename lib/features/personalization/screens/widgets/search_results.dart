@@ -21,6 +21,8 @@ class SearchResults extends StatefulWidget {
 
 class _SearchResultsState extends State<SearchResults> {
   List<String> selectedCategories = [];
+  int? _selectedRatingIndex;
+  int? _selectedDistanceIndex;
 
   void _filterModalBottomSheet(context) {
     showModalBottomSheet(
@@ -106,7 +108,40 @@ class _SearchResultsState extends State<SearchResults> {
                     ),
                     SingleChildScrollView(
                       scrollDirection: Axis.horizontal,
-                      child: Row(),
+                      child: Row(
+                        children: ratings.asMap().entries.map((entry) {
+                          final index = entry.key;
+                          final rating = entry.value;
+                          return TextButton(
+                            style: ButtonStyle(
+                              backgroundColor:
+                                  MaterialStateProperty.resolveWith<Color>(
+                                (states) {
+                                  return index == _selectedRatingIndex
+                                      ? MedicaColors.primary
+                                      : Colors.transparent;
+                                },
+                              ),
+                              foregroundColor:
+                                  MaterialStateProperty.resolveWith<Color>(
+                                (states) {
+                                  return index == _selectedRatingIndex
+                                      ? MedicaColors.white
+                                      : MedicaColors.black;
+                                },
+                              ),
+                            ),
+                            onPressed: () {
+                              setState(() {
+                                _selectedRatingIndex = index;
+                              });
+                              MedicaLoggerHelper.info(
+                                  "Selected rating: $_selectedRatingIndex");
+                            },
+                            child: Text(rating.toString()),
+                          );
+                        }).toList(),
+                      ),
                     ),
                     const SizedBox(
                       height: 8.0,
@@ -120,11 +155,77 @@ class _SearchResultsState extends State<SearchResults> {
                     ),
                     SingleChildScrollView(
                       scrollDirection: Axis.horizontal,
-                      child: Row(),
+                      child: Row(
+                        children: distances.asMap().entries.map((entry) {
+                          final index = entry.key;
+                          final distance = entry.value;
+                          return TextButton(
+                            style: ButtonStyle(
+                              backgroundColor:
+                                  MaterialStateProperty.resolveWith<Color>(
+                                (states) {
+                                  return index == _selectedDistanceIndex
+                                      ? MedicaColors.primary
+                                      : Colors.transparent;
+                                },
+                              ),
+                              foregroundColor:
+                                  MaterialStateProperty.resolveWith<Color>(
+                                (states) {
+                                  return index == _selectedDistanceIndex
+                                      ? MedicaColors.white
+                                      : MedicaColors.black;
+                                },
+                              ),
+                            ),
+                            onPressed: () {
+                              setState(() {
+                                _selectedDistanceIndex = index;
+                              });
+                              MedicaLoggerHelper.info(
+                                  "Selected distance: $_selectedDistanceIndex");
+                            },
+                            child: Text(distance.toString() + "m away"),
+                          );
+                        }).toList(),
+                      ),
                     ),
                     const SizedBox(
                       height: 8.0,
                     ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        SizedBox(
+                          width: 120,
+                          child: TextButton(
+                            onPressed: () {},
+                            style: ButtonStyle(
+                              backgroundColor: MaterialStateProperty.all<Color>(
+                                  MedicaColors.grey), // Set background color
+                              foregroundColor: MaterialStateProperty.all<Color>(
+                                  MedicaColors
+                                      .black), // Set foreground (text) color
+                            ),
+                            child: const Text("Cancel"),
+                          ),
+                        ),
+                        SizedBox(
+                          width: 120,
+                          child: TextButton(
+                            onPressed: () {},
+                            style: ButtonStyle(
+                              backgroundColor: MaterialStateProperty.all<Color>(
+                                  MedicaColors.primary), // Set background color
+                              foregroundColor: MaterialStateProperty.all<Color>(
+                                  MedicaColors
+                                      .white), // Set foreground (text) color
+                            ),
+                            child: const Text("Apply"),
+                          ),
+                        ),
+                      ],
+                    )
                   ],
                 ),
               )

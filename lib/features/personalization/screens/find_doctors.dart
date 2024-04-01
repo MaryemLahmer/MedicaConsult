@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:medica_consult/data/data.dart';
+import 'package:medica_consult/features/personalization/screens/widgets/clickable_icon_text.dart';
 import 'package:medica_consult/features/personalization/screens/widgets/doctor_horizontal_card.dart';
 import 'package:medica_consult/features/personalization/screens/widgets/loading_indicator.dart';
 import 'package:medica_consult/features/personalization/screens/widgets/search_results.dart';
@@ -156,8 +157,8 @@ class _FindDoctorsMainScreenState extends State<FindDoctorsMainScreen> {
             itemCount: doctorCategories.length,
             itemBuilder: (BuildContext context, int index) {
               return GridTile(
-                child: ClickableImageText(
-                  image: MedicaImages.applePay,
+                child: ClickableIconText(
+                  icon: Icons.ac_unit,
                   title: doctorCategories.elementAt(index)["name"],
                   onTap: () {
                     setState(() {
