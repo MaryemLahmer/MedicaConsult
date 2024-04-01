@@ -10,6 +10,7 @@ import 'package:medica_consult/utils/constants/image_strings.dart';
 import 'package:medica_consult/utils/constants/sizes.dart';
 import 'package:get/get.dart';
 import '../../../../common/widgets/texts/text_discription.dart';
+import '../appointment/appointment_booking.dart';
 import '../doctor_reviews/doctor_reviews.dart';
 import '../doctor_reviews/widgets/user_review_widget.dart';
 
@@ -22,6 +23,7 @@ class DoctorProfile extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: [
+            /// Doctor Card: profile picture with name and speciality
             PrimaryHeaderContainer(
                 child: Padding(
               padding: const EdgeInsets.all(MedicaSizes.defaultSpace),
@@ -48,6 +50,8 @@ class DoctorProfile extends StatelessWidget {
                 ],
               ),
             )),
+
+            /// Doctor Icons
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
@@ -77,10 +81,13 @@ class DoctorProfile extends StatelessWidget {
                 ),
               ],
             ),
+
+            /// Doctor About & Reviews & Booking Button
             Padding(
               padding: const EdgeInsets.all(MedicaSizes.defaultSpace),
               child: Column(
                 children: [
+                  /// Doctor Texts
                   const SectionHeading(
                     textHeading: 'About',
                     showActionButton: false,
@@ -106,6 +113,8 @@ class DoctorProfile extends StatelessWidget {
                   const SizedBox(
                     height: MedicaSizes.spaceBetweenItems,
                   ),
+
+                  /// Doctor Reviews
                   SectionHeading(
                     textHeading: 'Reviews',
                     onPressed: () => Get.to(() => const DoctorReviewsScreen()),
@@ -118,6 +127,24 @@ class DoctorProfile extends StatelessWidget {
                     feedbackText:
                         'Oh la la! this one is a player, he knows exactly where i mean what to do. 5 stars you bet !!',
                   ),
+                  const SizedBox(
+                    height: MedicaSizes.spaceBetweenSections,
+                  ),
+
+                  /// Booking Button
+                  SizedBox(
+                    width: 250 ,
+                    child: ElevatedButton(
+                      style: ButtonStyle(
+                          shape: MaterialStateProperty.all(RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(30)))),
+                      child: Text(
+                        'Book Appointment',
+                        style: Theme.of(context).textTheme.bodyLarge,
+                      ),
+                      onPressed: ()=> Get.to(()=> const BookAppointment()),
+                    ),
+                  )
                 ],
               ),
             )
