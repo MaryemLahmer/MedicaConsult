@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:medica_consult/common/widgets/texts/section_heading.dart';
-import 'package:medica_consult/features/booking/screens/appointment/payment_method_picker.dart';
+import 'package:medica_consult/features/booking/screens/payment/widgets/payment_method_picker.dart';
 import 'package:medica_consult/features/booking/screens/appointment/widgets/package_selector.dart';
 import 'package:medica_consult/utils/constants/colors.dart';
 import 'package:medica_consult/utils/constants/sizes.dart';
