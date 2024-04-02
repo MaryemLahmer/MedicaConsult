@@ -27,7 +27,7 @@ class MedicaImages {
 
   // Reviews
 
-  // Payment Methods
+  // -- Payment Methods
   static const String applePay = "assets/icons/payment_methods/apple_pay.png";
   static const String googleWallet =
       "assets/icons/payment_methods/google_wallet.png";
@@ -40,6 +40,8 @@ class MedicaImages {
   static const String successPayment =
       "assets/icons/payment_methods/successful_payment.png";
   static const String visa = "assets/icons/payment_methods/visa.png";
+  static const String cash = "assets/icons/payment_methods/cash.png";
+  static const String add_card = "assets/images/payment/add_card.png";
 
   // -- User Profile
   static const String user1 = "assets/images/doc1.jpg";
@@ -70,8 +72,6 @@ class MedicaImages {
   static const String vaccine = "assets/images/article/vaccine.png";
   static const String virus = "assets/images/article/virus.png";
   static const String stethoscope = "assets/images/article/stethoscope.png";
-
-
 
 
   //placeholder images
