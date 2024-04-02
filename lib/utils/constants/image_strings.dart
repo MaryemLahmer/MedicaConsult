@@ -20,9 +20,9 @@ class MedicaImages {
       "assets/images/animations/verify-mail.gif";
 
   // -- Category Icons
-  static const String doctor="assets/icons/categoryIcons/stethoscope.png";
-  static const String pharmacy="assets/icons/categoryIcons/medicine.png";
-  static const String hospital="assets/icons/categoryIcons/hospital.png";
+  static const String doctor = "assets/icons/categoryIcons/stethoscope.png";
+  static const String pharmacy = "assets/icons/categoryIcons/medicine.png";
+  static const String hospital = "assets/icons/categoryIcons/hospital.png";
   // -- Banners
 
   // Reviews
@@ -78,6 +78,7 @@ class MedicaImages {
   static const String placeholder1 = "assets/images/Bored.png";
   static const String placeholder2 = "assets/images/Time_management.png";
   static const String placeholder3 = "assets/images/Task_management.png";
+  static const String placeholder4 = "assets/images/No_data_found.png";
 
   //icons
   static const String reminder = "assets/images/Ellipse5.png";

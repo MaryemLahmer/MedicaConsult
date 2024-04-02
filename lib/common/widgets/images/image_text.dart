@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../../../utils/constants/colors.dart';
 import '../../../utils/constants/sizes.dart';
 import '../../../utils/helpers/helper_functions.dart';
+
 class VerticalImageText extends StatelessWidget {
   const VerticalImageText({
     super.key,
@@ -27,8 +28,8 @@ class VerticalImageText extends StatelessWidget {
           children: [
             /// Circular Icon
             Container(
-              height: 55,
-              width: 70,
+              height: 50,
+              width: 60,
               padding: const EdgeInsets.all(MedicaSizes.sm),
               decoration: BoxDecoration(
                 color: backgroundColor ??
@@ -51,17 +52,16 @@ class VerticalImageText extends StatelessWidget {
             ),
             SizedBox(
               width: 80,
+              height: 40,
               child: Center(
                 child: Text(
                   title,
-                  style: Theme.of(context)
-                      .textTheme
-                      .bodyLarge!
-                      .apply(color: MedicaHelperFunctions.isDarkMode(context)
-                      ? MedicaColors.white
-                      : MedicaColors.black),
-                  maxLines: 1,
-                  overflow: TextOverflow.ellipsis,
+                  style: Theme.of(context).textTheme.bodySmall!.apply(
+                      color: MedicaHelperFunctions.isDarkMode(context)
+                          ? MedicaColors.white
+                          : MedicaColors.black),
+                  maxLines: 2,
+                  overflow: TextOverflow.visible,
                 ),
               ),
             )
