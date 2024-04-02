@@ -5,6 +5,7 @@ import 'package:medica_consult/utils/constants/text_strings.dart';
 import 'package:get/get.dart';
 import '../../../../common/widgets/app_logo_title.dart';
 import '../login/login.dart';
+import '../signup/signup.dart';
 
 class OptionScreen extends StatelessWidget {
   const OptionScreen({super.key});
@@ -61,7 +62,7 @@ class OptionScreen extends StatelessWidget {
               SizedBox(
                   width: double.infinity,
                   child: OutlinedButton(
-                    onPressed: () => Get.off(() => const LoginScreen()),
+                    onPressed: () => Get.off(() => const SignupScreen()),
                     child: const Text(MedicaTexts.createAccount),
                   )),
             ],
