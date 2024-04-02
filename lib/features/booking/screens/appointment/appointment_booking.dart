@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:medica_consult/common/widgets/appbar/custom_appbar.dart';
 import 'package:medica_consult/common/widgets/texts/section_heading.dart';
+import 'package:medica_consult/features/booking/screens/appointment/package_picker.dart';
 import 'package:medica_consult/features/booking/screens/appointment/widgets/date_picker.dart';
 import 'package:medica_consult/features/booking/screens/appointment/widgets/hour_picker.dart';
 import 'package:medica_consult/utils/constants/sizes.dart';
-
+import 'package:get/get.dart';
 
 class BookAppointment extends StatefulWidget {
   const BookAppointment({super.key});
@@ -19,7 +20,7 @@ class _BookAppointmentState extends State<BookAppointment> {
     return Scaffold(
       body: SingleChildScrollView(
         child: Padding(
-          padding:  EdgeInsets.all(MedicaSizes.defaultSpace),
+          padding:  const EdgeInsets.all(MedicaSizes.defaultSpace),
           child: Column(
             children: [
               /// App Bar
@@ -105,7 +106,7 @@ class _BookAppointmentState extends State<BookAppointment> {
                       'Next',
                       style: Theme.of(context).textTheme.bodyLarge,
                     ),
-                    onPressed: () {}),
+                    onPressed: () => Get.to(()=> const PackagePicker())),
               ),
             ],
           ),
