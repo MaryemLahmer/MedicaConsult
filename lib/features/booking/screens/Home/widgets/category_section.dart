@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 
 import '../../../../../common/widgets/images/image_text.dart';
 import '../../../../../utils/constants/image_strings.dart';
+import 'package:get/get.dart';
 
+import '../../doctor/find_doctors.dart';
 class CategorySection extends StatelessWidget {
   const CategorySection({
     super.key,
@@ -10,18 +12,19 @@ class CategorySection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Row(
+    return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         VerticalImageText(
           image: MedicaImages.doctor,
           title: 'Doctor',
+          onTap: () => Get.to(() => const FindDoctorsPage()),
         ),
-        VerticalImageText(
+        const VerticalImageText(
           image: MedicaImages.pharmacy,
           title: 'Pharmacy',
         ),
-        VerticalImageText(
+        const VerticalImageText(
           image: MedicaImages.hospital,
           title: 'Hospital',
         ),

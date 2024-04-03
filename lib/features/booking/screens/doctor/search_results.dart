@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:medica_consult/data/data.dart';
-import 'package:medica_consult/features/personalization/screens/widgets/doctor_horizontal_card.dart';
+import 'package:medica_consult/features/booking/screens/doctor/widgets/doctor_horizontal_card.dart';
 import 'package:medica_consult/utils/constants/colors.dart';
 import 'package:medica_consult/utils/constants/sizes.dart';
 import 'package:medica_consult/utils/helpers/helper_function.dart';
@@ -59,7 +59,7 @@ class _SearchResultsState extends State<SearchResults> {
                       scrollDirection: Axis.horizontal,
                       child: Row(
                         children: doctorCategories.asMap().entries.map((entry) {
-                          final index = entry.key;
+                         // final index = entry.key;
                           final category = entry.value["name"];
                           return TextButton(
                             style: ButtonStyle(
@@ -185,7 +185,7 @@ class _SearchResultsState extends State<SearchResults> {
                               MedicaLoggerHelper.info(
                                   "Selected distance: $_selectedDistanceIndex");
                             },
-                            child: Text(distance.toString() + "m away"),
+                            child: Text("${distance}m away"),
                           );
                         }).toList(),
                       ),
