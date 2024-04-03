@@ -7,7 +7,6 @@ import 'package:medica_consult/features/authentication/screens/login/widgets/log
 import 'package:medica_consult/utils/constants/sizes.dart';
 import 'package:medica_consult/utils/constants/text_strings.dart';
 
-
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
 
@@ -25,23 +24,27 @@ class LoginScreen extends StatelessWidget {
               ),
               showBackArrow: true,
             ),
-            const SizedBox(height: MedicaSizes.spaceBetweenSections,),
+            const SizedBox(
+              height: MedicaSizes.spaceBetweenSections,
+            ),
             const Padding(
               padding: EdgeInsets.all(MedicaSizes.defaultSpace),
               child: Column(
                 children: [
                   /// app logo and title
                   AppLogoAndTitle(),
+
                   /// Login Form
                   LoginForm(),
-                  
+
                   /// Divider
                   FormDivider(dividerText: MedicaTexts.orSignInWith),
-                  SizedBox(height: MedicaSizes.spaceBetweenItems,),
+                  SizedBox(
+                    height: MedicaSizes.spaceBetweenItems,
+                  ),
 
                   /// Social Buttons
                   SocialButtons(),
-
                 ],
               ),
             )
