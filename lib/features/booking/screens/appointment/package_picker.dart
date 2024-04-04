@@ -102,7 +102,7 @@ class PackagePicker extends StatelessWidget {
                       'Next',
                       style: Theme.of(context).textTheme.bodyLarge,
                     ),
-                    onPressed: () => Get.to(()=> const PaymentMethodPicker())),
+                    onPressed: () => Get.to(()=> const PaymentMethodPicker(cardName: '',))),
               ),
             ],
           ),
