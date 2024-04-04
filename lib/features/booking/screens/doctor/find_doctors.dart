@@ -1,19 +1,18 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:medica_consult/data/data.dart';
-import 'package:medica_consult/features/personalization/screens/widgets/clickable_icon_text.dart';
-import 'package:medica_consult/features/personalization/screens/widgets/doctor_horizontal_card.dart';
-import 'package:medica_consult/features/personalization/screens/widgets/loading_indicator.dart';
-import 'package:medica_consult/features/personalization/screens/widgets/search_results.dart';
-import 'package:medica_consult/features/personalization/screens/widgets/clickable_image_text.dart';
+import 'package:medica_consult/features/booking/screens/doctor/widgets/doctor_horizontal_card.dart';
 import 'package:medica_consult/utils/constants/colors.dart';
 import 'package:medica_consult/utils/constants/image_strings.dart';
 import 'package:medica_consult/utils/constants/sizes.dart';
 import 'package:medica_consult/utils/logging/logger.dart';
+import '../communication/widgets/clickable_icon_text.dart';
+import '../communication/widgets/clickable_image_text.dart';
+import '../communication/widgets/loading_indicator.dart';
+import 'search_results.dart';
 
 class FindDoctorsPage extends StatefulWidget {
-  const FindDoctorsPage({Key? key}) : super(key: key);
+  const FindDoctorsPage({super.key});
 
   @override
   _FindDoctorsPageState createState() => _FindDoctorsPageState();
