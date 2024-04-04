@@ -14,7 +14,7 @@ class AddNewCard extends StatelessWidget {
     return Scaffold(
       body: SingleChildScrollView(
         child: Padding(
-          padding: EdgeInsets.all(MedicaSizes.defaultSpace),
+          padding: const EdgeInsets.all(MedicaSizes.defaultSpace),
           child: Column(
             children: [
               MedicaAppBar(
