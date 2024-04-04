@@ -20,6 +20,7 @@ class _AddNewCardState extends State<AddNewCard> {
   @override
   Widget build(BuildContext context) {
     final TextEditingController textController = TextEditingController();
+    final TextEditingController cardController = TextEditingController();
     DateTime dateTime = DateTime.now();
 
     return Scaffold(
@@ -56,6 +57,7 @@ class _AddNewCardState extends State<AddNewCard> {
                 height: MedicaSizes.spaceBetweenItems,
               ),
               TextFormField(
+                controller: cardController,
                 decoration: const InputDecoration(
                   labelText: 'Card Name',
                 ),
@@ -159,7 +161,7 @@ class _AddNewCardState extends State<AddNewCard> {
                       'Next',
                       style: Theme.of(context).textTheme.bodyLarge,
                     ),
-                    onPressed: () => Get.to(() => const PaymentMethodPicker())),
+                    onPressed: () => Get.to(() =>  PaymentMethodPicker(cardName: cardController.text,))),
               ),
             ],
           ),
