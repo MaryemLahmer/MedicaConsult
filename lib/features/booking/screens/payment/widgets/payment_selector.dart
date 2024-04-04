@@ -4,7 +4,9 @@ import 'package:medica_consult/utils/constants/image_strings.dart';
 import 'package:medica_consult/utils/constants/sizes.dart';
 
 class MedicaRadioListTile extends StatefulWidget {
-  const MedicaRadioListTile({super.key});
+  const MedicaRadioListTile({super.key, required this.newCard});
+
+  final String newCard;
 
   @override
   State<MedicaRadioListTile> createState() => _MedicaRadioListTileState();
@@ -79,7 +81,8 @@ class _MedicaRadioListTileState extends State<MedicaRadioListTile> {
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(5),
             border: Border.all(width: 1.5, color: MedicaColors.accent)),
-        child: RadioListTile(
+        child:
+        RadioListTile(
             secondary: Image(
               image: AssetImage(cardImages[2]),
             ),
@@ -97,6 +100,38 @@ class _MedicaRadioListTileState extends State<MedicaRadioListTile> {
                 currentOption = value.toString();
               });
             }),
+      ),
+      const SizedBox(
+        height: MedicaSizes.spaceBetweenItems,
+      ),
+      Container(
+        decoration: widget.newCard != '' ?
+        BoxDecoration(
+            borderRadius: BorderRadius.circular(5),
+            border: Border.all(width: 1.5, color: MedicaColors.accent))
+        : null,
+        child: widget.newCard != '' ?
+        RadioListTile(
+            secondary: Image(
+              image: AssetImage(cardImages[1]),
+            ),
+            controlAffinity: ListTileControlAffinity.trailing,
+            activeColor: MedicaColors.primary,
+            title: Center(
+                child: Text(
+                  widget.newCard,
+                  style: Theme.of(context).textTheme.headlineSmall,
+                )),
+            value: widget.newCard,
+            groupValue: currentOption,
+            selected: true,
+            onChanged: (value) {
+              setState(() {
+                currentOption = value.toString();
+              });
+            })
+        : null,
+
       ),
       const SizedBox(
         height: MedicaSizes.spaceBetweenItems,
