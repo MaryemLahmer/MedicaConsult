@@ -1,14 +1,21 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+import 'package:medica_consult/features/booking/screens/messages/widgets/voice_message.dart';
 import 'package:medica_consult/utils/constants/colors.dart';
 import 'package:medica_consult/utils/constants/sizes.dart';
 
 class SentMessageBox extends StatelessWidget {
   final String content;
   final DateTime time;
+  final String type;
+  final Directory? directory;
   const SentMessageBox({
     super.key,
     required this.content,
     required this.time,
+    required this.type,
+    required this.directory,
   });
 
   @override
@@ -34,11 +41,17 @@ class SentMessageBox extends StatelessWidget {
                 return FittedBox(
                   fit: BoxFit.scaleDown,
                   child: ConstrainedBox(
-                    constraints: BoxConstraints(maxWidth: maxWidth),
-                    child: Text(
-                      content,
-                      style: const TextStyle(color: MedicaColors.white),
-                    ),
+                    constraints: BoxConstraints(
+                        maxWidth: type == "audio" ? double.infinity : maxWidth),
+                    child: type == "audio"
+                        ? VoiceMessage(
+                            directory: directory,
+                            fileName: content.replaceFirst(directory!.path, ''),
+                          )
+                        : Text(
+                            content,
+                            style: const TextStyle(color: MedicaColors.white),
+                          ),
                   ),
                 );
               },

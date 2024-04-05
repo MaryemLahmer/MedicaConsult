@@ -1,16 +1,17 @@
 import 'dart:io';
+import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:medica_consult/features/booking/screens/messages/widgets/voice_message.dart';
 import 'package:medica_consult/utils/constants/colors.dart';
 import 'package:medica_consult/utils/logging/logger.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:permission_handler/permission_handler.dart';
 
 import 'package:record/record.dart';
-import 'package:voice_message_package/voice_message_package.dart';
 
 class MyTextField extends StatefulWidget {
-  final Function(String) onSendMessage;
+  final Function(String?, String) onSendMessage;
   final String? filePath;
   final Directory? directory;
 
@@ -32,6 +33,7 @@ class _MyTextFieldState extends State<MyTextField> {
   bool isFocused = false;
   bool isRecording = false;
   bool recordReady = false;
+  String tempFileName = "";
   final TextEditingController _textController = TextEditingController();
 
   @override
@@ -41,10 +43,30 @@ class _MyTextFieldState extends State<MyTextField> {
     directory = widget.directory;
   }
 
+  String generateTempFileName() {
+    // Get current timestamp
+    DateTime now = DateTime.now();
+
+    // Generate a random string of length 6
+    String randomString = '';
+    const chars = 'abcdefghijklmnopqrstuvwxyz0123456789';
+    final random = Random();
+    for (int i = 0; i < 6; i++) {
+      randomString += chars[random.nextInt(chars.length)];
+    }
+
+    // Combine timestamp and random string to create unique file name
+    String tempFileName =
+        '${now.year}_${now.month}_${now.day}_${now.hour}_${now.minute}_${now.second}_$randomString.m4a';
+
+    return tempFileName;
+  }
+
   void startRecord() async {
+    tempFileName = generateTempFileName();
     directory = await getExternalStorageDirectory();
     filePath =
-        directory?.path != null ? '${directory!.path}/myFilffe.m4a' : null;
+        directory?.path != null ? '${directory!.path}/$tempFileName' : null;
     await Permission.manageExternalStorage.request();
     await Permission.microphone.request();
     var status = await Permission.manageExternalStorage.status;
@@ -100,26 +122,7 @@ class _MyTextFieldState extends State<MyTextField> {
       child: Column(
         children: [
           recordReady
-              ? VoiceMessageView(
-                  circlesColor: MedicaColors.primary,
-                  activeSliderColor: MedicaColors.primary,
-                  controller: VoiceController(
-                    audioSrc: '${directory!.path}/myFilffe.m4a',
-                    maxDuration: const Duration(seconds: 100),
-                    isFile: false,
-                    onComplete: () {
-                      /// do something on complete
-                    },
-                    onPause: () {
-                      /// do something on pause
-                    },
-                    onPlaying: () {
-                      /// do something on playing
-                    },
-                  ),
-                  innerPadding: 12,
-                  cornerRadius: 20,
-                )
+              ? VoiceMessage(directory: directory, fileName: tempFileName)
               : const SizedBox(),
           Row(
             children: [
@@ -159,8 +162,6 @@ class _MyTextFieldState extends State<MyTextField> {
                                 icon: const Icon(Icons.attach_file),
                                 onPressed: () {
                                   // Handle send button press
-                                  widget.onSendMessage(_textController.text);
-                                  _textController.clear();
                                 },
                               ),
                             ],
@@ -208,7 +209,13 @@ class _MyTextFieldState extends State<MyTextField> {
                             MedicaColors.white),
                       ),
                       onPressed: () {
-                        widget.onSendMessage(_textController.text);
+                        recordReady
+                            ? widget.onSendMessage(filePath, "audio")
+                            : widget.onSendMessage(
+                                _textController.text, "text");
+                        setState(() {
+                          recordReady = false;
+                        });
                         _textController.clear();
                       },
                       icon: const Icon(

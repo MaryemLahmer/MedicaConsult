@@ -2,9 +2,9 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:medica_consult/data/data.dart';
-import 'package:medica_consult/features/booking/screens/communication/widgets/received_message_box.dart';
-import 'package:medica_consult/features/booking/screens/communication/widgets/sent_message_box.dart';
 import 'package:medica_consult/features/booking/screens/messages/widgets/messages_text_field.dart';
+import 'package:medica_consult/features/booking/screens/messages/widgets/received_message_box.dart';
+import 'package:medica_consult/features/booking/screens/messages/widgets/sent_message_box.dart';
 import 'package:medica_consult/utils/constants/colors.dart';
 import 'package:medica_consult/utils/constants/image_strings.dart';
 import 'package:medica_consult/utils/constants/sizes.dart';
@@ -38,12 +38,13 @@ class _MessagesScreenState extends State<MessagesScreen> {
     });
   }
 
-  void addMessage(String content) {
+  void addMessage(String? content, String type) {
     final currentTime = DateTime.now();
     final message = {
       'sender': 'bob', // Assuming the sender is the user for now
       'content': content,
       'time': currentTime,
+      'type': type
     };
     setState(() {
       messageArray.add(message);
@@ -125,7 +126,8 @@ class _MessagesScreenState extends State<MessagesScreen> {
                         ? SentMessageBox(
                             content: data["content"],
                             time: data["time"],
-                          )
+                            type: data["type"],
+                            directory: directory)
                         : ReceivedMessageBox(
                             content: data["content"],
                             time: data["time"],
