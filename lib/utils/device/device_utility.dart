@@ -3,6 +3,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 
 class MedicaDeviceUtils {
@@ -111,6 +112,14 @@ class MedicaDeviceUtils {
       await launchUrlString(url);
     } else {
       throw 'Could not launch $url';
+    }
+  }
+
+  static pickImage(ImageSource source) async {
+    final ImagePicker imagePicker = ImagePicker();
+    XFile? file = await imagePicker.pickImage(source: source);
+    if(file != null){
+      return await file.readAsBytes();
     }
   }
 }
