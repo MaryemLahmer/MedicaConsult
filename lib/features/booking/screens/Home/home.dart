@@ -40,7 +40,7 @@ class Home extends StatelessWidget {
                       width: MedicaSizes.imageThumbSize,
                       height: MedicaSizes.imageThumbSize,
                       radius: 50,
-                      imageName: MedicaImages.cuteUser3,
+                      imageName: MedicaImages.user3,
                       icon: Iconsax.notification,
                       onPressed: () => Get.to(() => const NotificationsPage()),
                     ),
@@ -57,15 +57,20 @@ class Home extends StatelessWidget {
                 ),
               ),
             ),
-            const Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                CategorySection(),
-                SizedBox(
-                  height: MedicaSizes.spaceBetweenItems / 2,
-                ),
-              ],
+            const Padding(
+              padding: EdgeInsets.only(
+                  left: MedicaSizes.defaultSpace,
+                  right: MedicaSizes.defaultSpace),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  CategorySection(),
+                  SizedBox(
+                    height: MedicaSizes.spaceBetweenItems / 2,
+                  ),
+                ],
+              ),
             ),
             const MedicalBanner(
               title: 'Medical Checks!',
@@ -76,41 +81,52 @@ class Home extends StatelessWidget {
                   "Don't forget your regular checks! Keep track of your health anywhere you are.",
             ),
             Padding(
-              padding: const EdgeInsets.all(MedicaSizes.spaceBetweenItems),
-              child: Column(
-                children: [
-                  SectionHeading(
-                    textHeading: 'Top Doctor',
-                    showActionButton: true,
-                    onPressed: () => Get.to(() => const TopDoctorPage()),
-                  ),
-                  const TopDoctorCategory(),
-                  const SizedBox(
-                    height: MedicaSizes.spaceBetweenSections,
-                  ),
-                  SectionHeading(
-                    textHeading: 'Health Articles',
-                    showActionButton: true,
-                    onPressed: () => Get.to(() => const ArticlePage()),
-                  ),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: articleData.take(3).map((data) {
-                      return ArticleCard(
-                        image: data['image'],
-                        title: data['title'],
-                        date: data['date'],
-                        length: data['length'],
-                        onPressed: () {
-                          MedicaLoggerHelper.info(
-                              "Index: ${articleData.indexOf(data)}");
-                        },
-                      );
-                    }).toList(),
-                  )
-                ],
+              padding: const EdgeInsets.only(
+                  left: MedicaSizes.spaceBetweenItems,
+                  right: MedicaSizes.spaceBetweenItems),
+              child: SectionHeading(
+                textHeading: 'Top Doctor',
+                showActionButton: true,
+                onPressed: () => Get.to(() => const TopDoctorPage()),
               ),
+            ),
+            Column(
+              children: [
+                const TopDoctorCategory(),
+                const SizedBox(
+                  height: MedicaSizes.xs,
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(
+                      left: MedicaSizes.spaceBetweenItems,
+                      right: MedicaSizes.spaceBetweenItems),
+                  child: Column(
+                    children: [
+                      SectionHeading(
+                        textHeading: 'Health Articles',
+                        showActionButton: true,
+                        onPressed: () => Get.to(() => const ArticlePage()),
+                      ),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: articleData.take(3).map((data) {
+                          return ArticleCard(
+                            image: data['image'],
+                            title: data['title'],
+                            date: data['date'],
+                            length: data['length'],
+                            onPressed: () {
+                              MedicaLoggerHelper.info(
+                                  "Index: ${articleData.indexOf(data)}");
+                            },
+                          );
+                        }).toList(),
+                      ),
+                    ],
+                  ),
+                )
+              ],
             ),
           ],
         ),

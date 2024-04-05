@@ -55,9 +55,9 @@ class MedicaTextTheme {
   /// Customizable dark theme text
   static TextTheme darkTextTheme = TextTheme(
     headlineLarge: const TextStyle().copyWith(
-        fontSize: 34.0, fontWeight: FontWeight.bold, color: MedicaColors.white),
+        fontSize: 32.0, fontWeight: FontWeight.bold, color: MedicaColors.white),
     headlineMedium: const TextStyle().copyWith(
-        fontSize: 22.0, fontWeight: FontWeight.w400, color: MedicaColors.white),
+        fontSize: 24.0, fontWeight: FontWeight.w400, color: MedicaColors.white),
     headlineSmall: const TextStyle().copyWith(
         fontSize: 18.0, fontWeight: FontWeight.w600, color: MedicaColors.white),
     titleLarge: const TextStyle().copyWith(
@@ -69,7 +69,7 @@ class MedicaTextTheme {
     bodyLarge: const TextStyle().copyWith(
         fontSize: 14.0, fontWeight: FontWeight.w500, color: MedicaColors.white),
     bodyMedium: const TextStyle().copyWith(
-        fontSize: 14.0,
+        fontSize: 12.0,
         fontWeight: FontWeight.normal,
         color: MedicaColors.white),
     bodySmall: const TextStyle().copyWith(

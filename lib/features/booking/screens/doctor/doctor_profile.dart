@@ -133,16 +133,17 @@ class DoctorProfile extends StatelessWidget {
 
                   /// Booking Button
                   SizedBox(
-                    width: 250 ,
+                    width: 250,
                     child: ElevatedButton(
                       style: ButtonStyle(
-                          shape: MaterialStateProperty.all(RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(30)))),
+                          shape: MaterialStateProperty.all(
+                              RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(30)))),
                       child: Text(
                         'Book Appointment',
                         style: Theme.of(context).textTheme.bodyLarge,
                       ),
-                      onPressed: ()=> Get.to(()=> const BookAppointment()),
+                      onPressed: () => Get.to(() => const BookAppointment()),
                     ),
                   )
                 ],

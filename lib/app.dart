@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:medica_consult/features/authentication/screens/onboarding_screens/onboarding.dart';
 import 'features/booking/screens/payment/widgets/payment_method_picker.dart';
 import 'navigation.dart';
 import 'utils/theme/theme.dart';
@@ -15,7 +16,7 @@ class App extends StatelessWidget {
       themeMode: ThemeMode.system,
       theme: MedicaAppTheme.lightTheme,
       darkTheme: MedicaAppTheme.darkTheme,
-      home: const NavigationMenu(),
+      home: const OnBoardingScreen(),
 
       ///show loader or circular progress indicator meanwhile authentication repository is deciding to show relevant screen
       ///home:const Scaffold(backgroundColor: MedicaColors.primary,body: Center(child: CircularProgressIndicator(color: Colors.white,),),)

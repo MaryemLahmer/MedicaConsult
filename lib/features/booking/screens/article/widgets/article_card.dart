@@ -19,80 +19,81 @@ class ArticleCard extends StatelessWidget {
       required this.date,
       required this.length,
       required this.onPressed});
-
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: onPressed,
-      child: Column(
-        children: [
-          Container(
-            width: 500,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(35),
-              border: Border.all(color: MedicaColors.accent),
-            ),
-            height: 210,
-            child: Padding(
-              padding: const EdgeInsets.all(MedicaSizes.md),
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  SizedBox(
-                    width: 100,
-                    child: Image(
-                      image: AssetImage(image),
-                      height: 190,
-                      width: 100,
+      child: SizedBox(
+        width: double.infinity,
+        height: 110.0,
+        child: Padding(
+          padding: const EdgeInsets.only(
+              top: MedicaSizes.xs, bottom: MedicaSizes.xs),
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(10.0),
+            child: Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10.0),
+                border: Border.all(
+                  color: MedicaColors.accent,
+                  width: 1.0,
+                ),
+              ),
+              child: Padding(
+                padding: const EdgeInsets.all(MedicaSizes.sm),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    ClipRRect(
+                      borderRadius: BorderRadius.circular(10.0),
+                      child: Image(
+                        width: MedicaSizes.imageThumbSize,
+                        height: MedicaSizes.imageThumbSize,
+                        image: AssetImage(image),
+                        fit: BoxFit.cover,
+                      ),
                     ),
-                  ),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      SizedBox(width: 150,
-                        height: 150,
-                        child: Center(
-                          child: Text(
-                            title,
-                            style: Theme.of(context).textTheme.bodyLarge,
-
-                          ),
-                        ),
-                      ),
-                      const SizedBox(
-                        height: MedicaSizes.xs,
-                      ),
-                      Row(
+                    const SizedBox(
+                      width: MedicaSizes.xs,
+                    ),
+                    Expanded(
+                      flex: 7,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          SizedBox(
+                          Flexible(
                             child: Text(
-                              MedicaFormatter.formatDate(date),
-                              style: Theme.of(context).textTheme.bodyMedium,
+                              title,
+                              style: const TextStyle(
+                                  fontSize: 12.0, fontWeight: FontWeight.w600),
                             ),
                           ),
-                          const Text(
-                            " • ",
-                          ),
-                          SizedBox(
-                            child: Text(
-                              '$length min read',
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .bodySmall!
-                                  .apply(color: MedicaColors.darkerGrey),
-                            ),
-                          ),
-                          const SizedBox(
-                            width: MedicaSizes.xs,
+                          Row(
+                            children: [
+                              Text(
+                                MedicaFormatter.formatDate(date),
+                                style: const TextStyle(fontSize: 10.0),
+                              ),
+                              const Text(
+                                " • ",
+                              ),
+                              Text(
+                                '$length min read',
+                                style: const TextStyle(
+                                    color: MedicaColors.primary,
+                                    fontSize: 10.0),
+                              )
+                            ],
                           ),
                         ],
                       ),
-                    ],
-                  ),
-                  SizedBox(width: 5,
-                    child: IconButton(
+                    ),
+                    const SizedBox(
+                      width: MedicaSizes.xs,
+                    ),
+                    IconButton(
                         icon: const Icon(
                           Icons.bookmark,
                           color: MedicaColors.primary,
@@ -100,14 +101,12 @@ class ArticleCard extends StatelessWidget {
                         onPressed: () {
                           MedicaLoggerHelper.info("saved");
                         }),
-                  ),
-
-                ],
+                  ],
+                ),
               ),
             ),
           ),
-          const SizedBox(height: MedicaSizes.spaceBetweenItems,),
-        ],
+        ),
       ),
     );
   }
