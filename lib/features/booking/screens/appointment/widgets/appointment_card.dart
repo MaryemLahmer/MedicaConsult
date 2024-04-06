@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:medica_consult/features/booking/screens/finish_consultation/finish_consultation.dart';
+import 'package:medica_consult/features/booking/screens/my_appointment/my_appointment.dart';
 import 'package:medica_consult/utils/constants/sizes.dart';
 import 'package:medica_consult/utils/constants/colors.dart';
 import 'package:medica_consult/utils/formatters/formatter.dart';
@@ -26,7 +29,13 @@ class AppointmentCard extends StatelessWidget {
     bool canCancelOrReschedule = status == 'Confirmed' || status == 'Pending';
 
     return GestureDetector(
-      onTap: () {},
+      onTap: () {
+        status == "Completed"
+            ? Get.to(() => const FinishConsultationScreen())
+            : status == "Confirmed"
+                ? Get.to(() => const MyAppointmentScreen())
+                : {};
+      },
       child: SizedBox(
         width: double.infinity,
         child: Padding(

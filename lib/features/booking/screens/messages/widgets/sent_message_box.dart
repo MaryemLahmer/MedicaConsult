@@ -48,10 +48,13 @@ class SentMessageBox extends StatelessWidget {
                             directory: directory,
                             fileName: content.replaceFirst(directory!.path, ''),
                           )
-                        : Text(
-                            content,
-                            style: const TextStyle(color: MedicaColors.white),
-                          ),
+                        : type == "image"
+                            ? Image.file(File(content))
+                            : Text(
+                                content,
+                                style:
+                                    const TextStyle(color: MedicaColors.white),
+                              ),
                   ),
                 );
               },

@@ -1,7 +1,10 @@
 import 'dart:io';
 import 'dart:math';
 
+import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:medica_consult/features/booking/screens/messages/widgets/take_picture.dart';
 import 'package:medica_consult/features/booking/screens/messages/widgets/voice_message.dart';
 import 'package:medica_consult/utils/constants/colors.dart';
 import 'package:medica_consult/utils/logging/logger.dart';
@@ -154,8 +157,27 @@ class _MyTextFieldState extends State<MyTextField> {
                             children: [
                               IconButton(
                                 icon: const Icon(Icons.camera_alt_outlined),
-                                onPressed: () {
-                                  // Handle attachment button press
+                                onPressed: () async {
+                                  // Ensure that plugin services are initialized so that `availableCameras()`
+                                  // can be called before navigating to `TakePictureScreen`
+                                  WidgetsFlutterBinding.ensureInitialized();
+
+                                  // Obtain a list of the available cameras on the device.
+                                  final cameras = await availableCameras();
+
+                                  // Get a specific camera from the list of available cameras.
+                                  final firstCamera = cameras.first;
+
+                                  // Navigate to TakePictureScreen
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => TakePictureScreen(
+                                        camera: firstCamera,
+                                        onSendMessage: widget.onSendMessage,
+                                      ),
+                                    ),
+                                  );
                                 },
                               ),
                               IconButton(

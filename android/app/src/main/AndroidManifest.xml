@@ -10,6 +10,9 @@
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher"
         android:enableOnBackInvokedCallback="true">
+        <uses-library
+            android:name="io.flutter.plugins.camera"
+            android:required="false" />
         <activity
             android:name=".MainActivity"
             android:exported="true"

@@ -46,6 +46,8 @@ class _MessagesScreenState extends State<MessagesScreen> {
       'time': currentTime,
       'type': type
     };
+    print(
+        "####################################################################");
     setState(() {
       messageArray.add(message);
     });
@@ -131,7 +133,8 @@ class _MessagesScreenState extends State<MessagesScreen> {
                         : ReceivedMessageBox(
                             content: data["content"],
                             time: data["time"],
-                          );
+                            type: data["type"],
+                            directory: directory);
                   }).toList(),
                 ),
               ),
