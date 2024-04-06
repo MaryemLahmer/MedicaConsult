@@ -46,8 +46,6 @@ class _MessagesScreenState extends State<MessagesScreen> {
       'time': currentTime,
       'type': type
     };
-    print(
-        "####################################################################");
     setState(() {
       messageArray.add(message);
     });
@@ -150,7 +148,7 @@ class _MessagesScreenState extends State<MessagesScreen> {
                   top: MedicaSizes.sm, bottom: MedicaSizes.sm),
               child: MyTextField(
                 onSendMessage: addMessage,
-                filePath: filePath,
+                voiceMessageFilePath: filePath,
                 directory: directory,
               ),
             ),

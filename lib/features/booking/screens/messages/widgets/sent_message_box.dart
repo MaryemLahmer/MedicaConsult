@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:medica_consult/features/booking/screens/messages/widgets/voice_message.dart';
 import 'package:medica_consult/utils/constants/colors.dart';
+import 'package:medica_consult/utils/constants/image_strings.dart';
 import 'package:medica_consult/utils/constants/sizes.dart';
 
 class SentMessageBox extends StatelessWidget {
@@ -17,6 +18,17 @@ class SentMessageBox extends StatelessWidget {
     required this.type,
     required this.directory,
   });
+
+  String getFileNameFromPath(String filePath) {
+    // Find the index of the last occurrence of '/' (or '\\' for Windows paths)
+    final int lastIndex = filePath.lastIndexOf('/');
+    if (lastIndex != -1) {
+      // Extract the substring after the last '/'
+      return filePath.substring(lastIndex + 1);
+    }
+    // If '/' is not found, return the original filePath
+    return filePath;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -50,11 +62,33 @@ class SentMessageBox extends StatelessWidget {
                           )
                         : type == "image"
                             ? Image.file(File(content))
-                            : Text(
-                                content,
-                                style:
-                                    const TextStyle(color: MedicaColors.white),
-                              ),
+                            : type == "pdf"
+                                ? Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Image.asset(
+                                        MedicaImages
+                                            .applePay, // Assuming you have a PDF icon image
+                                        height: 40,
+                                        width: 40,
+                                      ),
+                                      const SizedBox(width: 10),
+                                      SizedBox(
+                                        width: 140,
+                                        child: Text(
+                                          getFileNameFromPath(content),
+                                          style: const TextStyle(
+                                              fontSize: 8,
+                                              overflow: TextOverflow.ellipsis),
+                                        ),
+                                      ),
+                                    ],
+                                  )
+                                : Text(
+                                    content,
+                                    style: const TextStyle(
+                                        color: MedicaColors.white),
+                                  ),
                   ),
                 );
               },

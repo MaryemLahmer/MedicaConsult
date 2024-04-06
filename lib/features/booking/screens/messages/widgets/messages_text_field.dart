@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:io';
 import 'dart:math';
 
@@ -7,21 +8,23 @@ import 'package:get/get.dart';
 import 'package:medica_consult/features/booking/screens/messages/widgets/take_picture.dart';
 import 'package:medica_consult/features/booking/screens/messages/widgets/voice_message.dart';
 import 'package:medica_consult/utils/constants/colors.dart';
+import 'package:medica_consult/utils/constants/image_strings.dart';
 import 'package:medica_consult/utils/logging/logger.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:permission_handler/permission_handler.dart';
+import 'package:file_picker/file_picker.dart';
 
 import 'package:record/record.dart';
 
 class MyTextField extends StatefulWidget {
   final Function(String?, String) onSendMessage;
-  final String? filePath;
+  final String? voiceMessageFilePath;
   final Directory? directory;
 
   const MyTextField({
     Key? key,
     required this.onSendMessage,
-    this.filePath,
+    this.voiceMessageFilePath,
     this.directory,
   }) : super(key: key);
 
@@ -30,19 +33,25 @@ class MyTextField extends StatefulWidget {
 }
 
 class _MyTextFieldState extends State<MyTextField> {
-  late String? filePath;
+  late String? voiceMessageFilePath;
   late Directory? directory;
   final record = Record();
+  FilePickerResult? result;
+  String? _fileName;
+  PlatformFile? pickedFile;
+  bool fileReady = false;
+  File? fileToDisplay;
   bool isFocused = false;
   bool isRecording = false;
   bool recordReady = false;
   String tempFileName = "";
+  bool showWarningMessage = true;
   final TextEditingController _textController = TextEditingController();
 
   @override
   void initState() {
     super.initState();
-    filePath = widget.filePath;
+    voiceMessageFilePath = widget.voiceMessageFilePath;
     directory = widget.directory;
   }
 
@@ -68,7 +77,7 @@ class _MyTextFieldState extends State<MyTextField> {
   void startRecord() async {
     tempFileName = generateTempFileName();
     directory = await getExternalStorageDirectory();
-    filePath =
+    voiceMessageFilePath =
         directory?.path != null ? '${directory!.path}/$tempFileName' : null;
     await Permission.manageExternalStorage.request();
     await Permission.microphone.request();
@@ -81,7 +90,7 @@ class _MyTextFieldState extends State<MyTextField> {
         try {
           // Start recording
           await record.start(
-            path: filePath,
+            path: voiceMessageFilePath,
             encoder: AudioEncoder.aacLc, // by default
             bitRate: 128000, // by default
           );
@@ -114,6 +123,40 @@ class _MyTextFieldState extends State<MyTextField> {
     await record.stop();
   }
 
+  void pickFile() async {
+    try {
+      setState(() {
+        fileReady = false;
+      });
+
+      result = await FilePicker.platform.pickFiles(
+        type: FileType.any,
+        allowMultiple: false,
+      );
+
+      if (result != null) {
+        _fileName = result!.files.first.name;
+        pickedFile = result!.files.first;
+        fileToDisplay = File(pickedFile!.path.toString());
+
+        print('File name $_fileName');
+      }
+      if (pickedFile!.extension == 'pdf' ||
+          pickedFile!.extension == 'jpg' ||
+          pickedFile!.extension == 'png') {
+        setState(() {
+          fileReady = true;
+        });
+      } else {
+        setState(() {
+          fileReady = false;
+        });
+      }
+    } catch (e) {
+      print(e);
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Focus(
@@ -124,6 +167,48 @@ class _MyTextFieldState extends State<MyTextField> {
       },
       child: Column(
         children: [
+          fileReady && pickedFile != null
+              ? SizedBox(
+                  child: pickedFile!.extension == 'pdf'
+                      ? Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Image.asset(
+                              MedicaImages
+                                  .applePay, // Assuming you have a PDF icon image
+                              height: 100,
+                              width: 100,
+                            ),
+                            const SizedBox(width: 10),
+                            Text(
+                              _fileName!,
+                              style: const TextStyle(fontSize: 8),
+                            ),
+                          ],
+                        )
+                      : pickedFile!.extension == 'png' ||
+                              pickedFile!.extension == 'jpg'
+                          ? Image.file(
+                              fileToDisplay!,
+                              height: 94,
+                              width: 94,
+                              fit: BoxFit.cover,
+                            )
+                          : Builder(
+                              builder: (context) {
+                                // Initialize a timer to hide unsupported file type text after 5 seconds
+                                Timer(const Duration(seconds: 3), () {
+                                  setState(() {
+                                    showWarningMessage = false;
+                                  });
+                                });
+                                return showWarningMessage
+                                    ? const Text("Unsupported file type")
+                                    : const SizedBox();
+                              },
+                            ),
+                )
+              : const SizedBox(),
           recordReady
               ? VoiceMessage(directory: directory, fileName: tempFileName)
               : const SizedBox(),
@@ -183,7 +268,7 @@ class _MyTextFieldState extends State<MyTextField> {
                               IconButton(
                                 icon: const Icon(Icons.attach_file),
                                 onPressed: () {
-                                  // Handle send button press
+                                  pickFile();
                                 },
                               ),
                             ],
@@ -194,7 +279,7 @@ class _MyTextFieldState extends State<MyTextField> {
                 ),
               ),
               const SizedBox(width: 8.0),
-              !isFocused && !recordReady
+              !isFocused && !recordReady && !fileReady
                   ? IconButton(
                       style: ButtonStyle(
                         backgroundColor: MaterialStateProperty.all<Color>(
@@ -232,11 +317,23 @@ class _MyTextFieldState extends State<MyTextField> {
                       ),
                       onPressed: () {
                         recordReady
-                            ? widget.onSendMessage(filePath, "audio")
-                            : widget.onSendMessage(
-                                _textController.text, "text");
+                            ? widget.onSendMessage(
+                                voiceMessageFilePath, "audio")
+                            : (fileReady && pickedFile != null)
+                                ? (pickedFile!.extension == 'pdf'
+                                    ? widget.onSendMessage(
+                                        pickedFile!.path.toString(), "pdf")
+                                    : widget.onSendMessage(
+                                        pickedFile!.path.toString(), "image"))
+                                : (_textController.text.isNotEmpty
+                                    ? widget.onSendMessage(
+                                        _textController.text, "text")
+                                    : null);
+
                         setState(() {
                           recordReady = false;
+                          fileReady = false;
+                          showWarningMessage = false;
                         });
                         _textController.clear();
                       },

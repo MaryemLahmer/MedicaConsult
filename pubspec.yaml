@@ -40,6 +40,7 @@ dependencies:
   voice_message_package: ^2.1.0
   camera: ^0.10.5+9
   path: ^1.8.3
+  file_picker: ^8.0.0+1
 
 
 dev_dependencies:
