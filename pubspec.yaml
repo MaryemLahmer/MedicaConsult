@@ -53,6 +53,7 @@ flutter:
     - assets/images/payment/
     - assets/images/on_boarding_images/
     - assets/images/doctors/
+    - assets/images/document/
     - assets/images/animations/
     - assets/images/user/
     - assets/images/article/
