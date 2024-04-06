@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:medica_consult/features/personalization/screens/settings/reports_and_prescriptions.dart';
 import 'package:medica_consult/utils/constants/sizes.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:medica_consult/common/widgets/appbar/custom_appbar.dart';
@@ -7,6 +8,8 @@ import 'package:medica_consult/features/personalization/screens/settings/widgets
 import 'package:medica_consult/utils/constants/colors.dart';
 
 import '../profile/widgets/user_profile_card.dart';
+import 'edit_profile.dart';
+import 'package:get/get.dart';
 
 class SettingsScreen extends StatelessWidget {
   const SettingsScreen({super.key});
@@ -46,13 +49,13 @@ class SettingsScreen extends StatelessWidget {
                   SettingsMenuTile(
                     icon: Iconsax.user,
                     title: 'Edit Profile Details',
-                    onPressed: () {},
+                    onPressed: () => Get.to(() => const EditProfileDetails()),
                     trailingIcon: Iconsax.arrow_right_3,
                   ),
                   SettingsMenuTile(
                     icon: Iconsax.document,
                     title: 'Reports & Prescriptions',
-                    onPressed: () {},
+                    onPressed: () => Get.to(() => ReportsAndPrescriptions()),
                     trailingIcon: Iconsax.arrow_right_3,
                   ),
                   SettingsMenuTile(
