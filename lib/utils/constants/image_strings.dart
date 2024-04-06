@@ -25,7 +25,8 @@ class MedicaImages {
   static const String hospital = "assets/icons/categoryIcons/hospital.png";
   // -- Banners
 
-  // Reviews
+  // -- Documents & Prescriptions
+  static const String prescription = "assets/images/document/prescription.png";
 
   // -- Payment Methods
   static const String applePay = "assets/icons/payment_methods/apple_pay.png";
