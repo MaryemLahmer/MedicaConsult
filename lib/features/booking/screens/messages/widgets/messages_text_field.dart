@@ -10,6 +10,7 @@ import 'package:medica_consult/features/booking/screens/messages/widgets/take_pi
 import 'package:medica_consult/features/booking/screens/messages/widgets/voice_message.dart';
 import 'package:medica_consult/utils/constants/colors.dart';
 import 'package:medica_consult/utils/constants/image_strings.dart';
+import 'package:medica_consult/utils/constants/sizes.dart';
 import 'package:medica_consult/utils/logging/logger.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:permission_handler/permission_handler.dart';
@@ -46,7 +47,7 @@ class _MyTextFieldState extends State<MyTextField> {
   bool isRecording = false;
   bool recordReady = false;
   String tempFileName = "";
-  bool showWarningMessage = true;
+  bool showWarningMessage = false;
   final TextEditingController _textController = TextEditingController();
 
   @override
@@ -151,6 +152,13 @@ class _MyTextFieldState extends State<MyTextField> {
       } else {
         setState(() {
           fileReady = false;
+          showWarningMessage = true;
+        });
+
+        Future.delayed(Duration(seconds: 3), () {
+          setState(() {
+            showWarningMessage = false;
+          });
         });
       }
     } catch (e) {
@@ -168,17 +176,34 @@ class _MyTextFieldState extends State<MyTextField> {
       },
       child: Column(
         children: [
+          Visibility(
+            visible: showWarningMessage,
+            child: Padding(
+              padding: const EdgeInsets.all(MedicaSizes.sm),
+              child: Container(
+                height: 40,
+                decoration: BoxDecoration(
+                  color: Colors.red,
+                  borderRadius: BorderRadius.circular(8),
+                ),
+                child: const Center(
+                  child: Text(
+                    'Unsupported file format',
+                    style: TextStyle(color: Colors.white),
+                  ),
+                ),
+              ),
+            ),
+          ),
           fileReady && pickedFile != null
               ? SizedBox(
                   child: pickedFile!.extension == 'pdf'
                       ? Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Image.asset(
-                              MedicaImages
-                                  .applePay, // Assuming you have a PDF icon image
-                              height: 100,
-                              width: 100,
+                            const Icon(
+                              Icons.picture_as_pdf,
+                              size: 40,
                             ),
                             const SizedBox(width: 10),
                             Text(
@@ -187,28 +212,12 @@ class _MyTextFieldState extends State<MyTextField> {
                             ),
                           ],
                         )
-                      : pickedFile!.extension == 'png' ||
-                              pickedFile!.extension == 'jpg'
-                          ? Image.file(
-                              fileToDisplay!,
-                              height: 94,
-                              width: 94,
-                              fit: BoxFit.cover,
-                            )
-                          : Builder(
-                              builder: (context) {
-                                // Initialize a timer to hide unsupported file type text after 5 seconds
-                                Timer(const Duration(seconds: 3), () {
-                                  setState(() {
-                                    showWarningMessage = false;
-                                  });
-                                });
-                                return showWarningMessage
-                                    ? const Text("Unsupported file type")
-                                    : const SizedBox();
-                              },
-                            ),
-                )
+                      : Image.file(
+                          fileToDisplay!,
+                          height: 94,
+                          width: 94,
+                          fit: BoxFit.cover,
+                        ))
               : const SizedBox(),
           recordReady
               ? VoiceMessage(directory: directory, fileName: tempFileName)
@@ -234,7 +243,7 @@ class _MyTextFieldState extends State<MyTextField> {
                           const BorderSide(color: MedicaColors.borderPrimary),
                     ),
                     hintText: isRecording ? "Recording..." : "Type message...",
-                    enabled: !isRecording,
+                    enabled: !isRecording && !recordReady,
                     hintStyle: const TextStyle(
                       color: MedicaColors.textSecondary,
                     ),

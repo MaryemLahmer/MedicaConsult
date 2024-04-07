@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
+import 'package:medica_consult/features/booking/screens/call/call.dart';
 import 'package:medica_consult/features/booking/screens/conversation_info/widgets/conversation_action.dart';
 import 'package:medica_consult/features/booking/screens/conversation_info/widgets/conversation_info_option.dart';
 import 'package:medica_consult/features/booking/screens/doctor/doctor_profile.dart';
@@ -55,14 +56,18 @@ class ConversationInfoScreen extends StatelessWidget {
             children: [
               ConversationInfoOption(
                 icon: Icons.phone,
-                onPressed: () {},
+                onPressed: () {
+                  Get.to(() => VideoCallRingingScreen());
+                },
               ),
               const SizedBox(
                 width: MedicaSizes.lg,
               ),
               ConversationInfoOption(
                 icon: Icons.videocam,
-                onPressed: () {},
+                onPressed: () {
+                  Get.to(() => VideoCallRingingScreen());
+                },
               ),
               const SizedBox(
                 width: MedicaSizes.lg,

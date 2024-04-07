@@ -7,6 +7,7 @@ class NotificationCard extends StatelessWidget {
   final String type;
   final DateTime time;
   final String content;
+  final Function()? onPressed;
 
   const NotificationCard({
     super.key,
@@ -14,12 +15,13 @@ class NotificationCard extends StatelessWidget {
     required this.type,
     required this.time,
     required this.content,
+    required this.onPressed,
   });
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {},
+      onTap: onPressed,
       child: SizedBox(
         width: double.infinity,
         child: Padding(

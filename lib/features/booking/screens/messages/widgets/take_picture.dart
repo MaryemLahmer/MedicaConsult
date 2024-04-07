@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
+import 'package:medica_consult/features/booking/screens/communication/widgets/loading_indicator.dart';
 import 'package:medica_consult/features/booking/screens/messages/widgets/flash_toggle_button.dart';
 import 'package:medica_consult/features/booking/screens/messages/widgets/show_picture.dart';
 import 'package:medica_consult/utils/constants/colors.dart';
@@ -75,7 +76,7 @@ class TakePictureScreenState extends State<TakePictureScreen> {
           if (snapshot.connectionState == ConnectionState.done) {
             return CameraPreview(_controller);
           } else {
-            return const Center(child: CircularProgressIndicator());
+            return Center(child: DotsCirclingProgressIndicator());
           }
         },
       ),

@@ -191,6 +191,7 @@ class _NotificationsPageState extends State<NotificationsPage> {
                                 type: type,
                                 time: data['time'],
                                 content: data['content'],
+                                onPressed: () {},
                               );
                             }).toList(),
                           ),
