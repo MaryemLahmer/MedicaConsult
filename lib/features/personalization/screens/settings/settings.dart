@@ -78,6 +78,7 @@ class SettingsScreen extends StatelessWidget {
                     trailingIcon: Iconsax.arrow_right_3,
                   ),
                   SettingsMenuTile(
+                    toggle: true,
                     icon: Iconsax.eye,
                     title: 'Dark Mode',
                     onPressed: () {},
