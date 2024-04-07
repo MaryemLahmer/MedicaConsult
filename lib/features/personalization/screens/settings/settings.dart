@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:medica_consult/features/personalization/screens/settings/reports_and_prescriptions.dart';
+import 'package:medica_consult/features/personalization/screens/settings/security/security_screen.dart';
 import 'package:medica_consult/utils/constants/sizes.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:medica_consult/common/widgets/appbar/custom_appbar.dart';
@@ -55,7 +56,7 @@ class SettingsScreen extends StatelessWidget {
                   SettingsMenuTile(
                     icon: Iconsax.document,
                     title: 'Reports & Prescriptions',
-                    onPressed: () => Get.to(() => ReportsAndPrescriptions()),
+                    onPressed: () => Get.to(() => const ReportsAndPrescriptions()),
                     trailingIcon: Iconsax.arrow_right_3,
                   ),
                   SettingsMenuTile(
@@ -67,7 +68,7 @@ class SettingsScreen extends StatelessWidget {
                   SettingsMenuTile(
                     icon: Iconsax.lock_1,
                     title: 'Security',
-                    onPressed: () {},
+                    onPressed: () => Get.to(() => const SecurityScreen()),
                     trailingIcon: Iconsax.arrow_right_3,
                   ),
                   SettingsMenuTile(
