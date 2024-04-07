@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:medica_consult/utils/constants/colors.dart';
-import 'package:medica_consult/utils/constants/sizes.dart';
+import 'package:provider/provider.dart';
+import '../../../../../utils/theme/theme_provider.dart';
 
 class ToggledSetting extends StatefulWidget {
   const ToggledSetting(
