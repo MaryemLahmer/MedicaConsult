@@ -5,6 +5,7 @@ import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:medica_consult/data/data.dart';
 import 'package:medica_consult/utils/constants/colors.dart';
+import 'package:medica_consult/utils/constants/sizes.dart';
 
 // A screen that allows users to take a picture using a given camera.
 class TakePictureScreen extends StatefulWidget {
@@ -51,10 +52,25 @@ class TakePictureScreenState extends State<TakePictureScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Take a picture')),
-      // You must wait until the controller is initialized before displaying the
-      // camera preview. Use a FutureBuilder to display a loading spinner until the
-      // controller has finished initializing.
+      appBar: AppBar(
+        leading: Padding(
+          padding: const EdgeInsets.only(left: MedicaSizes.md),
+          child: IconButton(
+            icon: const Icon(
+              Icons.arrow_back,
+              color: MedicaColors.white,
+            ),
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
+          ),
+        ),
+        title: const Text(
+          'Take a picture',
+          style: TextStyle(color: MedicaColors.white),
+        ),
+      ),
+      backgroundColor: Colors.black, // Set background color to blue
       body: FutureBuilder<void>(
         future: _initializeControllerFuture,
         builder: (context, snapshot) {
@@ -67,36 +83,29 @@ class TakePictureScreenState extends State<TakePictureScreen> {
           }
         },
       ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: FloatingActionButton(
-        // Provide an onPressed callback.
+        backgroundColor: Colors.white,
+        foregroundColor: Colors.blue,
         onPressed: () async {
-          // Take the Picture in a try / catch block. If anything goes wrong,
-          // catch the error.
           try {
-            // Ensure that the camera is initialized.
             await _initializeControllerFuture;
-
-            // Attempt to take a picture and get the file `image`
-            // where it was saved.
             final image = await _controller.takePicture();
-
             if (!context.mounted) return;
-
-            // If the picture was taken, display it on a new screen.
             await Navigator.of(context).push(
               MaterialPageRoute(
                 builder: (context) => DisplayPictureScreen(
-                  // Pass the automatically generated path to
-                  // the DisplayPictureScreen widget.
-                  imagePath: image.path, onSendMessage: widget.onSendMessage,
+                  imagePath: image.path,
+                  onSendMessage: widget.onSendMessage,
                 ),
               ),
             );
           } catch (e) {
-            // If an error occurs, log the error to the console.
             print(e);
           }
         },
+        shape: CircleBorder(), // Set shape to CircleBorder
+        elevation: 0.0, // Remove shadow by setting elevation to 0.0
         child: const Icon(Icons.camera_alt),
       ),
     );
@@ -157,9 +166,9 @@ class _DisplayPictureScreenState extends State<DisplayPictureScreen> {
                   iconSize: 24,
                   style: ButtonStyle(
                     backgroundColor: MaterialStateProperty.all<Color>(
-                        Colors.blue), // Example color
+                        MedicaColors.primary), // Example color
                     foregroundColor: MaterialStateProperty.all<Color>(
-                        Colors.white), // Example color
+                        MedicaColors.white), // Example color
                   ),
                   onPressed: () {
                     widget.onSendMessage(widget.imagePath, "image");

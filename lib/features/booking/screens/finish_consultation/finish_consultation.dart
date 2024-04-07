@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:medica_consult/common/widgets/ratings/rating_indicator.dart';
+import 'package:medica_consult/features/booking/screens/finish_consultation/widgets/review_submit_success_popup.dart';
 import 'package:medica_consult/utils/constants/colors.dart';
 import 'package:medica_consult/utils/constants/image_strings.dart';
 import 'package:medica_consult/utils/constants/sizes.dart';
+import 'package:medica_consult/utils/helpers/helper_function.dart';
 
 class FinishConsultationScreen extends StatelessWidget {
   const FinishConsultationScreen({Key? key}) : super(key: key);
@@ -104,7 +106,9 @@ class FinishConsultationScreen extends StatelessWidget {
               SizedBox(
                 width: double.infinity,
                 child: TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    _showSubmitDialog(context);
+                  },
                   style: TextButton.styleFrom(
                     backgroundColor: MedicaColors.primary,
                     shape: RoundedRectangleBorder(
@@ -123,6 +127,16 @@ class FinishConsultationScreen extends StatelessWidget {
           ),
         ),
       ),
+    );
+  }
+
+  void _showSubmitDialog(BuildContext context) {
+    final darkMode = MedicaHelperFunctions.isDarkMode(context);
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return ReviewSubmitSuccessPopup(darkMode: darkMode);
+      },
     );
   }
 }

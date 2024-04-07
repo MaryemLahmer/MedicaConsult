@@ -5,6 +5,7 @@ import 'dart:math';
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:iconsax/iconsax.dart';
 import 'package:medica_consult/features/booking/screens/messages/widgets/take_picture.dart';
 import 'package:medica_consult/features/booking/screens/messages/widgets/voice_message.dart';
 import 'package:medica_consult/utils/constants/colors.dart';
@@ -232,7 +233,8 @@ class _MyTextFieldState extends State<MyTextField> {
                       borderSide:
                           const BorderSide(color: MedicaColors.borderPrimary),
                     ),
-                    hintText: "Type message...",
+                    hintText: isRecording ? "Recording..." : "Type message...",
+                    enabled: !isRecording,
                     hintStyle: const TextStyle(
                       color: MedicaColors.textSecondary,
                     ),
@@ -278,6 +280,27 @@ class _MyTextFieldState extends State<MyTextField> {
                   cursorColor: MedicaColors.black,
                 ),
               ),
+              const SizedBox(width: 8.0),
+              recordReady || fileReady
+                  ? IconButton(
+                      style: ButtonStyle(
+                        backgroundColor: MaterialStateProperty.all<Color>(
+                            MedicaColors.error), // Set background color
+                        foregroundColor: MaterialStateProperty.all<Color>(
+                            MedicaColors.white),
+                      ),
+                      onPressed: () {
+                        setState(() {
+                          recordReady = false;
+                          fileReady = false;
+                        });
+                      },
+                      icon: const Icon(
+                        Iconsax.trash,
+                        color: MedicaColors.white,
+                      ),
+                    )
+                  : const SizedBox(),
               const SizedBox(width: 8.0),
               !isFocused && !recordReady && !fileReady
                   ? IconButton(

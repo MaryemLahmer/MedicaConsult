@@ -57,7 +57,9 @@ class _MessagesScreenState extends State<MessagesScreen> {
       appBar: AppBar(
         leading: IconButton(
           icon: const Icon(Icons.arrow_back),
-          onPressed: () {},
+          onPressed: () {
+            Navigator.of(context).pop();
+          },
         ),
         titleSpacing: 0,
         title: SizedBox(
