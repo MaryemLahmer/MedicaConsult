@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:medica_consult/common/widgets/appbar/custom_appbar.dart';
 import 'package:medica_consult/features/personalization/screens/settings/prescription_tab.dart';
 import 'package:medica_consult/utils/constants/colors.dart';
-import 'package:medica_consult/utils/constants/sizes.dart';
 import 'package:medica_consult/utils/helpers/helper_function.dart';
 
 class ReportsAndPrescriptions extends StatelessWidget {
