@@ -238,7 +238,7 @@ class _MyTextFieldState extends State<MyTextField> {
                     hintStyle: const TextStyle(
                       color: MedicaColors.textSecondary,
                     ),
-                    suffixIcon: !isFocused
+                    suffixIcon: !isFocused && !isRecording && !recordReady
                         ? Row(
                             mainAxisSize: MainAxisSize.min,
                             children: [

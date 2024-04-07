@@ -1,13 +1,11 @@
 import 'dart:async';
-import 'dart:io';
-
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
-import 'package:medica_consult/data/data.dart';
+import 'package:medica_consult/features/booking/screens/messages/widgets/flash_toggle_button.dart';
+import 'package:medica_consult/features/booking/screens/messages/widgets/show_picture.dart';
 import 'package:medica_consult/utils/constants/colors.dart';
 import 'package:medica_consult/utils/constants/sizes.dart';
 
-// A screen that allows users to take a picture using a given camera.
 class TakePictureScreen extends StatefulWidget {
   final Function(String?, String) onSendMessage;
   const TakePictureScreen({
@@ -70,114 +68,102 @@ class TakePictureScreenState extends State<TakePictureScreen> {
           style: TextStyle(color: MedicaColors.white),
         ),
       ),
-      backgroundColor: Colors.black, // Set background color to blue
+      backgroundColor: Colors.black,
       body: FutureBuilder<void>(
         future: _initializeControllerFuture,
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.done) {
-            // If the Future is complete, display the preview.
             return CameraPreview(_controller);
           } else {
-            // Otherwise, display a loading indicator.
             return const Center(child: CircularProgressIndicator());
           }
         },
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
-      floatingActionButton: FloatingActionButton(
-        backgroundColor: Colors.white,
-        foregroundColor: Colors.blue,
-        onPressed: () async {
-          try {
-            await _initializeControllerFuture;
-            final image = await _controller.takePicture();
-            if (!context.mounted) return;
-            await Navigator.of(context).push(
-              MaterialPageRoute(
-                builder: (context) => DisplayPictureScreen(
-                  imagePath: image.path,
-                  onSendMessage: widget.onSendMessage,
-                ),
-              ),
-            );
-          } catch (e) {
-            print(e);
-          }
-        },
-        shape: CircleBorder(), // Set shape to CircleBorder
-        elevation: 0.0, // Remove shadow by setting elevation to 0.0
-        child: const Icon(Icons.camera_alt),
-      ),
-    );
-  }
-}
-
-// A widget that displays the picture taken by the user.
-class DisplayPictureScreen extends StatefulWidget {
-  final Function(String?, String) onSendMessage;
-  final String imagePath;
-
-  const DisplayPictureScreen({
-    super.key,
-    required this.onSendMessage,
-    required this.imagePath,
-  });
-
-  @override
-  _DisplayPictureScreenState createState() => _DisplayPictureScreenState();
-}
-
-class _DisplayPictureScreenState extends State<DisplayPictureScreen> {
-  List<Map<String, dynamic>> messageArray = [];
-
-  void addMessage(String? content, String type) {
-    final currentTime = DateTime.now();
-    final message = {
-      'sender': 'bob', // Assuming the sender is the user for now
-      'content': content,
-      'time': currentTime,
-      'type': type
-    };
-    setState(() {
-      messageArray.add(message);
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: const Text('Display the Picture')),
-      body: Column(
+      floatingActionButton: Row(
         mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          Expanded(
-            child: Image.file(File(widget.imagePath)),
+          FlashToggleWidget(controller: _controller),
+          const SizedBox(
+            width: MedicaSizes.lg,
           ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Align(
-              alignment: Alignment.centerRight,
-              child: SizedBox(
-                width: 60,
-                height: 60,
-                child: IconButton(
-                  padding: EdgeInsets.zero,
-                  iconSize: 24,
-                  style: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.all<Color>(
-                        MedicaColors.primary), // Example color
-                    foregroundColor: MaterialStateProperty.all<Color>(
-                        MedicaColors.white), // Example color
-                  ),
-                  onPressed: () {
-                    widget.onSendMessage(widget.imagePath, "image");
-                    print('Sending picture: ${widget.imagePath}');
-                    Navigator.of(context).pop();
-                  },
-                  icon: Icon(Icons.double_arrow_rounded),
-                ),
+          Container(
+            width: 80.0,
+            height: 80.0,
+            decoration: BoxDecoration(
+              color: const Color.fromARGB(255, 255, 255, 255),
+              shape: BoxShape.circle,
+              border: Border.all(
+                color: MedicaColors.accent,
+                width: 4.0, // Set border width
               ),
+            ),
+            child: FloatingActionButton(
+              backgroundColor: Colors.transparent,
+              onPressed: () async {
+                try {
+                  await _initializeControllerFuture;
+                  final image = await _controller.takePicture();
+                  if (!context.mounted) return;
+                  await Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) => DisplayPictureScreen(
+                        imagePath: image.path,
+                        onSendMessage: widget.onSendMessage,
+                      ),
+                    ),
+                  );
+                } catch (e) {
+                  print(e);
+                }
+              },
+              shape: const CircleBorder(),
+              elevation: 0.0,
+            ),
+          ),
+          const SizedBox(
+            width: MedicaSizes.lg,
+          ),
+          Container(
+            width: 48.0, // Set desired width
+            height: 48.0, // Set desired height
+            decoration: const BoxDecoration(
+              color: Color.fromARGB(225, 255, 255, 255),
+              shape: BoxShape.circle,
+            ),
+            child: FloatingActionButton(
+              backgroundColor: Colors.transparent,
+              foregroundColor: MedicaColors.primary,
+              onPressed: () async {
+                final cameras = await availableCameras();
+                // Find the index of the current camera
+                final currentCameraIndex =
+                    cameras.indexOf(_controller.description);
+
+                // Calculate the index of the next camera to switch to
+                final nextCameraIndex =
+                    (currentCameraIndex + 1) % cameras.length;
+
+                // Get the next camera
+                final nextCamera = cameras[nextCameraIndex];
+
+                // Dispose the current controller
+                await _controller.dispose();
+
+                // Initialize the new controller with the next camera
+                _controller = CameraController(
+                  nextCamera,
+                  ResolutionPreset.medium,
+                );
+
+                // Update the state
+                setState(() {
+                  _initializeControllerFuture = _controller.initialize();
+                });
+              },
+              shape: const CircleBorder(),
+              elevation: 0.0,
+              child: const Icon(Icons.cameraswitch_outlined),
             ),
           ),
         ],

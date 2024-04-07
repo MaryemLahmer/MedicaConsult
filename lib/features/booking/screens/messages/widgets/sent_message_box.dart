@@ -1,7 +1,9 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:medica_consult/features/booking/screens/messages/widgets/voice_message.dart';
+import 'package:medica_consult/features/booking/screens/view_media_asset/view_media_asset.dart';
 import 'package:medica_consult/utils/constants/colors.dart';
 import 'package:medica_consult/utils/constants/image_strings.dart';
 import 'package:medica_consult/utils/constants/sizes.dart';
@@ -61,7 +63,12 @@ class SentMessageBox extends StatelessWidget {
                             fileName: content.replaceFirst(directory!.path, ''),
                           )
                         : type == "image"
-                            ? Image.file(File(content))
+                            ? GestureDetector(
+                                onTap: () {
+                                  Get.to(() => ViewMediaAsset(
+                                      image: Image.file(File(content))));
+                                },
+                                child: Image.file(File(content)))
                             : type == "pdf"
                                 ? Row(
                                     mainAxisAlignment: MainAxisAlignment.center,

@@ -1,7 +1,9 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:medica_consult/data/data.dart';
+import 'package:medica_consult/features/booking/screens/conversation_info/conversation_info.dart';
 import 'package:medica_consult/features/booking/screens/messages/widgets/messages_text_field.dart';
 import 'package:medica_consult/features/booking/screens/messages/widgets/received_message_box.dart';
 import 'package:medica_consult/features/booking/screens/messages/widgets/sent_message_box.dart';
@@ -107,7 +109,9 @@ class _MessagesScreenState extends State<MessagesScreen> {
               Icons.info,
               color: MedicaColors.primary,
             ),
-            onPressed: () {},
+            onPressed: () {
+              Get.to(() => const ConversationInfoScreen());
+            },
           ),
         ],
       ),
