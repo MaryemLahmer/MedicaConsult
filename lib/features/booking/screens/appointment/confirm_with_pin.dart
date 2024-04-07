@@ -54,7 +54,6 @@ class ConfirmWithPin extends StatelessWidget {
                 ],
               ),
 
-              /// Next button
               /// Next Page Button
               const SizedBox(height: MedicaSizes.spaceBetweenSections,),
               SizedBox(
