@@ -50,6 +50,7 @@ flutter:
     - assets/icons/
     - assets/icons/categoryIcons/
     - assets/icons/payment_methods/
+    - assets/icons/language/
     - assets/images/
     - assets/images/payment/
     - assets/images/on_boarding_images/
