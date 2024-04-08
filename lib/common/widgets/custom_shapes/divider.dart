@@ -17,7 +17,7 @@ class MedicaDivider extends StatelessWidget {
       children: [
         Flexible(
             child: Divider(
-          color: dark ? MedicaColors.darkGrey : MedicaColors.grey,
+          color: dark ? MedicaColors.grey : MedicaColors.darkerGrey,
           thickness: 0.5,
           indent: 40,
           endIndent: 40,
