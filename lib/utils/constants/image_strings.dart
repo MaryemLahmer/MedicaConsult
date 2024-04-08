@@ -74,6 +74,11 @@ class MedicaImages {
   static const String virus = "assets/images/article/virus.png";
   static const String stethoscope = "assets/images/article/stethoscope.png";
 
+  // -- Language Images
+  static const String arabic = "assets/icons/language/arabic.png";
+  static const String french = "assets/icons/language/french.png";
+  static const String english = "assets/icons/language/english.png";
+
 
   //placeholder images
   static const String placeholder1 = "assets/images/Bored.png";
