@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:medica_consult/common/widgets/appbar/custom_appbar.dart';
 import 'package:medica_consult/utils/constants/sizes.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:medica_consult/data/data.dart';
@@ -63,24 +64,7 @@ class _SchedualPageState extends State<SchedualPage> {
     }
 
     return Scaffold(
-      appBar: AppBar(
-        title: const Padding(
-          padding: EdgeInsets.only(left: MedicaSizes.md),
-          child: Text(
-            'Articles',
-            style: TextStyle(fontSize: MedicaSizes.fontSizeLg),
-          ),
-        ),
-        actions: [
-          Padding(
-            padding: const EdgeInsets.only(right: MedicaSizes.md),
-            child: IconButton(
-              icon: const Icon(Iconsax.notification),
-              onPressed: () {},
-            ),
-          ),
-        ],
-      ),
+      appBar: MedicaAppBar(title: Text('Schedule',style: Theme.of(context).textTheme.headlineSmall,),showBackArrow: false,),
       body: Padding(
         padding: const EdgeInsets.only(
           left: MedicaSizes.lg,
