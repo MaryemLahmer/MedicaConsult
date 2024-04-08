@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:medica_consult/common/widgets/appbar/custom_appbar.dart';
 import 'package:medica_consult/utils/constants/sizes.dart';
 import 'package:medica_consult/data/data.dart';
 import 'package:medica_consult/features/booking/screens/communication/widgets/message_card.dart';
@@ -40,30 +41,12 @@ class _NotificationsPageState extends State<NotificationsPage> {
     }
 
     return Scaffold(
-      appBar: AppBar(
-        leading: Padding(
-          padding: const EdgeInsets.only(left: MedicaSizes.md),
-          child: IconButton(
-            icon: const Icon(Icons.arrow_back),
-            onPressed: () {
-              Navigator.of(context).pop();
-            },
-          ),
+      appBar: MedicaAppBar(
+        title: Text(
+          'Notifications',
+          style: Theme.of(context).textTheme.headlineSmall,
         ),
-        title: const Center(
-          child: Text('Notifications'),
-        ),
-        actions: [
-          Padding(
-            padding: const EdgeInsets.only(right: MedicaSizes.md),
-            child: IconButton(
-              icon: const Icon(Icons.more_vert),
-              onPressed: () {
-                // Implement your options action here
-              },
-            ),
-          ),
-        ],
+        showBackArrow: false,
       ),
       body: Padding(
         padding: const EdgeInsets.only(
