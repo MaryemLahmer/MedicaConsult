@@ -9,8 +9,12 @@ import 'package:medica_consult/features/personalization/screens/settings/widgets
 import 'package:medica_consult/utils/constants/colors.dart';
 
 import '../profile/widgets/user_profile_card.dart';
+import 'change_language.dart';
 import 'edit_profile.dart';
 import 'package:get/get.dart';
+
+import 'general_settings.dart';
+import 'help_center/help_center.dart';
 
 class SettingsScreen extends StatelessWidget {
   const SettingsScreen({super.key});
@@ -31,7 +35,7 @@ class SettingsScreen extends StatelessWidget {
                       'Account Settings',
                       style: Theme.of(context)
                           .textTheme
-                          .headlineMedium!
+                          .headlineSmall!
                           .apply(color: MedicaColors.white),
                     ),
                   ),
@@ -47,55 +51,71 @@ class SettingsScreen extends StatelessWidget {
               padding: const EdgeInsets.all(MedicaSizes.defaultSpace / 2),
               child: Column(
                 children: [
+                  /// Profile details
                   SettingsMenuTile(
                     icon: Iconsax.user,
                     title: 'Edit Profile Details',
                     onPressed: () => Get.to(() => const EditProfileDetails()),
                     trailingIcon: Iconsax.arrow_right_3,
                   ),
+
+                  /// Documents
                   SettingsMenuTile(
                     icon: Iconsax.document,
                     title: 'Reports & Prescriptions',
                     onPressed: () => Get.to(() => const ReportsAndPrescriptions()),
                     trailingIcon: Iconsax.arrow_right_3,
                   ),
+
+                  /// Payment
                   SettingsMenuTile(
                     icon: Iconsax.card,
                     title: 'Payment',
                     onPressed: () {},
                     trailingIcon: Iconsax.arrow_right_3,
                   ),
+
+                  /// security Settings
                   SettingsMenuTile(
                     icon: Iconsax.lock_1,
                     title: 'Security',
                     onPressed: () => Get.to(() => const SecurityScreen()),
                     trailingIcon: Iconsax.arrow_right_3,
                   ),
+
+                  /// Language settings
                   SettingsMenuTile(
                     icon: Iconsax.language_square,
                     title: 'Language',
-                    onPressed: () {},
+                    onPressed: () => Get.to(() => const ChangeLanguageScreen()),
                     trailingIcon: Iconsax.arrow_right_3,
                   ),
+
+                  /// Dark mode setting
                   SettingsMenuTile(
                     toggle: true,
                     icon: Iconsax.eye,
                     title: 'Dark Mode',
                     onPressed: () {},
-                    trailingIcon: Icons.toggle_on_rounded,
                   ),
+
+                  /// General settings
                   SettingsMenuTile(
                     icon: Iconsax.setting_2,
                     title: 'General Settings',
-                    onPressed: () {},
+                    onPressed: () => Get.to(() => const GeneralSettings()),
                     trailingIcon: Iconsax.arrow_right_3,
                   ),
+
+                  /// help Center
                   SettingsMenuTile(
                     icon: Iconsax.security_user,
                     title: 'Help Center',
-                    onPressed: () {},
+                    onPressed: () => Get.to(() => const HelpCenter()),
                     trailingIcon: Iconsax.arrow_right_3,
                   ),
+
+                  /// Log out option
                   ListTile(
                     leading: const Icon(
                       Iconsax.logout,
@@ -108,6 +128,8 @@ class SettingsScreen extends StatelessWidget {
                             .headlineSmall!
                             .apply(color: MedicaColors.error)),
                   ),
+
+                  /// Delete Account option
                   ListTile(
                     leading: const Icon(
                       Iconsax.profile_delete,
