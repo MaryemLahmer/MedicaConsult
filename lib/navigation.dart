@@ -52,7 +52,7 @@ class NavigationMenu extends StatelessWidget {
                       : Iconsax.calendar,
                   color: MedicaColors.primary,
                 ),
-                label: "schedual"),
+                label: "schedule"),
             NavigationDestination(
                 icon: Icon(
                   controller.selectedIndex.value == 3
