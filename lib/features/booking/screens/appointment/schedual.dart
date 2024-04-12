@@ -92,7 +92,7 @@ class _SchedualPageState extends State<SchedualPage> {
               borderRadius: BorderRadius.circular(10.0),
               child: Container(
                 height: 40.0,
-                color: const Color(0xFFE8F3F1),
+                color: MedicaColors.accent.withOpacity(0.3),
                 child: Row(
                   children: [
                     Expanded(

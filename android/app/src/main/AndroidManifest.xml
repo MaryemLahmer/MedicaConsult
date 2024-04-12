@@ -10,6 +10,8 @@
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher"
         android:enableOnBackInvokedCallback="true">
+        <meta-data android:name="com.google.android.geo.API_KEY"
+               android:value="AIzaSyCpMc1e9xNzCr2XKvE9MRSthe351huVANM"/>
         <uses-library
             android:name="io.flutter.plugins.camera"
             android:required="false" />

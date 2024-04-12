@@ -4,12 +4,10 @@ import 'dart:math';
 
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
-import 'package:medica_consult/features/booking/screens/messages/widgets/take_picture.dart';
+import 'package:medica_consult/features/booking/screens/take_picture/take_picture.dart';
 import 'package:medica_consult/features/booking/screens/messages/widgets/voice_message.dart';
 import 'package:medica_consult/utils/constants/colors.dart';
-import 'package:medica_consult/utils/constants/image_strings.dart';
 import 'package:medica_consult/utils/constants/sizes.dart';
 import 'package:medica_consult/utils/logging/logger.dart';
 import 'package:path_provider/path_provider.dart';
@@ -183,13 +181,13 @@ class _MyTextFieldState extends State<MyTextField> {
               child: Container(
                 height: 40,
                 decoration: BoxDecoration(
-                  color: Colors.red,
-                  borderRadius: BorderRadius.circular(8),
+                  color: MedicaColors.error,
+                  borderRadius: BorderRadius.circular(MedicaSizes.sm),
                 ),
                 child: const Center(
                   child: Text(
                     'Unsupported file format',
-                    style: TextStyle(color: Colors.white),
+                    style: TextStyle(color: MedicaColors.white),
                   ),
                 ),
               ),

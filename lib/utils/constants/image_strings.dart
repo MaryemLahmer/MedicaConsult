@@ -81,10 +81,16 @@ class MedicaImages {
   static const String placeholder3 = "assets/images/Task_management.png";
   static const String placeholder4 = "assets/images/No_data_found.png";
   static const String placeholder5 = "assets/images/finish.png";
+  static const String placeholder6 = "assets/images/contract1.png";
 
   //icons
   static const String reminder = "assets/images/Ellipse5.png";
   static const String canceled = "assets/images/Ellipse.png";
   static const String success = "assets/images/Ellipse3.png";
   static const String payment = "assets/images/Ellipse2.png";
+  static const String paymentSuccess = "assets/images/Done.png";
+
+  static const String medicine1 = "assets/images/medicine1.png";
+  static const String medicine2 = "assets/images/medicine2.png";
+  static const String medicine3 = "assets/images/medicine3.png";
 }

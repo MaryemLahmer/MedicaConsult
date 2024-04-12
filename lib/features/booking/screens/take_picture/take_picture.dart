@@ -3,7 +3,7 @@ import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:medica_consult/features/booking/screens/communication/widgets/loading_indicator.dart';
 import 'package:medica_consult/features/booking/screens/messages/widgets/flash_toggle_button.dart';
-import 'package:medica_consult/features/booking/screens/messages/widgets/show_picture.dart';
+import 'package:medica_consult/features/booking/screens/picture_preview/show_picture.dart';
 import 'package:medica_consult/utils/constants/colors.dart';
 import 'package:medica_consult/utils/constants/sizes.dart';
 

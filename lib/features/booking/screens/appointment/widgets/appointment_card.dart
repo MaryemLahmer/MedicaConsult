@@ -155,7 +155,7 @@ class AppointmentCard extends StatelessWidget {
                               style: ButtonStyle(
                                 backgroundColor:
                                     MaterialStateProperty.all<Color>(
-                                  const Color(0xFFE8F3F1),
+                                  MedicaColors.accent.withOpacity(0.3),
                                 ),
                                 foregroundColor:
                                     MaterialStateProperty.all<Color>(

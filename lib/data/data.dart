@@ -396,6 +396,189 @@ List<Map<String, dynamic>> appointmentData = [
   },
 ];
 
+List<Map<String, dynamic>> medicineData = [
+  {
+    'medicineImage': MedicaImages.medicine1,
+    'name': 'aspirine',
+    'quantity': 4,
+    'type': 'liquid',
+    'price': 20.99,
+    'rating': 4.8,
+    'description': "heeeeyel",
+    'onSale': true
+  },
+  {
+    'medicineImage': MedicaImages.medicine2,
+    'name': 'viagra',
+    'quantity': 4,
+    'type': 'tablet',
+    'price': 20.99,
+    'rating': 4.5,
+    'description': "heeeeyel",
+    'onSale': false
+  },
+  {
+    'medicineImage': MedicaImages.medicine3,
+    'name': 'panadol',
+    'quantity': 4,
+    'type': 'tablet',
+    'price': 20.99,
+    'rating': 4.8,
+    'description': "heeeeyel",
+    'onSale': false
+  },
+  {
+    'medicineImage': MedicaImages.medicine1,
+    'name': 'aspirine',
+    'quantity': 4,
+    'type': 'tablet',
+    'price': 20.99,
+    'rating': 4.8,
+    'description': "heeeeyel",
+    'onSale': false
+  },
+  {
+    'medicineImage': MedicaImages.medicine2,
+    'name': 'viagra',
+    'quantity': 4,
+    'type': 'tablet',
+    'price': 20.99,
+    'rating': 4.5,
+    'description': "heeeeyel",
+    'onSale': true
+  },
+  {
+    'medicineImage': MedicaImages.medicine3,
+    'name': 'panadol',
+    'quantity': 4,
+    'type': 'liquid',
+    'price': 20.99,
+    'rating': 4.8,
+    'description': "heeeeyel",
+    'onSale': false
+  },
+  {
+    'medicineImage': MedicaImages.medicine1,
+    'name': 'aspirine',
+    'quantity': 4,
+    'type': 'tablet',
+    'price': 20.99,
+    'rating': 4.8,
+    'description': "heeeeyel",
+    'onSale': false
+  },
+  {
+    'medicineImage': MedicaImages.medicine2,
+    'name': 'viagra',
+    'quantity': 4,
+    'type': 'tablet',
+    'price': 20.99,
+    'rating': 4.5,
+    'description': "heeeeyel",
+    'onSale': false
+  },
+  {
+    'medicineImage': MedicaImages.medicine3,
+    'name': 'panadol',
+    'quantity': 4,
+    'type': 'liquid',
+    'price': 20.99,
+    'rating': 4.8,
+    'description': "heeeeyel",
+    'onSale': true
+  },
+  {
+    'medicineImage': MedicaImages.medicine1,
+    'name': 'aspirine',
+    'quantity': 4,
+    'type': 'liquid',
+    'price': 20.99,
+    'rating': 4.8,
+    'description': "heeeeyel",
+    'onSale': false
+  },
+  {
+    'medicineImage': MedicaImages.medicine2,
+    'name': 'viagra',
+    'quantity': 4,
+    'type': 'tablet',
+    'price': 20.99,
+    'rating': 4.5,
+    'description': "heeeeyel",
+    'onSale': true
+  },
+  {
+    'medicineImage': MedicaImages.medicine3,
+    'name': 'panadol',
+    'quantity': 4,
+    'type': 'liquid',
+    'price': 20.99,
+    'rating': 4.8,
+    'description': "heeeeyel",
+    'onSale': false
+  },
+  {
+    'medicineImage': MedicaImages.medicine1,
+    'name': 'aspirine',
+    'quantity': 4,
+    'type': 'liquid',
+    'price': 20.99,
+    'rating': 4.8,
+    'description': "heeeeyel",
+    'onSale': true
+  },
+  {
+    'medicineImage': MedicaImages.medicine2,
+    'name': 'viagra',
+    'quantity': 4,
+    'type': 'liquid',
+    'price': 20.99,
+    'rating': 4.5,
+    'description': "heeeeyel",
+    'onSale': false
+  },
+  {
+    'medicineImage': MedicaImages.medicine3,
+    'name': 'panadol',
+    'quantity': 4,
+    'type': 'liquid',
+    'price': 20.99,
+    'rating': 4.8,
+    'description': "heeeeyel",
+    'onSale': false
+  },
+  {
+    'medicineImage': MedicaImages.medicine1,
+    'name': 'aspirine',
+    'quantity': 4,
+    'type': 'liquid',
+    'price': 20.99,
+    'rating': 4.8,
+    'description': "heeeeyel",
+    'onSale': false
+  },
+  {
+    'medicineImage': MedicaImages.medicine2,
+    'name': 'viagra',
+    'quantity': 4,
+    'type': 'liquid',
+    'price': 20.99,
+    'rating': 4.5,
+    'description': "heeeeyel",
+    'onSale': true
+  },
+  {
+    'medicineImage': MedicaImages.medicine3,
+    'name': 'panadol',
+    'quantity': 4,
+    'type': 'liquid',
+    'price': 20.99,
+    'rating': 4.8,
+    'description': "heeeeyel",
+    'onSale': true
+  },
+];
+
 List<Map<String, dynamic>> doctorData = [
   {
     'profileImage': MedicaImages.user1,
