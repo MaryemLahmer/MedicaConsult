@@ -1,17 +1,31 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:iconsax/iconsax.dart';
+import 'package:medica_consult/data/data.dart';
+import 'package:medica_consult/features/booking/screens/cart/widgets/address.dart';
+import 'package:medica_consult/features/booking/screens/cart/widgets/medicineHorizontalCard.dart';
+import 'package:medica_consult/features/booking/screens/cart/widgets/payment_details.dart';
+import 'package:medica_consult/features/booking/screens/cart/widgets/payment_method.dart';
 import 'package:medica_consult/features/booking/screens/maps/maps.dart';
-import 'package:medica_consult/features/booking/screens/medicine/widgets/quantity_controller_widget.dart';
+import 'package:medica_consult/features/booking/screens/medicine/medicine.dart';
 import 'package:medica_consult/utils/constants/colors.dart';
 import 'package:medica_consult/utils/constants/image_strings.dart';
 import 'package:medica_consult/utils/constants/sizes.dart';
 
 class CartScreen extends StatelessWidget {
-  const CartScreen({super.key});
+  const CartScreen({Key? key});
 
   @override
   Widget build(BuildContext context) {
+    // Calculate subtotal
+    double subtotal = 0;
+    cartData.forEach((data) {
+      subtotal += data['price'] * data['quantity'];
+    });
+
+    // Calculate total (subtotal + taxes)
+    double taxes = 2.98; // Example tax amount
+    double total = subtotal + taxes;
+
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
@@ -30,129 +44,51 @@ class CartScreen extends StatelessWidget {
               right: MedicaSizes.spaceBetweenItems),
           child: Column(
             children: [
-              const SizedBox(
+              SizedBox(
                 height: 230,
                 child: SingleChildScrollView(
                   child: Column(
-                    children: [
-                      MedicineHorizontalCard(),
-                      MedicineHorizontalCard(),
-                      MedicineHorizontalCard(),
-                    ],
+                    children: cartData.map(
+                      (data) {
+                        return MedicineHorizontalCard(
+                          medicineImage: data['medicineImage'],
+                          type: data['type'],
+                          name: data['name'],
+                          quantity: data['quantity'],
+                          rating: data['rating'],
+                          description: data['description'],
+                          price: data['price'],
+                          sale: data['sale'],
+                          onPressed: () => Get.to(
+                            () => MedicineScreen(
+                              medicineImage: data['medicineImage'],
+                              type: data['type'],
+                              name: data['name'],
+                              quantity: data['quantity'],
+                              rating: data['rating'],
+                              description: data['description'],
+                              price: data['price'],
+                              sale: data['sale'],
+                            ),
+                          ),
+                        );
+                      },
+                    ).toList(),
                   ),
                 ),
               ),
               const SizedBox(
                 height: MedicaSizes.spaceBetweenSections,
               ),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text("Payment Detail",
-                      style: Theme.of(context).textTheme.headlineSmall),
-                  const SizedBox(
-                    height: MedicaSizes.spaceBetweenItems,
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text("Subtotal",
-                          style: Theme.of(context).textTheme.bodySmall),
-                      Text("\$25.98",
-                          style: Theme.of(context).textTheme.bodySmall),
-                    ],
-                  ),
-                  const SizedBox(
-                    height: MedicaSizes.spaceBetweenItems / 2,
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text("Taxes",
-                          style: Theme.of(context).textTheme.bodySmall),
-                      Text("\$25.98",
-                          style: Theme.of(context).textTheme.bodySmall),
-                    ],
-                  ),
-                  const SizedBox(
-                    height: MedicaSizes.spaceBetweenItems / 2,
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text("Total",
-                          style: Theme.of(context).textTheme.bodyLarge),
-                      Text("\$25.98",
-                          style: Theme.of(context).textTheme.bodyLarge),
-                    ],
-                  ),
-                ],
-              ),
+              PaymentDetails(subtotal: subtotal, taxes: taxes, total: total),
               const SizedBox(
                 height: MedicaSizes.spaceBetweenSections,
               ),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text("Payment Method",
-                      style: Theme.of(context).textTheme.headlineSmall),
-                  const SizedBox(
-                    height: MedicaSizes.spaceBetweenItems,
-                  ),
-                  Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(MedicaSizes.sm),
-                      border: Border.all(color: MedicaColors.grey),
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.all(MedicaSizes.sm),
-                      child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            const Image(
-                              image: AssetImage(MedicaImages.visa),
-                            ),
-                            TextButton(
-                              onPressed: () {},
-                              child: const Text(
-                                "Change",
-                                style: TextStyle(color: MedicaColors.darkGrey),
-                              ),
-                            ),
-                          ]),
-                    ),
-                  ),
-                ],
-              ),
+              const PaymentMethod(),
               const SizedBox(
                 height: MedicaSizes.spaceBetweenSections,
               ),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text("Address",
-                      style: Theme.of(context).textTheme.headlineSmall),
-                  const SizedBox(
-                    height: MedicaSizes.spaceBetweenItems,
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        "123 Ariana",
-                        style: Theme.of(context).textTheme.titleSmall,
-                      ),
-                      TextButton(
-                        onPressed: () => Get.to(() => MapScreen()),
-                        child: const Text(
-                          "Change",
-                          style: TextStyle(color: MedicaColors.darkGrey),
-                        ),
-                      ),
-                    ],
-                  ),
-                ],
-              ),
+              const Address(),
               const SizedBox(
                 height: MedicaSizes.spaceBetweenItems,
               ),
@@ -237,70 +173,6 @@ class CartScreen extends StatelessWidget {
               ),
             ],
           ),
-        ),
-      ),
-    );
-  }
-}
-
-class MedicineHorizontalCard extends StatelessWidget {
-  const MedicineHorizontalCard({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding:
-          const EdgeInsets.only(top: MedicaSizes.xs, bottom: MedicaSizes.xs),
-      child: Container(
-        height: 100,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(MedicaSizes.sm),
-          border: Border.all(color: MedicaColors.grey),
-        ),
-        child: Padding(
-          padding: const EdgeInsets.all(MedicaSizes.sm),
-          child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                const Image(
-                  width: 80,
-                  image: AssetImage(MedicaImages.medicine1),
-                ),
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          "OBG Combi",
-                          style: Theme.of(context).textTheme.titleLarge,
-                        ),
-                        const Text("75ml"),
-                      ],
-                    ),
-                    const QuantityControllerWidget(),
-                  ],
-                ),
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  crossAxisAlignment: CrossAxisAlignment.end,
-                  children: [
-                    IconButton(
-                      onPressed: () {},
-                      icon: const Icon(Iconsax.trash),
-                    ),
-                    Text(
-                      "\$15.99",
-                      style: Theme.of(context).textTheme.titleLarge,
-                    ),
-                  ],
-                )
-              ]),
         ),
       ),
     );

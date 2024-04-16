@@ -87,7 +87,17 @@ class Pharmacy extends StatelessWidget {
                         rating: data['rating'],
                         description: data['description'],
                         price: data['price'],
-                        onPressed: () => Get.to(() => const MedicineScreen()),
+                        sale: data['sale'],
+                        onPressed: () => Get.to(() => MedicineScreen(
+                              medicineImage: data['medicineImage'],
+                              type: data['type'],
+                              name: data['name'],
+                              quantity: data['quantity'],
+                              rating: data['rating'],
+                              description: data['description'],
+                              price: data['price'],
+                              sale: data['sale'],
+                            )),
                         // onPressed: () {
                         //   MedicaLoggerHelper.info(
                         //       "Index: ${doctorData.indexOf(data)}");
@@ -120,7 +130,7 @@ class Pharmacy extends StatelessWidget {
                 itemBuilder: (_, index) {
                   return Row(
                     children: medicineData.take(6).map((data) {
-                      return data["onSale"]
+                      return data["sale"] != 0
                           ? MedicineCard(
                               medicineImage: data['medicineImage'],
                               type: data['type'],
@@ -129,8 +139,17 @@ class Pharmacy extends StatelessWidget {
                               rating: data['rating'],
                               description: data['description'],
                               price: data['price'],
-                              onPressed: () =>
-                                  Get.to(() => const MedicineScreen()),
+                              sale: data['sale'],
+                              onPressed: () => Get.to(() => MedicineScreen(
+                                    medicineImage: data['medicineImage'],
+                                    type: data['type'],
+                                    name: data['name'],
+                                    quantity: data['quantity'],
+                                    rating: data['rating'],
+                                    description: data['description'],
+                                    price: data['price'],
+                                    sale: data['sale'],
+                                  )),
                               // onPressed: () {
                               //   MedicaLoggerHelper.info(
                               //       "Index: ${doctorData.indexOf(data)}");

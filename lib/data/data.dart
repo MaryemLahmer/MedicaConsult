@@ -5,6 +5,39 @@ import '../utils/constants/image_strings.dart';
 List<int> ratings = [1, 2, 3, 4, 5];
 List<int> distances = [600, 1000];
 
+List<Map<String, dynamic>> cartData = [
+  {
+    'medicineImage': MedicaImages.medicine1,
+    'name': 'aspirine',
+    'quantity': 4,
+    'type': 'liquid',
+    'price': 20.99,
+    'rating': 4.8,
+    'description': "heeeeyel",
+    'sale': 0
+  },
+  {
+    'medicineImage': MedicaImages.medicine1,
+    'name': 'aspirine',
+    'quantity': 4,
+    'type': 'liquid',
+    'price': 20.99,
+    'rating': 4.8,
+    'description': "heeeeyel",
+    'sale': 20
+  },
+  {
+    'medicineImage': MedicaImages.medicine1,
+    'name': 'aspirine',
+    'quantity': 4,
+    'type': 'liquid',
+    'price': 20.99,
+    'rating': 4.8,
+    'description': "heeeeyel",
+    'sale': 20
+  },
+];
+
 List<Map<String, dynamic>> messagesArray = [
   {
     'sender': "Alice",
@@ -405,7 +438,7 @@ List<Map<String, dynamic>> medicineData = [
     'price': 20.99,
     'rating': 4.8,
     'description': "heeeeyel",
-    'onSale': true
+    'sale': 20
   },
   {
     'medicineImage': MedicaImages.medicine2,
@@ -415,7 +448,7 @@ List<Map<String, dynamic>> medicineData = [
     'price': 20.99,
     'rating': 4.5,
     'description': "heeeeyel",
-    'onSale': false
+    'sale': 0
   },
   {
     'medicineImage': MedicaImages.medicine3,
@@ -425,7 +458,7 @@ List<Map<String, dynamic>> medicineData = [
     'price': 20.99,
     'rating': 4.8,
     'description': "heeeeyel",
-    'onSale': false
+    'sale': 0
   },
   {
     'medicineImage': MedicaImages.medicine1,
@@ -435,7 +468,7 @@ List<Map<String, dynamic>> medicineData = [
     'price': 20.99,
     'rating': 4.8,
     'description': "heeeeyel",
-    'onSale': false
+    'sale': 40
   },
   {
     'medicineImage': MedicaImages.medicine2,
@@ -445,7 +478,7 @@ List<Map<String, dynamic>> medicineData = [
     'price': 20.99,
     'rating': 4.5,
     'description': "heeeeyel",
-    'onSale': true
+    'sale': 20
   },
   {
     'medicineImage': MedicaImages.medicine3,
@@ -455,7 +488,7 @@ List<Map<String, dynamic>> medicineData = [
     'price': 20.99,
     'rating': 4.8,
     'description': "heeeeyel",
-    'onSale': false
+    'sale': 20
   },
   {
     'medicineImage': MedicaImages.medicine1,
@@ -465,7 +498,7 @@ List<Map<String, dynamic>> medicineData = [
     'price': 20.99,
     'rating': 4.8,
     'description': "heeeeyel",
-    'onSale': false
+    'sale': 20
   },
   {
     'medicineImage': MedicaImages.medicine2,
@@ -475,7 +508,7 @@ List<Map<String, dynamic>> medicineData = [
     'price': 20.99,
     'rating': 4.5,
     'description': "heeeeyel",
-    'onSale': false
+    'sale': 20
   },
   {
     'medicineImage': MedicaImages.medicine3,
@@ -485,7 +518,7 @@ List<Map<String, dynamic>> medicineData = [
     'price': 20.99,
     'rating': 4.8,
     'description': "heeeeyel",
-    'onSale': true
+    'sale': 0
   },
   {
     'medicineImage': MedicaImages.medicine1,
@@ -495,7 +528,7 @@ List<Map<String, dynamic>> medicineData = [
     'price': 20.99,
     'rating': 4.8,
     'description': "heeeeyel",
-    'onSale': false
+    'sale': 0
   },
   {
     'medicineImage': MedicaImages.medicine2,
@@ -505,7 +538,7 @@ List<Map<String, dynamic>> medicineData = [
     'price': 20.99,
     'rating': 4.5,
     'description': "heeeeyel",
-    'onSale': true
+    'sale': 80
   },
   {
     'medicineImage': MedicaImages.medicine3,
@@ -515,7 +548,7 @@ List<Map<String, dynamic>> medicineData = [
     'price': 20.99,
     'rating': 4.8,
     'description': "heeeeyel",
-    'onSale': false
+    'sale': 10
   },
   {
     'medicineImage': MedicaImages.medicine1,
@@ -525,7 +558,7 @@ List<Map<String, dynamic>> medicineData = [
     'price': 20.99,
     'rating': 4.8,
     'description': "heeeeyel",
-    'onSale': true
+    'sale': 60
   },
   {
     'medicineImage': MedicaImages.medicine2,
@@ -535,7 +568,7 @@ List<Map<String, dynamic>> medicineData = [
     'price': 20.99,
     'rating': 4.5,
     'description': "heeeeyel",
-    'onSale': false
+    'sale': 20
   },
   {
     'medicineImage': MedicaImages.medicine3,
@@ -545,7 +578,7 @@ List<Map<String, dynamic>> medicineData = [
     'price': 20.99,
     'rating': 4.8,
     'description': "heeeeyel",
-    'onSale': false
+    'sale': 20
   },
   {
     'medicineImage': MedicaImages.medicine1,
@@ -555,7 +588,7 @@ List<Map<String, dynamic>> medicineData = [
     'price': 20.99,
     'rating': 4.8,
     'description': "heeeeyel",
-    'onSale': false
+    'sale': 20
   },
   {
     'medicineImage': MedicaImages.medicine2,
@@ -565,7 +598,7 @@ List<Map<String, dynamic>> medicineData = [
     'price': 20.99,
     'rating': 4.5,
     'description': "heeeeyel",
-    'onSale': true
+    'sale': 20
   },
   {
     'medicineImage': MedicaImages.medicine3,
@@ -575,7 +608,7 @@ List<Map<String, dynamic>> medicineData = [
     'price': 20.99,
     'rating': 4.8,
     'description': "heeeeyel",
-    'onSale': true
+    'sale': 20
   },
 ];
 

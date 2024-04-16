@@ -11,6 +11,7 @@ class MedicineCard extends StatelessWidget {
   final double price;
   final double rating;
   final String description;
+  final int sale;
   final VoidCallback onPressed;
 
   const MedicineCard({
@@ -22,15 +23,17 @@ class MedicineCard extends StatelessWidget {
     required this.price,
     required this.rating,
     required this.description,
+    this.sale = 0,
     required this.onPressed,
   });
 
   @override
   Widget build(BuildContext context) {
+    print(sale);
     return GestureDetector(
       onTap: onPressed,
       child: SizedBox(
-        height: 164.0,
+        height: 172.0,
         width: 134.0,
         child: Padding(
           padding: const EdgeInsets.only(
@@ -74,8 +77,24 @@ class MedicineCard extends StatelessWidget {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Text(
-                              "\$" + '${price}',
+                            Column(
+                              children: [
+                                Text(
+                                  "\$" + '${price}',
+                                  style: sale != 0
+                                      ? const TextStyle(
+                                          decoration:
+                                              TextDecoration.lineThrough,
+                                        )
+                                      : const TextStyle(),
+                                ),
+                                sale != 0
+                                    ? Text(
+                                        "\$" +
+                                            '${double.parse((price - price * sale * 0.01).toStringAsFixed(2))}',
+                                      )
+                                    : const SizedBox(),
+                              ],
                             ),
                             ClipRRect(
                               borderRadius: BorderRadius.circular(6.0),

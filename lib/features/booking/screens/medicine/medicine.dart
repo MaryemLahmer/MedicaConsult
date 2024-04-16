@@ -11,7 +11,26 @@ import 'package:medica_consult/utils/constants/image_strings.dart';
 import 'package:readmore/readmore.dart';
 
 class MedicineScreen extends StatelessWidget {
-  const MedicineScreen({super.key});
+  final String medicineImage;
+  final String name;
+  final String type;
+  final int quantity;
+  final double price;
+  final double rating;
+  final String description;
+  final int sale;
+
+  const MedicineScreen({
+    super.key,
+    required this.medicineImage,
+    required this.type,
+    required this.name,
+    required this.quantity,
+    required this.price,
+    required this.rating,
+    required this.description,
+    this.sale = 0,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -45,9 +64,9 @@ class MedicineScreen extends StatelessWidget {
               right: MedicaSizes.spaceBetweenItems),
           child: Column(
             children: [
-              const Image(
+              Image(
                 height: 300,
-                image: AssetImage(MedicaImages.medicine1),
+                image: AssetImage(medicineImage),
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -56,28 +75,31 @@ class MedicineScreen extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        "OBH Combi",
+                        name,
                         style: Theme.of(context).textTheme.headlineSmall,
                       ),
                       const SizedBox(
                         height: MedicaSizes.xs,
                       ),
                       Text(
-                        "75ml",
+                        type == 'liquid'
+                            ? '$quantity' + 'ml'
+                            : '$quantity' + 'pcs',
+                        overflow: TextOverflow.ellipsis,
                         style: Theme.of(context).textTheme.bodySmall,
                       ),
                       const SizedBox(
                         height: MedicaSizes.xs,
                       ),
-                      const Row(
+                      Row(
                         children: [
-                          MRatingBarIndicator(rating: 3.5),
-                          SizedBox(
+                          MRatingBarIndicator(rating: rating),
+                          const SizedBox(
                             width: MedicaSizes.sm,
                           ),
                           Text(
-                            "3.5",
-                            style: TextStyle(color: MedicaColors.primary),
+                            '$rating',
+                            style: const TextStyle(color: MedicaColors.primary),
                           )
                         ],
                       ),
@@ -97,9 +119,11 @@ class MedicineScreen extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  const QuantityControllerWidget(),
+                  QuantityControllerWidget(
+                    quantity: quantity,
+                  ),
                   Text(
-                    "\$9.99",
+                    "\$$price",
                     style: Theme.of(context).textTheme.headlineSmall,
                   ),
                 ],
@@ -107,26 +131,29 @@ class MedicineScreen extends StatelessWidget {
               const SizedBox(
                 height: MedicaSizes.spaceBetweenItems,
               ),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    "Description",
-                    style: Theme.of(context).textTheme.headlineSmall,
-                  ),
-                  const SizedBox(
-                    height: MedicaSizes.sm,
-                  ),
-                  ReadMoreText(
-                    'OBH COMBI  is a cough medicine containing, Paracetamol, Ephedrine HCl, and Chlorphenamine maleate which is used to relieve coughs accompanied by flu symptoms such as fever, headache, and sneezing. OBH COMBI  is a cough medicine containing, Paracetamol, Ephedrine HCl, and Chlorphenamine maleate which is used to relieve coughs accompanied by flu symptoms such as fever, headache, and sneezing.',
-                    trimMode: TrimMode.Line,
-                    trimLines: 5,
-                    colorClickableText: MedicaColors.primary,
-                    trimCollapsedText: 'Show more',
-                    trimExpandedText: 'Show less',
-                    style: Theme.of(context).textTheme.bodySmall,
-                  ),
-                ],
+              SizedBox(
+                width: double.infinity,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      "Description",
+                      style: Theme.of(context).textTheme.headlineSmall,
+                    ),
+                    const SizedBox(
+                      height: MedicaSizes.sm,
+                    ),
+                    ReadMoreText(
+                      description,
+                      trimMode: TrimMode.Line,
+                      trimLines: 5,
+                      colorClickableText: MedicaColors.primary,
+                      trimCollapsedText: 'Show more',
+                      trimExpandedText: 'Show less',
+                      style: Theme.of(context).textTheme.bodySmall,
+                    ),
+                  ],
+                ),
               ),
               const SizedBox(
                 height: MedicaSizes.spaceBetweenItems,
