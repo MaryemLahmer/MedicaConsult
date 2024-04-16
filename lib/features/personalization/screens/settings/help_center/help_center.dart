@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:medica_consult/common/widgets/appbar/custom_appbar.dart';
-import 'package:medica_consult/utils/constants/sizes.dart';
-
+import 'package:medica_consult/features/personalization/screens/test/test_screen.dart';
 import '../../../../../utils/constants/colors.dart';
 import '../../../../../utils/helpers/helper_function.dart';
 import 'FAQ_screen.dart';
@@ -49,7 +48,7 @@ class HelpCenter extends StatelessWidget {
                 child: TabBarView(
               children: [
                 FAQScreen(),
-                SizedBox(),
+                FilterTest(),
               ],
             ))
           ],
