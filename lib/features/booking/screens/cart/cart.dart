@@ -5,6 +5,7 @@ import 'package:medica_consult/features/booking/screens/cart/widgets/address.dar
 import 'package:medica_consult/features/booking/screens/cart/widgets/medicineHorizontalCard.dart';
 import 'package:medica_consult/features/booking/screens/cart/widgets/payment_details.dart';
 import 'package:medica_consult/features/booking/screens/cart/widgets/payment_method.dart';
+import 'package:medica_consult/features/booking/screens/cart/widgets/checkout_popup.dart';
 import 'package:medica_consult/features/booking/screens/maps/maps.dart';
 import 'package:medica_consult/features/booking/screens/medicine/medicine.dart';
 import 'package:medica_consult/utils/constants/colors.dart';
@@ -101,58 +102,8 @@ class CartScreen extends StatelessWidget {
                     showDialog(
                       context: context,
                       builder: (BuildContext context) {
-                        return Center(
-                          child: AlertDialog(
-                            backgroundColor: MedicaColors.white,
-                            surfaceTintColor: Colors.transparent,
-                            title: const Column(
-                              children: [
-                                Image(
-                                  width: 100,
-                                  image:
-                                      AssetImage(MedicaImages.paymentSuccess),
-                                ),
-                                SizedBox(
-                                  height: MedicaSizes.spaceBetweenItems,
-                                ),
-                                Text('Payment Success'),
-                              ],
-                            ),
-                            content: Text(
-                              'Your payment has been successful, you can have a consultation session with your trusted doctor',
-                              textAlign: TextAlign.center,
-                            ),
-                            actions: [
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  TextButton(
-                                    style: ButtonStyle(
-                                      backgroundColor:
-                                          MaterialStateProperty.all<Color>(
-                                              MedicaColors.primary),
-                                      foregroundColor:
-                                          MaterialStateProperty.all<Color>(
-                                              MedicaColors.white),
-                                      shape: MaterialStateProperty.all<
-                                          RoundedRectangleBorder>(
-                                        RoundedRectangleBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(30.0),
-                                        ),
-                                      ),
-                                    ),
-                                    onPressed: () {
-                                      Navigator.of(context).pop();
-                                    },
-                                    child: Text(
-                                      'Back to home',
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ],
-                          ),
+                        return const Center(
+                          child: CheckoutPopup(),
                         );
                       },
                     );
