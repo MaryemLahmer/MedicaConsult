@@ -57,8 +57,10 @@ class MedicaImages {
   static const String userTegher = "assets/images/user/userTegher.webp";
 
   // -- Doctor Images
-  static const String doctorFemale1 = "assets/images/doctors/doctorFemale1.avif";
-  static const String doctorFemale2 = "assets/images/doctors/doctorFemale2.webp";
+  static const String doctorFemale1 =
+      "assets/images/doctors/doctorFemale1.avif";
+  static const String doctorFemale2 =
+      "assets/images/doctors/doctorFemale2.webp";
   static const String doctorFemale3 = "assets/images/doctors/doctorFemale3.jpg";
   static const String doctorMale1 = "assets/images/doctors/doctorMale1.webp";
   static const String doctorMale2 = "assets/images/doctors/doctorMale2.avif";
@@ -73,16 +75,22 @@ class MedicaImages {
   static const String virus = "assets/images/article/virus.png";
   static const String stethoscope = "assets/images/article/stethoscope.png";
 
-
   //placeholder images
   static const String placeholder1 = "assets/images/Bored.png";
   static const String placeholder2 = "assets/images/Time_management.png";
   static const String placeholder3 = "assets/images/Task_management.png";
   static const String placeholder4 = "assets/images/No_data_found.png";
+  static const String placeholder5 = "assets/images/finish.png";
+  static const String placeholder6 = "assets/images/contract1.png";
 
   //icons
   static const String reminder = "assets/images/Ellipse5.png";
   static const String canceled = "assets/images/Ellipse.png";
   static const String success = "assets/images/Ellipse3.png";
   static const String payment = "assets/images/Ellipse2.png";
+  static const String paymentSuccess = "assets/images/Done.png";
+
+  static const String medicine1 = "assets/images/medicine1.png";
+  static const String medicine2 = "assets/images/medicine2.png";
+  static const String medicine3 = "assets/images/medicine3.png";
 }

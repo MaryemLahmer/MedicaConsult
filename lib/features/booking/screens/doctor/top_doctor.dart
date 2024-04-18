@@ -6,15 +6,16 @@ import '../../../../common/widgets/appbar/custom_appbar.dart';
 import 'package:get/get.dart';
 
 import 'doctor_profile.dart';
+
 class TopDoctorPage extends StatelessWidget {
   const TopDoctorPage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: MedicaAppBar(title: Text('Top Doctor',style: Theme.of(context)
-          .textTheme
-          .headlineMedium)),
+      appBar: MedicaAppBar(
+          title: Text('Top Doctor',
+              style: Theme.of(context).textTheme.headlineMedium)),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.only(
@@ -31,7 +32,7 @@ class TopDoctorPage extends StatelessWidget {
                 speciality: data['speciality'],
                 rating: data['rating'],
                 distance: data['distance'],
-                onPressed: ()=> Get.to(()=> const DoctorProfile()),
+                onPressed: () => Get.to(() => const DoctorProfile()),
               );
             }).toList(),
           ),

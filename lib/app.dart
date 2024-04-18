@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:medica_consult/features/authentication/screens/onboarding_screens/onboarding.dart';
+import 'features/booking/screens/payment/widgets/payment_method_picker.dart';
+import 'navigation.dart';
 import 'utils/theme/theme.dart';
 
 //--Use this Class to setup themes, initial Bindings, any animations and much more
