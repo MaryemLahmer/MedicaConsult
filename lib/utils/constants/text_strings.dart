@@ -65,7 +65,7 @@ class MedicaTexts {
       "Your Account Security is Our Priority! We've Sent You a Secure Link to Safely Change your Password and Keep Your Account Protected ";
   static const String confirmEmail = "Verify your E-mail Address";
   static const String confirmEmailSubtitle =
-      "Congratulations! Your account awaits: Verify your E-mail to Start Shopping and Experience a World of Unrivaled Deals and Personalised Offers";
+      "Congratulations! Your account awaits: Verify your E-mail to Start Using Our App and Enjoying Our Different Features !";
   static const String emailNotReceivedMessage =
       "Didn't get the E-mail ? Check your Spam or resend it";
   static const String yourAccountCreatedTitle =

@@ -6,7 +6,9 @@ import 'package:medica_consult/utils/constants/sizes.dart';
 import 'package:get/get.dart';
 
 import 'add_new_card.dart';
+
 class PaymentMethodPicker extends StatelessWidget {
+  
   const PaymentMethodPicker({super.key});
 
   @override
@@ -34,23 +36,28 @@ class PaymentMethodPicker extends StatelessWidget {
               ),
 
               /// Payment selector
-              const SizedBox(height: MedicaSizes.spaceBetweenItems,),
+              const SizedBox(height: MedicaSizes.spaceBetweenItems),
               const MedicaRadioListTile(),
+
               /// add card
-              const SizedBox(height: MedicaSizes.spaceBetweenItems,),
+              const SizedBox(
+                height: MedicaSizes.spaceBetweenItems,
+              ),
               SizedBox(
                 width: 200,
                 child: ElevatedButton(
-                  onPressed: () => Get.to (() => const AddNewCard()),
+                  onPressed: () => Get.to(() => const AddNewCard()),
                   child: Text(
-                      'Add New Card',
-                      style: Theme.of(context).textTheme.bodyLarge,
-                    ),
+                    'Add New Card',
+                    style: Theme.of(context).textTheme.bodyLarge,
+                  ),
                 ),
               ),
 
               /// Next Screen Button
-              const SizedBox(height: MedicaSizes.spaceBetweenSections*7.3,),
+              const SizedBox(
+                height: MedicaSizes.spaceBetweenSections * 7.3,
+              ),
               SizedBox(
                 width: 250,
                 child: ElevatedButton(
@@ -61,7 +68,7 @@ class PaymentMethodPicker extends StatelessWidget {
                       'Next',
                       style: Theme.of(context).textTheme.bodyLarge,
                     ),
-                    onPressed: () => Get.to(()=> const PaymentMethodPicker())),
+                    onPressed: () => Get.to(() => const PaymentMethodPicker())),
               ),
             ],
           ),

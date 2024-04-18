@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:medica_consult/utils/constants/colors.dart';
+import 'package:medica_consult/utils/helpers/helper_function.dart';
 
 class ForgetBtnWidget extends StatelessWidget {
   const ForgetBtnWidget({
@@ -15,13 +17,14 @@ class ForgetBtnWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final dark = MedicaHelperFunctions.isDarkMode(context);
     return GestureDetector(
       onTap: onTap,
       child: Container(
         padding: const EdgeInsets.all(20.0),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10.0),
-          color: const Color.fromARGB(255, 46, 40, 40),
+          color: dark ? Color.fromARGB(255, 26, 24, 24) : MedicaColors.white,
         ),
         child: Row(
           children: [

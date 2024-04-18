@@ -42,6 +42,7 @@ class OptionScreen extends StatelessWidget {
                   right: MedicaSizes.md,
                 ),
                 child: Text(
+                  textAlign: TextAlign.center,
                   MedicaTexts.optionSubtitle,
                   style: Theme.of(context).textTheme.bodyLarge,
                 ),

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:medica_consult/features/booking/screens/appointment/widgets/cancel_appointment/dialog_cancel.dart';
 import 'package:medica_consult/utils/constants/sizes.dart';
 import 'package:medica_consult/utils/constants/colors.dart';
 import 'package:medica_consult/utils/formatters/formatter.dart';
@@ -142,7 +144,9 @@ class AppointmentCard extends StatelessWidget {
                         children: [
                           Expanded(
                             child: TextButton(
-                              onPressed: () {},
+                              onPressed: () {
+                                showDialog(context: context, builder: ((context) => const CancelDialog()));
+                              },
                               style: ButtonStyle(
                                 backgroundColor:
                                     MaterialStateProperty.all<Color>(

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:medica_consult/common/styles/spacing_styles.dart';
-import 'package:medica_consult/features/authentication/screens/login/login.dart';
 import 'package:medica_consult/features/authentication/screens/password_config/reset_passwort.dart';
 import 'package:medica_consult/utils/constants/image_strings.dart';
 import 'package:medica_consult/utils/constants/text_strings.dart';

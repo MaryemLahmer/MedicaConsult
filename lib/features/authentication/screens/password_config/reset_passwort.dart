@@ -60,7 +60,7 @@ class ResetScreen extends StatelessWidget {
                   width: double.infinity,
                   child: ElevatedButton(
                       onPressed: () => Get.to(() => const LoginScreen()),
-                      child: const Text(MedicaTexts.signIn)),
+                      child: const Text('Confirm')),
                 ),
               ],
             ),

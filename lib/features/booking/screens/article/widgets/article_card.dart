@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:medica_consult/features/booking/screens/article/widgets/article_interf.dart';
 import 'package:medica_consult/utils/constants/image_strings.dart';
 import 'package:medica_consult/utils/constants/sizes.dart';
 import 'package:medica_consult/utils/constants/colors.dart';
@@ -23,7 +24,13 @@ class ArticleCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: onPressed,
+      onTap: () {
+        // Navigate to the Screenshot page
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => const ArticleScree()),
+        );
+      },
       child: Column(
         children: [
           Container(
@@ -51,13 +58,13 @@ class ArticleCard extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      SizedBox(width: 150,
+                      SizedBox(
+                        width: 150,
                         height: 150,
                         child: Center(
                           child: Text(
                             title,
                             style: Theme.of(context).textTheme.bodyLarge,
-
                           ),
                         ),
                       ),
@@ -91,7 +98,8 @@ class ArticleCard extends StatelessWidget {
                       ),
                     ],
                   ),
-                  SizedBox(width: 5,
+                  SizedBox(
+                    width: 5,
                     child: IconButton(
                         icon: const Icon(
                           Icons.bookmark,
@@ -101,12 +109,13 @@ class ArticleCard extends StatelessWidget {
                           MedicaLoggerHelper.info("saved");
                         }),
                   ),
-
                 ],
               ),
             ),
           ),
-          const SizedBox(height: MedicaSizes.spaceBetweenItems,),
+          const SizedBox(
+            height: MedicaSizes.spaceBetweenItems,
+          ),
         ],
       ),
     );
