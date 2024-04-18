@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
+import 'package:medica_consult/features/booking/screens/pharmacy/pharmacy.dart';
 import 'package:medica_consult/features/personalization/screens/settings/settings.dart';
 import 'features/booking/screens/Home/home.dart';
 import 'features/booking/screens/notification/notifications.dart';
@@ -84,7 +85,7 @@ class NavigationController extends GetxController {
     const Home(title: "home"),
     const NotificationsPage(),
     const SchedualPage(),
-    Container(color: Colors.yellow),
+    const Pharmacy(title: "pharmacy"),
     const SettingsScreen(),
   ];
 }

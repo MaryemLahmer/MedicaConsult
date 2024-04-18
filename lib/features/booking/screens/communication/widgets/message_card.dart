@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:medica_consult/features/booking/screens/messages/messages.dart';
 import 'package:medica_consult/utils/constants/sizes.dart';
 import 'package:medica_consult/utils/formatters/formatter.dart';
 
@@ -19,7 +21,7 @@ class MessageCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {},
+      onTap: () => Get.to(() => const MessagesScreen()),
       child: SizedBox(
         width: double.infinity,
         child: Padding(

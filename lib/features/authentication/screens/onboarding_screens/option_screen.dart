@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:medica_consult/features/authentication/screens/signup/signup_first.dart';
 import 'package:medica_consult/utils/constants/sizes.dart';
 import 'package:medica_consult/common/styles/spacing_styles.dart';
 import 'package:medica_consult/utils/constants/text_strings.dart';
@@ -41,6 +42,7 @@ class OptionScreen extends StatelessWidget {
                   right: MedicaSizes.md,
                 ),
                 child: Text(
+                  textAlign: TextAlign.center,
                   MedicaTexts.optionSubtitle,
                   style: Theme.of(context).textTheme.bodyLarge,
                 ),
@@ -62,7 +64,7 @@ class OptionScreen extends StatelessWidget {
               SizedBox(
                   width: double.infinity,
                   child: OutlinedButton(
-                    onPressed: () => Get.off(() => const SignupScreen()),
+                    onPressed: () => Get.off(() => const SignFirst()),
                     child: const Text(MedicaTexts.createAccount),
                   )),
             ],

@@ -43,12 +43,13 @@ class DoctorReviewsScreen extends StatelessWidget {
               ),
               UserReviewCard(
                 name: 'Monsieur Moncef',
-                image: MedicaImages.oldUser,
+                image: MedicaImages.user2,
                 date: '28-03-2024',
                 rating: 3,
                 feedbackText:
-                'This dude stole my wife. I’m gonna kill him and then her.',
-              ),            ],
+                    'This dude stole my wife. I’m gonna kill him and then her.',
+              ),
+            ],
           ),
         ),
       ),

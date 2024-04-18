@@ -15,7 +15,7 @@ class Rating extends StatelessWidget {
       child: ClipRRect(
         borderRadius: BorderRadius.circular(2.0),
         child: Container(
-          color: const Color(0xFFE8F3F1),
+          color: MedicaColors.accent.withOpacity(0.3),
           padding: const EdgeInsets.all(2.0),
           child: Row(
             children: [

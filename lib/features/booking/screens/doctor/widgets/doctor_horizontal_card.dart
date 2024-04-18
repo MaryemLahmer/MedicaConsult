@@ -10,7 +10,6 @@ class DoctorHorziontalCard extends StatelessWidget {
   final double rating;
   final double distance;
   final VoidCallback onPressed;
-
   const DoctorHorziontalCard({
     super.key,
     required this.profileImage,
@@ -27,7 +26,7 @@ class DoctorHorziontalCard extends StatelessWidget {
       onTap: onPressed,
       child: SizedBox(
         width: double.infinity,
-        height: 150.0,
+        height: 110.0,
         child: Padding(
           padding: const EdgeInsets.only(
               top: MedicaSizes.xs, bottom: MedicaSizes.xs),
@@ -38,7 +37,7 @@ class DoctorHorziontalCard extends StatelessWidget {
                 borderRadius: BorderRadius.circular(10.0),
                 border: Border.all(
                   color: MedicaColors.accent,
-                  width: 1.5,
+                  width: 1.0,
                 ),
               ),
               child: Padding(
@@ -50,81 +49,64 @@ class DoctorHorziontalCard extends StatelessWidget {
                     ClipRRect(
                       borderRadius: BorderRadius.circular(10.0),
                       child: Image(
-                        width: MedicaSizes.imageThumbSize * 1.4,
-                        height: MedicaSizes.imageThumbSize * 1.5,
+                        width: MedicaSizes.imageThumbSize,
+                        height: MedicaSizes.imageThumbSize,
                         image: AssetImage(profileImage),
                         fit: BoxFit.cover,
                       ),
                     ),
                     const SizedBox(
-                      width: MedicaSizes.md,
+                      width: MedicaSizes.xs,
                     ),
                     Expanded(
-                      flex: 5,
-                      child: Center(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
-                          children: [
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  name,
-                                  overflow: TextOverflow.ellipsis,
-                                  style:
-                                      Theme.of(context).textTheme.headlineSmall,
+                      flex: 7,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                name,
+                                overflow: TextOverflow.ellipsis,
+                                style: const TextStyle(fontSize: 14.0),
+                              ),
+                              Text(
+                                speciality,
+                                overflow: TextOverflow.ellipsis,
+                                style: const TextStyle(
+                                  fontSize: 10.0,
+                                  color: MedicaColors.textSecondary,
                                 ),
-                                Text(
-                                  speciality,
-                                  overflow: TextOverflow.ellipsis,
-                                  style: Theme.of(context).textTheme.bodyMedium,
-                                ),
-                              ],
-                            ),
-                            Center(
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
+                              ),
+                            ],
+                          ),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Rating(
+                                rating: rating,
+                              ),
+                              Row(
                                 children: [
-                                  Rating(
-                                    rating: rating,
+                                  const Icon(
+                                    Icons.location_on,
+                                    color: MedicaColors.textSecondary,
+                                    size: 10.0,
                                   ),
-                                  const SizedBox(
-                                    height: MedicaSizes.md / 1.5,
-                                  ),
-                                  Row(
-                                    children: [
-                                      const Icon(
-                                        Icons.location_on,
-                                        color: MedicaColors.accent,
-                                        size: 10.0,
-                                      ),
-                                      Text(
-                                        '${distance}m away',
-                                        style: const TextStyle(
-                                          color: MedicaColors.textSecondary,
-                                          fontSize: 8.0,
-                                        ),
-                                      ),
-                                    ],
+                                  Text(
+                                    '${distance}m away',
+                                    style: const TextStyle(
+                                      color: MedicaColors.textSecondary,
+                                      fontSize: 8.0,
+                                    ),
                                   ),
                                 ],
                               ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                    SizedBox(
-                      width: 50,
-                      child: Center(
-                        child: Text(
-                          'Consult',
-                          style: Theme.of(context)
-                              .textTheme
-                              .labelSmall!
-                              .apply(color: MedicaColors.accent),
-                        ),
+                            ],
+                          ),
+                        ],
                       ),
                     ),
                   ],
