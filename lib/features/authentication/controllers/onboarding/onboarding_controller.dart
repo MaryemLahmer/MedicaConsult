@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 import 'package:medica_consult/features/authentication/screens/onboarding_screens/option_screen.dart';
 
 class OnBoardingController extends GetxController {
@@ -21,12 +23,12 @@ class OnBoardingController extends GetxController {
   /// Update current index & jump next page
   void nextPage(){
     if (currentPageIndex.value==2){
-      ///final storage = GetStorage();
-      ///if(kDebugMode){
-        ///print("============ Get Storage next Button ============");
-        ///print(storage.read('IsFirstTime'));
-     /// }
-      ///storage.write('IsFirstTime', false);
+      final storage = GetStorage();
+      if(kDebugMode){
+        print("============ Get Storage next Button ============");
+        print(storage.read('isFirstTime'));
+      }
+      storage.write('isFirstTime', false);
       Get.offAll(const OptionScreen());
     }else{
       int page = currentPageIndex.value + 1;
