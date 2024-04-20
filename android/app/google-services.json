@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "38454959677",
+    "project_id": "medicaconsult-28",
+    "storage_bucket": "medicaconsult-28.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:38454959677:android:667d0b5f14cd3ef1d45454",
+        "android_client_info": {
+          "package_name": "com.medica.medica_consult"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "38454959677-f188761ogdc88k3v1sdab6m4j5bl0p3s.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.medica.medica_consult",
+            "certificate_hash": "c81d5a115eaa0998fca7597e358635c638f29865"
+          }
+        },
+        {
+          "client_id": "38454959677-99mq5p6cm7halukt53sleai3hdc5fcc4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD3Xdzil1mkhF1pcffWKDrUwyESfsEI6qg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "38454959677-99mq5p6cm7halukt53sleai3hdc5fcc4.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "38454959677-r2hfm659l5ffk23rht60k1u79h0husmt.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.medica.loginSignup"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

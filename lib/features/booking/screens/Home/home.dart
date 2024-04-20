@@ -10,7 +10,6 @@ import 'package:iconsax/iconsax.dart';
 import 'package:medica_consult/data/data.dart';
 import 'package:medica_consult/features/booking/screens/article/widgets/article_card.dart';
 import 'package:medica_consult/utils/constants/image_strings.dart';
-import 'package:medica_consult/utils/logging/logger.dart';
 import 'package:get/get.dart';
 import '../../../../common/widgets/appbar/App_Bar_Profile_Card.dart';
 import '../../../../common/widgets/custom_shapes/containers/header_container.dart';
