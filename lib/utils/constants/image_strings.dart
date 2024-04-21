@@ -81,6 +81,7 @@ class MedicaImages {
 
 
   //placeholder images
+  static const String onLoadingAnimation = "assets/images/animations/onLoading.gif";
   static const String placeholder1 = "assets/images/Bored.png";
   static const String placeholder2 = "assets/images/Time_management.png";
   static const String placeholder3 = "assets/images/Task_management.png";
