@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
+import 'package:medica_consult/features/authentication/controllers/signup/signup_controller.dart';
 import 'package:medica_consult/features/authentication/screens/signup/terms_conditions.dart';
-import 'package:medica_consult/features/authentication/screens/signup/verify_mail.dart';
 import 'package:medica_consult/utils/constants/sizes.dart';
+import 'package:medica_consult/utils/validators/validation.dart';
 import '../../../../utils/constants/text_strings.dart';
 
 class SignUpForm extends StatelessWidget {
@@ -13,13 +14,18 @@ class SignUpForm extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final controller = Get.put(SignUpController());
     return Form(
+      key: controller.signupFormKey,
       child: Column(
         children: [
           Row(
             children: [
               Expanded(
                 child: TextFormField(
+                  controller: controller.firstName,
+                  validator: (value) =>
+                      MedicaValidator.validateEmptyText('First name', value),
                   expands: false,
                   decoration: const InputDecoration(
                       labelText: MedicaTexts.firstName,
@@ -31,6 +37,9 @@ class SignUpForm extends StatelessWidget {
               ),
               Expanded(
                 child: TextFormField(
+                  controller: controller.lastName,
+                  validator: (value) =>
+                      MedicaValidator.validateEmptyText('Last name', value),
                   expands: false,
                   decoration: const InputDecoration(
                       labelText: MedicaTexts.lastName,
@@ -43,8 +52,11 @@ class SignUpForm extends StatelessWidget {
             height: MedicaSizes.spaceBtwInputFields,
           ),
 
-          ///Username
+          /// Username
           TextFormField(
+            controller: controller.userName,
+            validator: (value) =>
+                MedicaValidator.validateEmptyText('Username', value),
             expands: false,
             decoration: const InputDecoration(
                 labelText: MedicaTexts.username,
@@ -54,8 +66,10 @@ class SignUpForm extends StatelessWidget {
             height: MedicaSizes.spaceBtwInputFields,
           ),
 
-          ///Email
+          /// Email
           TextFormField(
+            controller: controller.email,
+            validator: (value) => MedicaValidator.validateEmail(value),
             decoration: const InputDecoration(
                 labelText: MedicaTexts.email, prefixIcon: Icon(Iconsax.direct)),
           ),
@@ -63,8 +77,10 @@ class SignUpForm extends StatelessWidget {
             height: MedicaSizes.spaceBtwInputFields,
           ),
 
-          ///PhoneNumber
+          /// PhoneNumber
           TextFormField(
+            controller: controller.phoneNumber,
+            validator: (value) => MedicaValidator.validatePhoneNumber(value),
             decoration: const InputDecoration(
                 labelText: MedicaTexts.phoneNo, prefixIcon: Icon(Iconsax.call)),
           ),
@@ -72,27 +88,37 @@ class SignUpForm extends StatelessWidget {
             height: MedicaSizes.spaceBtwInputFields,
           ),
 
-          ///Password
-          TextFormField(
-            obscureText: true,
-            decoration: const InputDecoration(
-              labelText: MedicaTexts.password,
-              prefixIcon: Icon(Iconsax.password_check),
-              suffixIcon: Icon(Iconsax.eye_slash),
+          /// Password
+          Obx(
+            () => TextFormField(
+              controller: controller.password,
+              validator: (value) => MedicaValidator.validatePassword(value),
+              obscureText: controller.hidePassword.value,
+              decoration: InputDecoration(
+                labelText: MedicaTexts.password,
+                prefixIcon: const Icon(Iconsax.password_check),
+                suffixIcon: IconButton(
+                    onPressed: () => controller.hidePassword.value =
+                        !controller.hidePassword.value,
+                    icon: Icon(controller.hidePassword.value
+                        ? Iconsax.eye_slash
+                        : Iconsax.eye)),
+              ),
             ),
           ),
           const SizedBox(
             height: MedicaSizes.spaceBetweenSections,
           ),
-          ////Terms and conditions
+
+          /// Terms and conditions
           const MedicaTermCondCheckBox(),
           const SizedBox(height: MedicaSizes.spaceBetweenSections),
 
-          ///Signup button
+          /// Signup button
           SizedBox(
             width: double.infinity,
             child: ElevatedButton(
-                onPressed: () => Get.offAll(() => const VerifyMailScreen()),
+                onPressed: () => controller.signup(),
                 child: const Text(MedicaTexts.createAccount)),
           ),
         ],
