@@ -24,7 +24,7 @@ class SignFirst extends StatelessWidget {
               /// app logo + app name + title + subtitle
               const AppLogoAndTitle(),
               const SizedBox(
-                height: MedicaSizes.spaceBetweenSections * 2,
+                height: MedicaSizes.spaceBetweenSections ,
               ),
               Text(
                 MedicaTexts.optionTitle1,
