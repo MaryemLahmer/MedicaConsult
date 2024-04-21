@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:medica_consult/data/repositories/authentication/authentication_repo.dart';
+import 'package:medica_consult/data/repositories/user/user_repository.dart';
+import 'package:medica_consult/features/authentication/screens/signup/verify_mail.dart';
 import 'package:medica_consult/utils/constants/image_strings.dart';
 import 'package:medica_consult/utils/helpers/loaders.dart';
 import 'package:medica_consult/utils/popups/full_screen_loader.dart';
@@ -55,23 +57,29 @@ class SignUpController extends GetxController {
       final newUser = UserModel(
           id: userCredential.user!.uid,
           firstName: firstName.text.trim(),
-          lastName: lastName.text.trim,
-          username: userName.text.trim(),
+          lastName: lastName.text.trim(),
+          userName: userName.text.trim(),
           email: email.text.trim(),
           phoneNumber: phoneNumber.text.trim(),
           profilePicture: '');
 
-
+      final userRepository = Get.put(UserRepository());
+      await userRepository.saveUserRecord(newUser);
 
       // Show Success Message
+      Loaders.successSnackBar(
+          title: 'Congratulations',
+          message: 'Your account has been created! Verify Email to continue.');
 
       // Move to Verify Email Screen
+      Get.to(() => const VerifyMailScreen());
+
     } catch (e) {
-      // Show some generic error to the user
-      Loaders.errorSnackBar(title: 'Oh Snap!', message: e.toString());
-    } finally {
       // Remove loader
       FullScreenLoader.stopLoading();
+
+      // Show some generic error to the user
+      Loaders.errorSnackBar(title: 'Oh Snap!', message: e.toString());
     }
   }
 }
