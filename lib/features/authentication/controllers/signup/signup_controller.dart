@@ -31,11 +31,11 @@ class SignUpController extends GetxController {
           'Hold While We Process Your Information',
           MedicaImages.onLoadingAnimation);
 
-      // // Check Internet Connectivity
-      // final isConnected = await NetworkManager.instance.isConnected();
-      // if (!isConnected) {
-      //   return;
-      // }
+      // Check Internet Connectivity
+      final isConnected = await NetworkManager.instance.isConnected();
+      if (!isConnected) {
+        return;
+      }
 
       // Form Validation
       if (!signupFormKey.currentState!.validate()) {
