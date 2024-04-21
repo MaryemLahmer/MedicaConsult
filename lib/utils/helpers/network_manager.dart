@@ -17,11 +17,11 @@ class NetworkManager extends GetxController {
   void onInit() {
     super.onInit();
     _connectivitySubscription =
-        _connectivity.onConnectivityChanged.listen(_updateConnectionStatus) as StreamSubscription<ConnectivityResult>;
+        _connectivity.onConnectivityChanged.listen(_updateConnectionStatus);
   }
 
   /// Update the connection status based on changes in connectivity and show a relevant popup for no internet connection
-  void _updateConnectionStatus(List<ConnectivityResult> result)  {
+  void _updateConnectionStatus(result)  {
     _connectionStatus.value = result[0];
     if (_connectionStatus.value == ConnectivityResult.none) {
       Loaders.warningSnackBar(title: 'No Internet Connection');
