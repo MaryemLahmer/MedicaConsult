@@ -3,6 +3,8 @@ import '../../../../utils/constants/colors.dart';
 import '../../../../utils/constants/sizes.dart';
 import '../../../../utils/constants/text_strings.dart';
 import '../../../../utils/helpers/helper_function.dart';
+import 'package:get/get.dart';
+import '../../controllers/signup/signup_controller.dart';
 
 class MedicaTermCondCheckBox extends StatelessWidget {
   const MedicaTermCondCheckBox({
@@ -12,12 +14,17 @@ class MedicaTermCondCheckBox extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final dark = MedicaHelperFunctions.isDarkMode(context);
+    final controller = SignUpController.instance;
+
     return Row(
       children: [
         SizedBox(
             width: 24,
             height: 24,
-            child: Checkbox(value: true, onChanged: (value) {})),
+            child: Obx(() => Checkbox(
+                value: controller.privacyPolicy.value,
+                onChanged: (value) => controller.privacyPolicy.value =
+                    !controller.privacyPolicy.value))),
         const SizedBox(height: MedicaSizes.spaceBetweenItems),
         Text.rich(
           TextSpan(children: [
