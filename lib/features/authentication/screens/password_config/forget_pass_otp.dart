@@ -41,7 +41,7 @@ class OTPScreen extends StatelessWidget {
             SizedBox(
                 width: double.infinity,
                 child: ElevatedButton(
-                    onPressed: () => Get.to(() => const OTPSuccess()), 
+                    onPressed: () => Get.to(() => const OTPSuccess()),
                     child: const Text('Next'))),
           ],
         ),
