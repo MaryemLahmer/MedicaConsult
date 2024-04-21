@@ -16,7 +16,7 @@ class App extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       themeMode: ThemeMode.system,
       theme: Provider.of<ThemeProvider>(context).themeData,
-      //initialBinding: GeneralBindings(),
+      initialBinding: GeneralBindings(),
 
       ///show loader or circular progress indicator meanwhile authentication repository is deciding to show relevant screen
       home:const Scaffold(backgroundColor: MedicaColors.primary,body: Center(child: CircularProgressIndicator(color: Colors.white,),),)
