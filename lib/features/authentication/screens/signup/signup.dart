@@ -19,20 +19,20 @@ class SignupScreen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              ///Title
+              /// Title
               Text(MedicaTexts.signupTitle,
                   style: Theme.of(context).textTheme.headlineMedium),
               const SizedBox(height: MedicaSizes.spaceBetweenSections),
 
-              ////Form
+              /// Form
               const SignUpForm(),
               const SizedBox(height: MedicaSizes.spaceBetweenSections),
 
-              ///divider
+              /// divider
               FormDivider(dividerText: MedicaTexts.orSignInWith.capitalize!),
               const SizedBox(height: MedicaSizes.spaceBetweenSections),
 
-              ///SocialButtons
+              /// SocialButtons
               const SocialButtons(),
             ],
           ),
