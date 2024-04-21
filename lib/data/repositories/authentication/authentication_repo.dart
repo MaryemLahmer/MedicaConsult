@@ -1,3 +1,5 @@
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
@@ -9,6 +11,7 @@ class AuthenticationRepository extends GetxController {
 
   /// Variables
   final deviceStorage = GetStorage();
+  final _auth = FirebaseAuth.instance;
 
   /// called from main.dart on app launch
   @override
@@ -21,7 +24,36 @@ class AuthenticationRepository extends GetxController {
   screenRedirect() async {
     // Local Storage
     deviceStorage.writeIfNull('isFirstTime', true);
-    deviceStorage.read('isFirstTime') != true ? Get
-        .offAll(() => const LoginScreen()) : Get.offAll(const OnBoardingScreen());
+    deviceStorage.read('isFirstTime') != true
+        ? Get.offAll(() => const LoginScreen())
+        : Get.offAll(const OnBoardingScreen());
   }
+
+/* --------- Email & Password sign-in --------- */
+
+  /// [EmailAuthentication] - SignIn
+  /// [EmailAuthentication] - Register
+  Future<UserCredential> registerWithEmailAndPassword(
+      String email, String password) async {
+    try {
+      return await _auth.createUserWithEmailAndPassword(
+          email: email, password: password);
+    } on FirebaseAuthException catch (e) {
+      throw 'Something went wrong. Please try again!';
+    } on FirebaseException catch (e) {
+      throw 'Something went wrong. Please try again!';
+    } on FormatException catch (_) {
+      throw 'Something went wrong. Please try again!';
+    } on PlatformException catch (e) {
+      throw 'Something went wrong. Please try again!';
+    } catch (e) {
+      throw 'Something went wrong. Please try again!';
+    }
+  }
+
+  /// [EmailAuthentication] - Mail Verification
+  /// [EmailAuthentication] - ReAuthenticate User
+  /// [EmailAuthentication] - Forget Password
+/* --------- Federated identity & social sign-in --------- */
+/* --------- ./end Federated identity & social sign in --------- */
 }
