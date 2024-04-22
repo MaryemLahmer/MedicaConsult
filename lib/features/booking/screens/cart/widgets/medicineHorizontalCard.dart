@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:medica_consult/features/booking/screens/medicine/widgets/quantity_controller_widget.dart';
 import 'package:medica_consult/utils/constants/colors.dart';
-import 'package:medica_consult/utils/constants/image_strings.dart';
 import 'package:medica_consult/utils/constants/sizes.dart';
 
 class MedicineHorizontalCard extends StatefulWidget {
@@ -70,8 +69,8 @@ class _MedicineHorizontalCardState extends State<MedicineHorizontalCard> {
                         ),
                         Text(
                           widget.type == 'liquid'
-                              ? '${widget.quantity}' + 'ml'
-                              : '${widget.quantity}' + 'pcs',
+                              ? '${widget.quantity}' 'ml'
+                              : '${widget.quantity}' 'pcs',
                           overflow: TextOverflow.ellipsis,
                         ),
                       ],

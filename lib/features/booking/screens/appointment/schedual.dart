@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:medica_consult/common/widgets/appbar/custom_appbar.dart';
 import 'package:medica_consult/utils/constants/sizes.dart';
-import 'package:iconsax/iconsax.dart';
 import 'package:medica_consult/data/data.dart';
 import 'package:medica_consult/features/booking/screens/appointment/widgets/appointment_card.dart';
 import 'package:medica_consult/utils/constants/colors.dart';

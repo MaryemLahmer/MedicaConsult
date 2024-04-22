@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:medica_consult/common/widgets/appbar/app_logo_title.dart';
 import 'package:medica_consult/common/widgets/appbar/custom_appbar.dart';
 import 'package:medica_consult/features/personalization/screens/settings/settings.dart';

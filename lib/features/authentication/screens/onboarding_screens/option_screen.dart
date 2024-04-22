@@ -6,7 +6,6 @@ import 'package:medica_consult/utils/constants/text_strings.dart';
 import 'package:get/get.dart';
 import '../../../../common/widgets/appbar/app_logo_title.dart';
 import '../login/login.dart';
-import '../signup/signup.dart';
 
 class OptionScreen extends StatelessWidget {
   const OptionScreen({super.key});

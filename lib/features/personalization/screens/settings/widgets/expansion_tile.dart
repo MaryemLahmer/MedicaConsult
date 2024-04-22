@@ -34,6 +34,5 @@ class MedicaExpansionTile extends StatelessWidget {
       expandedAlignment: Alignment.topLeft,
       children: [const MedicaDivider(), Text(answer)],
     );
-    ;
   }
 }

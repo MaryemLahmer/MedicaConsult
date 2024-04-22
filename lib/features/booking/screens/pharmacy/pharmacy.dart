@@ -16,7 +16,7 @@ import 'package:medica_consult/utils/constants/sizes.dart';
 import '../../../../common/widgets/texts/section_heading.dart';
 
 class Pharmacy extends StatefulWidget {
-  const Pharmacy({Key? key, required this.title}) : super(key: key);
+  const Pharmacy({super.key, required this.title});
 
   final String title;
 
@@ -47,7 +47,7 @@ class _PharmacyState extends State<Pharmacy> {
       _isLoading = true;
     });
     // Simulating loading delay of 3 seconds
-    Timer(Duration(seconds: 3), () {
+    Timer(const Duration(seconds: 3), () {
       setState(() {
         _isLoading = false;
       });

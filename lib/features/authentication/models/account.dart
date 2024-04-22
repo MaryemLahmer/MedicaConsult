@@ -5,7 +5,7 @@ class Account {
   String _username;
   String _email;
   String _password;
-  User _user;
+  final User _user;
 
   Account({
     required int accountId,

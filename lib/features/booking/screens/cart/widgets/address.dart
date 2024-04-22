@@ -26,7 +26,7 @@ class Address extends StatelessWidget {
               style: Theme.of(context).textTheme.titleSmall,
             ),
             TextButton(
-              onPressed: () => Get.to(() => MapScreen()),
+              onPressed: () => Get.to(() => const MapScreen()),
               child: const Text(
                 "Change",
                 style: TextStyle(color: MedicaColors.darkGrey),

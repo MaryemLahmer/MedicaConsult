@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:medica_consult/utils/constants/sizes.dart';
-import 'package:medica_consult/features/booking/screens/communication/widgets/rating.dart';
 import 'package:medica_consult/utils/constants/colors.dart';
 
 class MedicineHorizontalCard extends StatelessWidget {
@@ -72,8 +71,8 @@ class MedicineHorizontalCard extends StatelessWidget {
                                 style: Theme.of(context).textTheme.bodyLarge),
                             Text(
                                 type == 'liquid'
-                                    ? '$quantity' + 'ml'
-                                    : '$quantity' + 'pcs',
+                                    ? '$quantity' 'ml'
+                                    : '$quantity' 'pcs',
                                 overflow: TextOverflow.ellipsis,
                                 style: Theme.of(context).textTheme.bodySmall),
                           ],
@@ -88,7 +87,7 @@ class MedicineHorizontalCard extends StatelessWidget {
                             Column(
                               children: [
                                 Text(
-                                  "\$" + '${price}',
+                                  "\$" '$price',
                                   style: sale != 0
                                       ? const TextStyle(
                                           decoration:
@@ -98,8 +97,7 @@ class MedicineHorizontalCard extends StatelessWidget {
                                 ),
                                 sale != 0
                                     ? Text(
-                                        "\$" +
-                                            '${double.parse((price - price * sale * 0.01).toStringAsFixed(2))}',
+                                        "\$" '${double.parse((price - price * sale * 0.01).toStringAsFixed(2))}',
                                       )
                                     : const SizedBox(),
                               ],
@@ -114,7 +112,7 @@ class MedicineHorizontalCard extends StatelessWidget {
                             width: 28,
                             child: Center(
                               child: IconButton(
-                                icon: Icon(Icons.add),
+                                icon: const Icon(Icons.add),
                                 iconSize: 12,
                                 onPressed: () {},
                               ),

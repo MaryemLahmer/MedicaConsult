@@ -6,22 +6,20 @@ import 'package:medica_consult/features/booking/screens/cart/widgets/medicineHor
 import 'package:medica_consult/features/booking/screens/cart/widgets/payment_details.dart';
 import 'package:medica_consult/features/booking/screens/cart/widgets/payment_method.dart';
 import 'package:medica_consult/features/booking/screens/cart/widgets/checkout_popup.dart';
-import 'package:medica_consult/features/booking/screens/maps/maps.dart';
 import 'package:medica_consult/features/booking/screens/medicine/medicine.dart';
 import 'package:medica_consult/utils/constants/colors.dart';
-import 'package:medica_consult/utils/constants/image_strings.dart';
 import 'package:medica_consult/utils/constants/sizes.dart';
 
 class CartScreen extends StatelessWidget {
-  const CartScreen({Key? key});
+  const CartScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     // Calculate subtotal
     double subtotal = 0;
-    cartData.forEach((data) {
+    for (var data in cartData) {
       subtotal += data['price'] * data['quantity'];
-    });
+    }
 
     // Calculate total (subtotal + taxes)
     double taxes = 2.98; // Example tax amount

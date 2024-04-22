@@ -46,7 +46,7 @@ class PrescriptionCard extends StatelessWidget {
               height: MedicaSizes.xs,
             ),
             Text(
-              'Date: ${date}',
+              'Date: $date',
               style: Theme.of(context)
                   .textTheme
                   .bodySmall!
@@ -82,7 +82,7 @@ class PrescriptionCard extends StatelessWidget {
               child: OutlinedButton(
                 style: OutlinedButton.styleFrom(
                     padding: EdgeInsets.zero, minimumSize: Size.zero),
-                child: Expanded(
+                child: const Expanded(
                     child: Text(
                   'Download',
                   style: TextStyle(
@@ -98,7 +98,7 @@ class PrescriptionCard extends StatelessWidget {
               child: OutlinedButton(
                 style: OutlinedButton.styleFrom(
                     padding: EdgeInsets.zero, minimumSize: Size.zero),
-                child: Expanded(
+                child: const Expanded(
                     child: Text(
                   'Delete',
                   style: TextStyle(

@@ -7,7 +7,7 @@ import 'package:medica_consult/utils/constants/sizes.dart';
 import 'package:medica_consult/utils/helpers/helper_function.dart';
 
 class FinishConsultationScreen extends StatelessWidget {
-  const FinishConsultationScreen({Key? key}) : super(key: key);
+  const FinishConsultationScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

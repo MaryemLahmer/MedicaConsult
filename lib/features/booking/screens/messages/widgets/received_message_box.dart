@@ -5,10 +5,8 @@ import 'package:get/get.dart';
 import 'package:medica_consult/features/booking/screens/messages/widgets/voice_message.dart';
 import 'package:medica_consult/features/booking/screens/view_media_asset/view_media_asset.dart';
 import 'package:medica_consult/utils/constants/colors.dart';
-import 'package:medica_consult/utils/constants/image_strings.dart';
 import 'package:medica_consult/utils/constants/sizes.dart';
 import 'package:medica_consult/utils/formatters/formatter.dart';
-import 'package:medica_consult/utils/helpers/helper_function.dart';
 
 class ReceivedMessageBox extends StatefulWidget {
   final String content;
@@ -16,12 +14,12 @@ class ReceivedMessageBox extends StatefulWidget {
   final String type;
   final Directory? directory;
   const ReceivedMessageBox({
-    Key? key,
+    super.key,
     required this.content,
     required this.time,
     required this.type,
     required this.directory,
-  }) : super(key: key);
+  });
 
   @override
   _ReceivedMessageBoxState createState() => _ReceivedMessageBoxState();

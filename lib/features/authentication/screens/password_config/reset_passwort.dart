@@ -27,7 +27,7 @@ class ResetScreen extends StatelessWidget {
             height: MedicaSizes.spaceBetweenSections,
           ),
           Padding(
-            padding: EdgeInsets.all(MedicaSizes.defaultSpace),
+            padding: const EdgeInsets.all(MedicaSizes.defaultSpace),
             child: Column(
               children: [
                 const SizedBox(

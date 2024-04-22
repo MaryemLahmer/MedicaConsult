@@ -8,7 +8,7 @@ class DotsCirclingProgressIndicator extends StatefulWidget {
   final Color dotColor;
   final Duration duration;
 
-  DotsCirclingProgressIndicator({
+  const DotsCirclingProgressIndicator({super.key, 
     this.radius = 28.0,
     this.dotCount = 10,
     this.dotColor = MedicaColors.primary,

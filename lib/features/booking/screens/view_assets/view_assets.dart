@@ -6,6 +6,8 @@ import 'package:medica_consult/utils/constants/image_strings.dart';
 import 'package:medica_consult/utils/constants/sizes.dart';
 
 class ViewAssets extends StatefulWidget {
+  const ViewAssets({super.key});
+
   @override
   _ViewAssetsState createState() => _ViewAssetsState();
 }

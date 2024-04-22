@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:medica_consult/utils/constants/sizes.dart';
 import 'package:medica_consult/utils/constants/colors.dart';
 
 class MedicaCircularContainer extends StatelessWidget {

@@ -6,6 +6,8 @@ import 'package:medica_consult/utils/constants/image_strings.dart';
 import 'package:medica_consult/utils/constants/sizes.dart';
 
 class VideoCallRingingScreen extends StatelessWidget {
+  const VideoCallRingingScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

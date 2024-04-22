@@ -4,7 +4,6 @@ import '../../../../../common/widgets/appbar/App_Bar_Profile_Card.dart';
 import '../../../../../common/widgets/ratings/rating_indicator.dart';
 import '../../../../../utils/constants/colors.dart';
 import '../../../../../utils/constants/sizes.dart';
-import '../../../../../utils/helpers/helper_function.dart';
 
 class UserReviewCard extends StatelessWidget {
   const UserReviewCard(

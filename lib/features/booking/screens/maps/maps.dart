@@ -2,13 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       title: 'Google Maps Example',
       home: MapScreen(),
     );
@@ -16,6 +18,8 @@ class MyApp extends StatelessWidget {
 }
 
 class MapScreen extends StatefulWidget {
+  const MapScreen({super.key});
+
   @override
   _MapScreenState createState() => _MapScreenState();
 }
@@ -34,7 +38,7 @@ class _MapScreenState extends State<MapScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Google Maps Example'),
+        title: const Text('Google Maps Example'),
       ),
       body: GoogleMap(
         onMapCreated: _onMapCreated,
@@ -44,9 +48,9 @@ class _MapScreenState extends State<MapScreen> {
         ),
         markers: {
           Marker(
-            markerId: MarkerId('googleplex'),
+            markerId: const MarkerId('googleplex'),
             position: _center,
-            infoWindow: InfoWindow(
+            infoWindow: const InfoWindow(
               title: 'Googleplex',
               snippet: 'Google Headquarters',
             ),

@@ -13,11 +13,11 @@ class UserRepository extends GetxController {
   Future<void> saveUserRecord(UserModel user) async {
     try {
       await _db.collection("Users").doc(user.id).set(user.toJson());
-    } on FirebaseException catch (e) {
+    } on FirebaseException {
       throw 'error message';
     } on FormatException catch (_) {
       throw 'error message';
-    } on PlatformException catch (e) {
+    } on PlatformException {
       throw 'error message';
     } catch (e) {
       throw 'Something went wrong, please try again!';

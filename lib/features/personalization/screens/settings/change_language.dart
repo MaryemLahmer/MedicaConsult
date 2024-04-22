@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:iconsax/iconsax.dart';
 import 'package:medica_consult/common/widgets/appbar/custom_appbar.dart';
 import 'package:medica_consult/common/widgets/custom_shapes/divider.dart';
 import 'package:medica_consult/utils/constants/image_strings.dart';

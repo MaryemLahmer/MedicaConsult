@@ -25,7 +25,7 @@ class CheckoutPopup extends StatelessWidget {
           Text('Payment Success'),
         ],
       ),
-      content: Text(
+      content: const Text(
         'Your payment has been successful, you can have a consultation session with your trusted doctor',
         textAlign: TextAlign.center,
       ),
@@ -48,7 +48,7 @@ class CheckoutPopup extends StatelessWidget {
               onPressed: () {
                 Navigator.of(context).pop();
               },
-              child: Text(
+              child: const Text(
                 'Back to home',
               ),
             ),

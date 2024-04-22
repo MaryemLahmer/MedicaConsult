@@ -5,7 +5,7 @@ import 'package:photo_view/photo_view.dart';
 class ViewMediaAsset extends StatelessWidget {
   final Image image;
 
-  ViewMediaAsset({required this.image});
+  const ViewMediaAsset({super.key, required this.image});
 
   @override
   Widget build(BuildContext context) {

@@ -76,7 +76,7 @@ class TakePictureScreenState extends State<TakePictureScreen> {
           if (snapshot.connectionState == ConnectionState.done) {
             return CameraPreview(_controller);
           } else {
-            return Center(child: DotsCirclingProgressIndicator());
+            return const Center(child: DotsCirclingProgressIndicator());
           }
         },
       ),

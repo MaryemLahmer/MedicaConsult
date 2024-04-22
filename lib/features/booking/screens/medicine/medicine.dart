@@ -2,12 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:medica_consult/common/widgets/ratings/rating_indicator.dart';
-import 'package:medica_consult/data/data.dart';
 import 'package:medica_consult/features/booking/screens/cart/cart.dart';
 import 'package:medica_consult/features/booking/screens/medicine/widgets/quantity_controller_widget.dart';
 import 'package:medica_consult/utils/constants/colors.dart';
 import 'package:medica_consult/utils/constants/sizes.dart';
-import 'package:medica_consult/utils/constants/image_strings.dart';
 import 'package:readmore/readmore.dart';
 
 class MedicineScreen extends StatelessWidget {
@@ -83,8 +81,8 @@ class MedicineScreen extends StatelessWidget {
                       ),
                       Text(
                         type == 'liquid'
-                            ? '$quantity' + 'ml'
-                            : '$quantity' + 'pcs',
+                            ? '$quantity' 'ml'
+                            : '$quantity' 'pcs',
                         overflow: TextOverflow.ellipsis,
                         style: Theme.of(context).textTheme.bodySmall,
                       ),

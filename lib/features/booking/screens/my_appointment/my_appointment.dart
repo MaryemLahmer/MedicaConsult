@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:medica_consult/common/widgets/ratings/rating_indicator.dart';
 import 'package:medica_consult/features/booking/screens/doctor/widgets/doctor_horizontal_card.dart';
 import 'package:medica_consult/features/booking/screens/messages/messages.dart';
 import 'package:medica_consult/utils/constants/colors.dart';
@@ -8,7 +7,7 @@ import 'package:medica_consult/utils/constants/image_strings.dart';
 import 'package:medica_consult/utils/constants/sizes.dart';
 
 class MyAppointmentScreen extends StatelessWidget {
-  const MyAppointmentScreen({Key? key}) : super(key: key);
+  const MyAppointmentScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -109,7 +108,7 @@ class MyAppointmentScreen extends StatelessWidget {
                 height: MedicaSizes.spaceBetweenItems,
               ),
               Container(
-                  padding: EdgeInsets.all(MedicaSizes.md),
+                  padding: const EdgeInsets.all(MedicaSizes.md),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10.0),
                     border: Border.all(

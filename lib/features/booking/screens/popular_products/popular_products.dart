@@ -3,7 +3,6 @@ import 'package:get/get.dart';
 import 'package:medica_consult/common/widgets/appbar/custom_appbar.dart';
 import 'package:medica_consult/data/data.dart';
 import 'package:medica_consult/features/booking/screens/medicine/medicine.dart';
-import 'package:medica_consult/features/booking/screens/pharmacy/widgets/medicine_card.dart';
 import 'package:medica_consult/features/booking/screens/pharmacy/widgets/medicine_horizontal_card.dart';
 import 'package:medica_consult/utils/constants/sizes.dart';
 

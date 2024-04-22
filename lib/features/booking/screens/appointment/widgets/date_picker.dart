@@ -43,6 +43,7 @@ class _DatePickerState extends State<DatePicker> {
                         ),
                       );
                     }
+                    return null;
                   },
                 ),
                 locale: "en_US",

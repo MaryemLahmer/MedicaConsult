@@ -92,9 +92,9 @@ class _FindDoctorsPageState extends State<FindDoctorsPage> {
                 height: MedicaSizes.spaceBetweenItems,
               ),
               isLoading
-                  ? Column(
+                  ? const Column(
                       children: [
-                        const SizedBox(
+                        SizedBox(
                           height: 40,
                         ),
                         Center(child: DotsCirclingProgressIndicator()),

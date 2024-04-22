@@ -5,13 +5,13 @@ import 'package:medica_consult/utils/helpers/helper_function.dart';
 
 class ClickableImageText extends StatelessWidget {
   const ClickableImageText({
-    Key? key,
+    super.key,
     required this.image,
     required this.title,
     this.backgroundColor,
     this.onTap,
     this.isSelected = false,
-  }) : super(key: key);
+  });
 
   final String image, title;
   final Color? backgroundColor;

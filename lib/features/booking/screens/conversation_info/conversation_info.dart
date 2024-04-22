@@ -57,7 +57,7 @@ class ConversationInfoScreen extends StatelessWidget {
               ConversationInfoOption(
                 icon: Icons.phone,
                 onPressed: () {
-                  Get.to(() => VideoCallRingingScreen());
+                  Get.to(() => const VideoCallRingingScreen());
                 },
               ),
               const SizedBox(
@@ -66,7 +66,7 @@ class ConversationInfoScreen extends StatelessWidget {
               ConversationInfoOption(
                 icon: Icons.videocam,
                 onPressed: () {
-                  Get.to(() => VideoCallRingingScreen());
+                  Get.to(() => const VideoCallRingingScreen());
                 },
               ),
               const SizedBox(
@@ -99,7 +99,7 @@ class ConversationInfoScreen extends StatelessWidget {
                 ConversationAction(
                   icon: Icons.image,
                   onPressed: () {
-                    Get.to(() => ViewAssets());
+                    Get.to(() => const ViewAssets());
                   },
                   text: "View media, files & links",
                   color: MedicaColors.primary,

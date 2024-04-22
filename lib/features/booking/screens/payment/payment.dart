@@ -3,7 +3,6 @@ import 'package:medica_consult/common/widgets/appbar/custom_appbar.dart';
 import 'package:medica_consult/common/widgets/texts/section_heading.dart';
 import 'package:medica_consult/features/booking/screens/doctor/widgets/doctor_profile_card.dart';
 import 'package:medica_consult/features/booking/screens/payment/widgets/payment_detail.dart';
-import 'package:medica_consult/features/booking/screens/payment/widgets/payment_method_picker.dart';
 import 'package:medica_consult/utils/constants/colors.dart';
 import 'package:medica_consult/utils/constants/sizes.dart';
 import 'package:get/get.dart';

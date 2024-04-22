@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:medica_consult/common/widgets/buttons/toggleable_button_list.dart';
 
 class FilterTest extends StatefulWidget {
   const FilterTest({super.key});
@@ -13,7 +12,7 @@ class _FilterTestState extends State<FilterTest> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       body: SingleChildScrollView(
         child: Column(
           children: [

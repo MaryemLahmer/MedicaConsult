@@ -14,7 +14,7 @@ import 'package:medica_consult/utils/constants/sizes.dart';
 import 'package:path_provider/path_provider.dart';
 
 class MessagesScreen extends StatefulWidget {
-  const MessagesScreen({Key? key});
+  const MessagesScreen({Key? key}) : super(key: key);
 
   @override
   State<MessagesScreen> createState() => _MessagesScreenState();
@@ -97,7 +97,7 @@ class _MessagesScreenState extends State<MessagesScreen> {
               color: MedicaColors.primary,
             ),
             onPressed: () {
-              Get.to(() => VideoCallRingingScreen());
+              Get.to(() => const VideoCallRingingScreen());
             },
           ),
           IconButton(
@@ -106,7 +106,7 @@ class _MessagesScreenState extends State<MessagesScreen> {
               color: MedicaColors.primary,
             ),
             onPressed: () {
-              Get.to(() => VideoCallRingingScreen());
+              Get.to(() => const VideoCallRingingScreen());
             },
           ),
           IconButton(

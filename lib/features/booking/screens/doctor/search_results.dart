@@ -7,6 +7,7 @@ import 'package:medica_consult/utils/helpers/helper_function.dart';
 import 'package:medica_consult/utils/logging/logger.dart';
 
 class SearchResults extends StatefulWidget {
+  @override
   final Key? key;
   final String? inputText;
 

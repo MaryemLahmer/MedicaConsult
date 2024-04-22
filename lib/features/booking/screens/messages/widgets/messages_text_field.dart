@@ -22,11 +22,11 @@ class MyTextField extends StatefulWidget {
   final Directory? directory;
 
   const MyTextField({
-    Key? key,
+    super.key,
     required this.onSendMessage,
     this.voiceMessageFilePath,
     this.directory,
-  }) : super(key: key);
+  });
 
   @override
   State<MyTextField> createState() => _MyTextFieldState();
@@ -153,7 +153,7 @@ class _MyTextFieldState extends State<MyTextField> {
           showWarningMessage = true;
         });
 
-        Future.delayed(Duration(seconds: 3), () {
+        Future.delayed(const Duration(seconds: 3), () {
           setState(() {
             showWarningMessage = false;
           });

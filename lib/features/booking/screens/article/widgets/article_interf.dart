@@ -4,7 +4,7 @@ import 'package:medica_consult/features/booking/screens/article/widgets/custom_t
 import 'package:medica_consult/utils/constants/colors.dart';
 
 class ArticleScree extends StatelessWidget {
-  const ArticleScree({Key? key}) : super(key: key);
+  const ArticleScree({super.key});
 
   @override
   Widget build(BuildContext context) {

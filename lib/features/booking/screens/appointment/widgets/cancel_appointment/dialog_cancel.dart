@@ -19,7 +19,7 @@ class CancelDialog extends StatelessWidget {
           vertical: 16,
         ),
         decoration: BoxDecoration(
-            color: dark ? Color.fromARGB(255, 0, 0, 0) : MedicaColors.white,
+            color: dark ? const Color.fromARGB(255, 0, 0, 0) : MedicaColors.white,
             borderRadius: BorderRadius.circular(12)),
         child: Column(
           mainAxisSize: MainAxisSize.min,

@@ -24,7 +24,7 @@ class ForgetBtnWidget extends StatelessWidget {
         padding: const EdgeInsets.all(20.0),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10.0),
-          color: dark ? Color.fromARGB(255, 26, 24, 24) : MedicaColors.white,
+          color: dark ? const Color.fromARGB(255, 26, 24, 24) : MedicaColors.white,
         ),
         child: Row(
           children: [

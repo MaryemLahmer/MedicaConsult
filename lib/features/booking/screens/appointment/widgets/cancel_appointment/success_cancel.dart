@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:medica_consult/features/booking/screens/appointment/schedual.dart';
 import 'package:medica_consult/utils/helpers/helper_functions.dart';
 import '../../../../../../utils/constants/colors.dart';
 
@@ -17,7 +15,7 @@ class SuccessCancelDialog extends StatelessWidget {
             vertical: 16,
           ),
           decoration: BoxDecoration(
-              color: dark ? Color.fromARGB(255, 0, 0, 0) : MedicaColors.white,
+              color: dark ? const Color.fromARGB(255, 0, 0, 0) : MedicaColors.white,
               borderRadius: BorderRadius.circular(12)),
           child: Column(
             mainAxisSize: MainAxisSize.min,

@@ -5,8 +5,7 @@ import 'package:medica_consult/utils/constants/colors.dart';
 class FlashToggleWidget extends StatefulWidget {
   final CameraController controller;
 
-  const FlashToggleWidget({Key? key, required this.controller})
-      : super(key: key);
+  const FlashToggleWidget({super.key, required this.controller});
 
   @override
   _FlashToggleWidgetState createState() => _FlashToggleWidgetState();

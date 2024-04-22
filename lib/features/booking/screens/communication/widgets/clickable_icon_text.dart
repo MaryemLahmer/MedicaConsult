@@ -5,13 +5,13 @@ import 'package:medica_consult/utils/helpers/helper_function.dart';
 
 class ClickableIconText extends StatelessWidget {
   const ClickableIconText({
-    Key? key,
+    super.key,
     required this.icon,
     required this.title,
     this.backgroundColor,
     this.onTap,
     this.isSelected = false,
-  }) : super(key: key);
+  });
 
   final IconData icon;
   final String title;
