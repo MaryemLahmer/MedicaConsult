@@ -18,11 +18,15 @@ class MedicaImages {
   // -- Animations
   static const String deliveredEmailIllustration =
       "assets/images/animations/verify-mail.gif";
+  static String successfullyRegister =
+      "assets/images/animations/check-register.json";
+  static String loadingScreen = "assets/images/animations/onloading.json";
 
   // -- Category Icons
   static const String doctor = "assets/icons/categoryIcons/stethoscope.png";
   static const String pharmacy = "assets/icons/categoryIcons/medicine.png";
   static const String hospital = "assets/icons/categoryIcons/hospital.png";
+
   // -- Banners
 
   // -- Documents & Prescriptions
@@ -58,8 +62,10 @@ class MedicaImages {
   static const String userTegher = "assets/images/user/userTegher.webp";
 
   // -- Doctor Images
-  static const String doctorFemale1 = "assets/images/doctors/doctorFemale1.avif";
-  static const String doctorFemale2 = "assets/images/doctors/doctorFemale2.webp";
+  static const String doctorFemale1 =
+      "assets/images/doctors/doctorFemale1.avif";
+  static const String doctorFemale2 =
+      "assets/images/doctors/doctorFemale2.webp";
   static const String doctorFemale3 = "assets/images/doctors/doctorFemale3.jpg";
   static const String doctorMale1 = "assets/images/doctors/doctorMale1.webp";
   static const String doctorMale2 = "assets/images/doctors/doctorMale2.avif";
@@ -79,9 +85,9 @@ class MedicaImages {
   static const String french = "assets/icons/language/french.png";
   static const String english = "assets/icons/language/english.png";
 
-
   //placeholder images
-  static const String onLoadingAnimation = "assets/images/animations/onLoading.gif";
+  static const String onLoadingAnimation =
+      "assets/images/animations/onLoading.gif";
   static const String placeholder1 = "assets/images/Bored.png";
   static const String placeholder2 = "assets/images/Time_management.png";
   static const String placeholder3 = "assets/images/Task_management.png";
@@ -89,7 +95,6 @@ class MedicaImages {
   static const String placeholder5 = "assets/images/finish.png";
   static const String placeholder6 = "assets/images/contract1.png";
   static const String paymentSuccess = "assets/images/Done.png";
-
 
   //icons
   static const String reminder = "assets/images/Ellipse5.png";
