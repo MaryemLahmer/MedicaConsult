@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:medica_consult/data/repositories/authentication/authentication_repo.dart';
+import 'package:medica_consult/features/authentication/controllers/signup/verify_email_controller.dart';
 import 'package:medica_consult/features/authentication/screens/login/login.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:medica_consult/features/authentication/screens/signup/succes_screen.dart';
@@ -9,10 +11,14 @@ import 'package:medica_consult/utils/constants/text_strings.dart';
 import 'package:medica_consult/utils/helpers/helper_function.dart';
 
 class VerifyMailScreen extends StatelessWidget {
-  const VerifyMailScreen({super.key});
+  const VerifyMailScreen({super.key, this.email});
+
+  final String? email;
 
   @override
   Widget build(BuildContext context) {
+    final controller = Get.put(VerifyEmailController());
+
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
@@ -44,7 +50,7 @@ class VerifyMailScreen extends StatelessWidget {
                   style: Theme.of(context).textTheme.headlineMedium,
                   textAlign: TextAlign.center),
               const SizedBox(height: MedicaSizes.spaceBetweenItems),
-              Text('saafi.saf0@gmail.com',
+              Text(email ?? '',
                   style: Theme.of(context).textTheme.labelLarge,
                   textAlign: TextAlign.center),
               const SizedBox(height: MedicaSizes.spaceBetweenItems),
@@ -57,7 +63,13 @@ class VerifyMailScreen extends StatelessWidget {
               SizedBox(
                   width: double.infinity,
                   child: ElevatedButton(
-                      onPressed: () => Get.to(() => const SuccessScreen()),
+                      onPressed: () => Get.to(() => SuccessScreen(
+                            image: MedicaImages.successfullyRegister,
+                            title: MedicaTexts.yourAccountCreatedTitle,
+                            subtitle: MedicaTexts.yourEmailCreatedSubtitle,
+                            onPressed: () => AuthenticationRepository.instance
+                                .screenRedirect(),
+                          )),
                       child: const Text(MedicaTexts.tContinue))),
               const SizedBox(height: MedicaSizes.spaceBetweenItems),
               SizedBox(
