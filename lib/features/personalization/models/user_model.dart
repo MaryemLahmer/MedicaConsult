@@ -79,6 +79,6 @@ class UserModel {
           email: data['Email'] ?? '',
           phoneNumber: data['PhoneNumber'] ?? '',
           profilePicture: data['ProfilePicture'] ?? '');
-    }else {}
+    }
   }
 }
