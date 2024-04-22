@@ -29,7 +29,7 @@ class SignUpController extends GetxController {
       // start loading
       FullScreenLoader.openLoadingDialog(
           'Hold While We Process Your Information',
-          MedicaImages.onLoadingAnimation);
+          MedicaImages.loadingScreen);
 
       // Check Internet Connectivity
       final isConnected = await NetworkManager.instance.isConnected();
@@ -72,8 +72,9 @@ class SignUpController extends GetxController {
           message: 'Your account has been created! Verify Email to continue.');
 
       // Move to Verify Email Screen
-      Get.to(() => const VerifyMailScreen());
-
+      Get.to(() => VerifyMailScreen(
+            email: email.text.trim(),
+          ));
     } catch (e) {
       // Remove loader
       FullScreenLoader.stopLoading();
