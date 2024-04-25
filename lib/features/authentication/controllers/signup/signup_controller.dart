@@ -28,26 +28,30 @@ class SignUpController extends GetxController {
     try {
       // start loading
       FullScreenLoader.openLoadingDialog(
-          'Hold While We Process Your Information',
-          MedicaImages.loadingScreen);
+          'Hold While We Process Your Information', MedicaImages.loadingScreen);
 
       // Check Internet Connectivity
       final isConnected = await NetworkManager.instance.isConnected();
       if (!isConnected) {
+        FullScreenLoader.stopLoading();
         return;
       }
 
       // Form Validation
       if (!signupFormKey.currentState!.validate()) {
+        FullScreenLoader.stopLoading();
         return;
       }
+
       // Privacy Policy Check
       if (!privacyPolicy.value) {
+        FullScreenLoader.stopLoading();
         Loaders.warningSnackBar(
             title: 'Accept Privacy Policy',
             message:
                 " In order to create account, you must read and accept the Privacy Policy & Terms of Use of MedicaConsult");
       }
+
       // Register user in the firebase authentication & save user data in the firebase
       final userCredential = await AuthenticationRepository.instance
           .registerWithEmailAndPassword(
@@ -66,6 +70,9 @@ class SignUpController extends GetxController {
       final userRepository = Get.put(UserRepository());
       await userRepository.saveUserRecord(newUser);
 
+      // Remove Loader
+      FullScreenLoader.stopLoading();
+
       // Show Success Message
       Loaders.successSnackBar(
           title: 'Congratulations',
@@ -76,7 +83,7 @@ class SignUpController extends GetxController {
             email: email.text.trim(),
           ));
     } catch (e) {
-      // Remove loader
+      // Remove Loader
       FullScreenLoader.stopLoading();
 
       // Show some generic error to the user
