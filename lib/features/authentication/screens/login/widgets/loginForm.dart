@@ -2,11 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:get/get.dart';
 import 'package:medica_consult/features/authentication/screens/password_config/forget_bottom_sheet.dart';
-import 'package:medica_consult/features/authentication/screens/password_config/forget_psw_btn_widget.dart';
 import 'package:medica_consult/features/authentication/screens/signup/signup.dart';
+import 'package:medica_consult/utils/validators/validation.dart';
 import '../../../../../navigation.dart';
 import '../../../../../utils/constants/sizes.dart';
 import '../../../../../utils/constants/text_strings.dart';
+import '../../../controllers/login/login_controller.dart';
 
 class LoginForm extends StatelessWidget {
   const LoginForm({
@@ -15,27 +16,40 @@ class LoginForm extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final controller = Get.put(LoginController());
     return Form(
         child: Padding(
       padding: const EdgeInsets.symmetric(
           vertical: MedicaSizes.spaceBetweenSections),
       child: Column(
         children: [
-          ///Email
+          /// Email
           TextFormField(
+            controller: controller.email,
+            validator: (value) => MedicaValidator.validateEmail(value),
             decoration: const InputDecoration(
                 prefixIcon: Icon(Iconsax.direct_right),
                 labelText: MedicaTexts.email),
           ),
           const SizedBox(height: MedicaSizes.spaceBtwInputFields),
 
-          //Password
-          TextFormField(
-            obscureText: true,
-            decoration: const InputDecoration(
-                prefixIcon: Icon(Iconsax.password_check),
+          /// Password
+          Obx(
+            () => TextFormField(
+              controller: controller.password,
+              validator: (value) => MedicaValidator.validatePassword(value),
+              obscureText: controller.hidePassword.value,
+              decoration: InputDecoration(
                 labelText: MedicaTexts.password,
-                suffixIcon: Icon(Iconsax.eye_slash)),
+                prefixIcon: const Icon(Iconsax.password_check),
+                suffixIcon: IconButton(
+                    onPressed: () => controller.hidePassword.value =
+                        !controller.hidePassword.value,
+                    icon: Icon(controller.hidePassword.value
+                        ? Iconsax.eye_slash
+                        : Iconsax.eye)),
+              ),
+            ),
           ),
           const SizedBox(height: MedicaSizes.spaceBtwInputFields / 2),
 
@@ -46,7 +60,12 @@ class LoginForm extends StatelessWidget {
               /// Remember Me
               Row(
                 children: [
-                  Checkbox(value: true, onChanged: (value) {}),
+                  Obx(
+                     () => Checkbox(
+                        value: controller.rememberMe.value,
+                        onChanged: (value) => controller.rememberMe.value =
+                            !controller.rememberMe.value),
+                  ),
                   const Text(MedicaTexts.rememberMe),
                 ],
               ),
@@ -67,7 +86,7 @@ class LoginForm extends StatelessWidget {
           SizedBox(
             width: double.infinity,
             child: ElevatedButton(
-                onPressed: () => Get.to(() => const NavigationMenu()),
+                onPressed: () => Get.to(() => controller.emailAndPasswordSignIn()),
                 child: const Text(MedicaTexts.signIn)),
           ),
           const SizedBox(
