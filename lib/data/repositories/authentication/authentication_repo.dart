@@ -5,6 +5,8 @@ import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:medica_consult/features/authentication/screens/login/login.dart';
 import 'package:medica_consult/features/authentication/screens/onboarding_screens/onboarding.dart';
+import 'package:medica_consult/features/authentication/screens/signup/verify_mail.dart';
+import 'package:medica_consult/navigation.dart';
 
 import '../../../utils/exceptions/firebase_auth_exceptions.dart';
 import '../../../utils/exceptions/firebase_exceptions.dart';
@@ -21,45 +23,77 @@ class AuthenticationRepository extends GetxController {
   /// called from main.dart on app launch
   @override
   void onReady() {
+    // Remove the native splash screen
     FlutterNativeSplash.remove();
+    // Redirect to the appropriate screen
     screenRedirect();
   }
 
   /// Function to show relevant screen
   screenRedirect() async {
-    // Local Storage
-    deviceStorage.writeIfNull('isFirstTime', true);
-    deviceStorage.read('isFirstTime') != true
-        ? Get.offAll(() => const LoginScreen())
-        : Get.offAll(const OnBoardingScreen());
+    final user = _auth.currentUser;
+    if (user != null) {
+      if (user.emailVerified) {
+        Get.offAll(() => const NavigationMenu());
+      } else {
+        Get.offAll(() => VerifyMailScreen(
+              email: _auth.currentUser?.email,
+            ));
+      }
+    } else {
+      // Local Storage
+      deviceStorage.writeIfNull('isFirstTime', true);
+      deviceStorage.read('isFirstTime') != true
+          ? Get.offAll(() => const LoginScreen())
+          : Get.offAll(const OnBoardingScreen());
+    }
   }
 
 /* --------- Email & Password sign-in --------- */
 
   /// [EmailAuthentication] - SignIn
+  Future<UserCredential> loginWithEmailAndPassword(
+      String email, String password) async {
+   // try {
+      return await _auth.signInWithEmailAndPassword(
+         email: email, password: password);
+    // } on FirebaseAuthException catch (e) {
+    //   throw MedicaFirebaseAuthException(e.code).message;
+    // } on FirebaseException catch (e) {
+    //   throw MedicaFirebaseException(e.code).message;
+    // } on FormatException catch (_) {
+    //   throw const MedicaFormatException();
+    // } on PlatformException catch (e) {
+    //   throw MedicaPlatformException(e.code).message;
+    // } catch (e) {
+    //   throw 'Something went wrong. Please try again!';
+    // }
+  }
+
+
   /// [EmailAuthentication] - Register
   Future<UserCredential> registerWithEmailAndPassword(
       String email, String password) async {
-    try {
+    //try {
       return await _auth.createUserWithEmailAndPassword(
           email: email, password: password);
-    } on FirebaseAuthException catch (e) {
-      throw MedicaFirebaseAuthException(e.code).message;
-    } on FirebaseException catch (e) {
-      throw MedicaFirebaseException(e.code).message;
-    } on FormatException catch (_) {
-      throw const MedicaFormatException();
-    } on PlatformException catch (e) {
-      throw MedicaPlatformException(e.code).message;
-    } catch (e) {
-      throw 'Something went wrong. Please try again!';
-    }
+    // } on FirebaseAuthException catch (e) {
+    //   throw MedicaFirebaseAuthException(e.code).message;
+    // } on FirebaseException catch (e) {
+    //   throw MedicaFirebaseException(e.code).message;
+    // } on FormatException catch (_) {
+    //   throw const MedicaFormatException();
+    // } on PlatformException catch (e) {
+    //   throw MedicaPlatformException(e.code).message;
+    // } catch (e) {
+    //   throw 'Something went wrong. Please try again!';
+    // }
   }
 
   /// [EmailAuthentication] - Mail Verification
   Future<void> sendEmailVerification() async {
     try {
-      await _auth.currentUser?.sendEmailVerification();
+       await _auth.currentUser?.sendEmailVerification();
     } on FirebaseAuthException catch (e) {
       throw MedicaFirebaseAuthException(e.code).message;
     } on FirebaseException catch (e) {
@@ -76,5 +110,28 @@ class AuthenticationRepository extends GetxController {
   /// [EmailAuthentication] - ReAuthenticate User
   /// [EmailAuthentication] - Forget Password
 /* --------- Federated identity & social sign-in --------- */
+
+  /// [Google Authentication] - Google
+
+  ///   [Facebook Authentication] - Facebook
+
 /* --------- ./end Federated identity & social sign in --------- */
+
+  /// [LogoutUser] - Valid for any authentication
+  Future<void> logout() async {
+    try {
+      await FirebaseAuth.instance.signOut();
+      Get.offAll(() => const LoginScreen());
+    } on FirebaseAuthException catch (e) {
+      throw MedicaFirebaseAuthException(e.code).message;
+    } on FirebaseException catch (e) {
+      throw MedicaFirebaseException(e.code).message;
+    } on FormatException catch (_) {
+      throw const MedicaFormatException();
+    } on PlatformException catch (e) {
+      throw MedicaPlatformException(e.code).message;
+    } catch (e) {
+      throw 'Something went wrong. Please try again!';
+    }
+   }
 }
