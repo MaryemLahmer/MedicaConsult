@@ -56,7 +56,7 @@ class SignUpForm extends StatelessWidget {
           TextFormField(
             controller: controller.userName,
             validator: (value) =>
-                MedicaValidator.validateEmptyText('Username', value),
+               MedicaValidator.validateEmptyText('Username', value),
             expands: false,
             decoration: const InputDecoration(
                 labelText: MedicaTexts.username,
