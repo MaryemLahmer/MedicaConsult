@@ -24,7 +24,7 @@ class VerifyMailScreen extends StatelessWidget {
         automaticallyImplyLeading: false,
         actions: [
           IconButton(
-              onPressed: () => Get.offAll(() => const LoginScreen()),
+              onPressed: () => AuthenticationRepository.instance.logout(),
               icon: const Icon(CupertinoIcons.clear))
         ],
       ),
@@ -45,7 +45,6 @@ class VerifyMailScreen extends StatelessWidget {
               ),
 
               ///Title&Subtitle
-
               Text(MedicaTexts.confirmEmail,
                   style: Theme.of(context).textTheme.headlineMedium,
                   textAlign: TextAlign.center),
@@ -63,19 +62,13 @@ class VerifyMailScreen extends StatelessWidget {
               SizedBox(
                   width: double.infinity,
                   child: ElevatedButton(
-                      onPressed: () => Get.to(() => SuccessScreen(
-                            image: MedicaImages.successfullyRegister,
-                            title: MedicaTexts.yourAccountCreatedTitle,
-                            subtitle: MedicaTexts.yourEmailCreatedSubtitle,
-                            onPressed: () => AuthenticationRepository.instance
-                                .screenRedirect(),
-                          )),
+                      onPressed: () => controller.checkEmailVerificationStatus(),
                       child: const Text(MedicaTexts.tContinue))),
               const SizedBox(height: MedicaSizes.spaceBetweenItems),
               SizedBox(
                   width: double.infinity,
                   child: TextButton(
-                      onPressed: () {},
+                      onPressed: () => controller.sendEmailVerification(),
                       child: const Text(MedicaTexts.resendEmail))),
             ],
           ),
