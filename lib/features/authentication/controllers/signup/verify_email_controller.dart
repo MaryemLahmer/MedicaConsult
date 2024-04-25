@@ -1,10 +1,11 @@
 import 'dart:async';
-
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
 import 'package:medica_consult/data/repositories/authentication/authentication_repo.dart';
 import 'package:medica_consult/features/authentication/screens/signup/succes_screen.dart';
+import 'package:medica_consult/utils/constants/image_strings.dart';
 
+import '../../../../utils/constants/text_strings.dart';
 import '../../../../utils/helpers/loaders.dart';
 
 class VerifyEmailController extends GetxController {
@@ -35,14 +36,33 @@ class VerifyEmailController extends GetxController {
     Timer.periodic(const Duration(seconds: 1), (timer) async {
       await FirebaseAuth.instance.currentUser?.reload();
       final user = FirebaseAuth.instance.currentUser;
-      if(user?.emailVerified ?? false){
+      if (user?.emailVerified ?? false) {
         timer.cancel();
-        Get.off(() => SuccessScreen(
+        Get.off(() =>
+            SuccessScreen(
+              title: MedicaTexts.yourAccountCreatedTitle,
+              subtitle: MedicaTexts.yourEmailCreatedSubtitle,
+              image: MedicaImages.successfullyRegister,
+              onPressed: () =>
+                  AuthenticationRepository.instance.screenRedirect(),
 
-        ))
+            ));
       }
     });
   }
 
   /// Manually check if Email Verified
+  checkEmailVerificationStatus() {
+    final currentUser = FirebaseAuth.instance.currentUser;
+    if (currentUser != null && currentUser.emailVerified) {
+      Get.off(
+              () =>
+              SuccessScreen(image: MedicaImages.successfullyRegister,
+                  title: MedicaTexts.yourAccountCreatedTitle,
+                  subtitle: MedicaTexts.yourEmailCreatedSubtitle,
+                  onPressed: () =>
+                      AuthenticationRepository.instance.screenRedirect())
+      );
+    }
+  }
 }
