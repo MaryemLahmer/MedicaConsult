@@ -40,7 +40,7 @@ class LoginController extends GetxController {
       }
 
       // Form Validation
-      if (loginFormKey.currentState!.validate()) {
+      if (loginFormKey.currentState?.validate()??false) {
         FullScreenLoader.stopLoading();
         return;
       }
