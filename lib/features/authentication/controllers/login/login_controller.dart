@@ -2,14 +2,13 @@ import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:medica_consult/data/repositories/authentication/authentication_repo.dart';
+import 'package:medica_consult/features/personalization/controllers/user_controller.dart';
 import 'package:medica_consult/utils/helpers/loaders.dart';
 import 'package:medica_consult/utils/helpers/network_manager.dart';
 import 'package:medica_consult/utils/popups/full_screen_loader.dart';
-
 import '../../../../utils/constants/image_strings.dart';
 
 class LoginController extends GetxController {
-
   /// Variables
   final rememberMe = false.obs;
   final hidePassword = true.obs;
@@ -17,6 +16,7 @@ class LoginController extends GetxController {
   final email = TextEditingController();
   final password = TextEditingController();
   GlobalKey<FormState> loginFormKey = GlobalKey<FormState>();
+  final userController = Get.put(UserController());
 
   @override
   void onInit() {
@@ -26,7 +26,7 @@ class LoginController extends GetxController {
   }
 
   /// --- Email and Password Sign In
-  Future <void> emailAndPasswordSignIn() async {
+  Future<void> emailAndPasswordSignIn() async {
     try {
       // Start Loading
       FullScreenLoader.openLoadingDialog(
@@ -40,7 +40,7 @@ class LoginController extends GetxController {
       }
 
       // Form Validation
-      if (loginFormKey.currentState?.validate()??false) {
+      if (loginFormKey.currentState?.validate() ?? false) {
         FullScreenLoader.stopLoading();
         return;
       }
@@ -66,5 +66,36 @@ class LoginController extends GetxController {
     }
   }
 
+  /// --- Google Sign In Authentication
+  Future<void> googleSignIn() async {
+    try {
+      // Start Loading
+      FullScreenLoader.openLoadingDialog(
+          'You Are Being Logged In', MedicaImages.loadingScreen);
 
+      // check internet connectivity
+      final isConnected = await NetworkManager.instance.isConnected();
+      if (!isConnected) {
+        FullScreenLoader.stopLoading();
+        return;
+      }
+
+      // Google Authentication
+      final userCredentials =
+          await AuthenticationRepository.instance.signInWithGoogle();
+
+      // Save user record
+      await userController.saverUserRecord(userCredentials);
+
+      // Remove Loader
+      FullScreenLoader.stopLoading();
+
+      // Redirect
+      AuthenticationRepository.instance.screenRedirect();
+
+
+    } catch (e) {
+      Loaders.errorSnackBar(title: 'Oh Snap', message: e.toString());
+    }
+  }
 }
