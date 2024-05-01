@@ -33,9 +33,12 @@ class AuthenticationRepository extends GetxController {
   screenRedirect() async {
     final user = _auth.currentUser;
     if (user != null) {
+      // if user is logged in
       if (user.emailVerified) {
+        // if user email is verified, navigate to the navigation menu
         Get.offAll(() => const NavigationMenu());
       } else {
+        // if the user's mail is not verified, navigate to verify email screen
         Get.offAll(() => VerifyMailScreen(
               email: _auth.currentUser?.email,
             ));
@@ -43,6 +46,8 @@ class AuthenticationRepository extends GetxController {
     } else {
       // Local Storage
       deviceStorage.writeIfNull('isFirstTime', true);
+
+      // check if it's the first time launching the app
       deviceStorage.read('isFirstTime') != true
           ? Get.offAll(() => const LoginScreen())
           : Get.offAll(const OnBoardingScreen());
@@ -54,40 +59,40 @@ class AuthenticationRepository extends GetxController {
   /// [EmailAuthentication] - SignIn
   Future<UserCredential> loginWithEmailAndPassword(
       String email, String password) async {
-   // try {
+    try {
       return await _auth.signInWithEmailAndPassword(
          email: email, password: password);
-    // } on FirebaseAuthException catch (e) {
-    //   throw MedicaFirebaseAuthException(e.code).message;
-    // } on FirebaseException catch (e) {
-    //   throw MedicaFirebaseException(e.code).message;
-    // } on FormatException catch (_) {
-    //   throw const MedicaFormatException();
-    // } on PlatformException catch (e) {
-    //   throw MedicaPlatformException(e.code).message;
-    // } catch (e) {
-    //   throw 'Something went wrong. Please try again!';
-    // }
+    } on FirebaseAuthException catch (e) {
+      throw MedicaFirebaseAuthException(e.code).message;
+    } on FirebaseException catch (e) {
+      throw MedicaFirebaseException(e.code).message;
+    } on FormatException catch (_) {
+      throw const MedicaFormatException();
+    } on PlatformException catch (e) {
+      throw MedicaPlatformException(e.code).message;
+    } catch (e) {
+      throw 'Something went wrong. Please try again!';
+    }
   }
 
 
   /// [EmailAuthentication] - Register
   Future<UserCredential> registerWithEmailAndPassword(
       String email, String password) async {
-    //try {
+    try {
       return await _auth.createUserWithEmailAndPassword(
           email: email, password: password);
-    // } on FirebaseAuthException catch (e) {
-    //   throw MedicaFirebaseAuthException(e.code).message;
-    // } on FirebaseException catch (e) {
-    //   throw MedicaFirebaseException(e.code).message;
-    // } on FormatException catch (_) {
-    //   throw const MedicaFormatException();
-    // } on PlatformException catch (e) {
-    //   throw MedicaPlatformException(e.code).message;
-    // } catch (e) {
-    //   throw 'Something went wrong. Please try again!';
-    // }
+     } on FirebaseAuthException catch (e) {
+       throw MedicaFirebaseAuthException(e.code).message;
+     } on FirebaseException catch (e) {
+       throw MedicaFirebaseException(e.code).message;
+    } on FormatException catch (_) {
+      throw const MedicaFormatException();
+    } on PlatformException catch (e) {
+      throw MedicaPlatformException(e.code).message;
+    } catch (e) {
+      throw 'Something went wrong. Please try again!';
+    }
   }
 
   /// [EmailAuthentication] - Mail Verification
