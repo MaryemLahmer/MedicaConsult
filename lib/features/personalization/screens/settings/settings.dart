@@ -8,6 +8,8 @@ import 'package:medica_consult/common/widgets/custom_shapes/containers/header_co
 import 'package:medica_consult/features/personalization/screens/settings/widgets/settings_menu_tile.dart';
 import 'package:medica_consult/utils/constants/colors.dart';
 
+import '../../../../data/repositories/authentication/authentication_repo.dart';
+import '../../../authentication/controllers/login/login_controller.dart';
 import '../profile/widgets/user_profile_card.dart';
 import 'change_language.dart';
 import 'edit_profile.dart';
@@ -21,6 +23,7 @@ class SettingsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
@@ -63,7 +66,8 @@ class SettingsScreen extends StatelessWidget {
                   SettingsMenuTile(
                     icon: Iconsax.document,
                     title: 'Reports & Prescriptions',
-                    onPressed: () => Get.to(() => const ReportsAndPrescriptions()),
+                    onPressed: () =>
+                        Get.to(() => const ReportsAndPrescriptions()),
                     trailingIcon: Iconsax.arrow_right_3,
                   ),
 
@@ -116,11 +120,15 @@ class SettingsScreen extends StatelessWidget {
                   ),
 
                   /// Log out option
+
                   ListTile(
-                    leading: const Icon(
-                      Iconsax.logout,
-                      size: 28,
-                      color: MedicaColors.error,
+                    leading: IconButton(
+                      onPressed: () => AuthenticationRepository.instance.logout(),
+                      icon: const Icon(
+                        Iconsax.logout,
+                        size: 28,
+                        color: MedicaColors.error,
+                      ),
                     ),
                     title: Text('Log Out',
                         style: Theme.of(context)
@@ -131,17 +139,20 @@ class SettingsScreen extends StatelessWidget {
 
                   /// Delete Account option
                   ListTile(
-                    leading: const Icon(
+                      leading: IconButton(
+                    onPressed: () {},
+                    icon: const Icon(
                       Iconsax.profile_delete,
                       size: 28,
                       color: MedicaColors.error,
                     ),
+                  ),
                     title: Text('Delete Account',
-                        style: Theme.of(context)
+                        style: Theme
+                            .of(context)
                             .textTheme
                             .headlineSmall!
-                            .apply(color: MedicaColors.error)),
-                  )
+                            .apply(color: MedicaColors.error)),)
                 ],
               ),
             ),
