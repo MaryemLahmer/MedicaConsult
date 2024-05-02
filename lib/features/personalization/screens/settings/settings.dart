@@ -7,14 +7,11 @@ import 'package:medica_consult/common/widgets/appbar/custom_appbar.dart';
 import 'package:medica_consult/common/widgets/custom_shapes/containers/header_container.dart';
 import 'package:medica_consult/features/personalization/screens/settings/widgets/settings_menu_tile.dart';
 import 'package:medica_consult/utils/constants/colors.dart';
-
 import '../../../../data/repositories/authentication/authentication_repo.dart';
-import '../../../authentication/controllers/login/login_controller.dart';
 import '../profile/widgets/user_profile_card.dart';
 import 'change_language.dart';
 import 'edit_profile.dart';
 import 'package:get/get.dart';
-
 import 'general_settings.dart';
 import 'help_center/help_center.dart';
 
