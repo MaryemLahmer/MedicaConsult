@@ -1,72 +1,92 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:iconsax/iconsax.dart';
-import 'package:medica_consult/common/widgets/appbar/custom_appbar.dart';
+import 'package:medica_consult/features/authentication/controllers/forget_password/forget_password_controller.dart';
 import 'package:medica_consult/features/authentication/screens/login/login.dart';
+import 'package:medica_consult/utils/constants/image_strings.dart';
 import 'package:medica_consult/utils/constants/sizes.dart';
 import 'package:medica_consult/utils/constants/text_strings.dart';
+import 'package:medica_consult/utils/helpers/helper_function.dart';
 
-class ResetScreen extends StatelessWidget {
-  const ResetScreen({super.key});
+class ResetPasswordScreen extends StatelessWidget {
+  const ResetPasswordScreen({super.key, required this.email});
+
+  final String email;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        appBar: AppBar(
+          automaticallyImplyLeading: false,
+          actions: [
+            IconButton(
+                onPressed: () => Get.back(),
+                icon: const Icon(CupertinoIcons.clear))
+          ],
+        ),
         body: SingleChildScrollView(
-      child: Column(
-        children: [
-          /// App Bar
-          MedicaAppBar(
-            title: Text(
-              'Reset Password',
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
-            showBackArrow: true,
-          ),
-          const SizedBox(
-            height: MedicaSizes.spaceBetweenSections,
-          ),
-          Padding(
-            padding: EdgeInsets.all(MedicaSizes.defaultSpace),
+          child: Padding(
+            padding: const EdgeInsets.all(MedicaSizes.defaultSpace),
             child: Column(
               children: [
-                const SizedBox(
-                  height: MedicaSizes.spaceBetweenSections * 2,
-                ),
-                //Password
-                TextFormField(
-                  obscureText: true,
-                  decoration: const InputDecoration(
-                      prefixIcon: Icon(Iconsax.password_check),
-                      labelText: MedicaTexts.password,
-                      suffixIcon: Icon(Iconsax.eye_slash)),
-                ),
-                const SizedBox(
-                  height: MedicaSizes.spaceBetweenItems,
-                ),
-                //Confirm Password
-                TextFormField(
-                  obscureText: true,
-                  decoration: const InputDecoration(
-                      prefixIcon: Icon(Iconsax.password_check),
-                      labelText: 'Confirm Password',
-                      suffixIcon: Icon(Iconsax.eye_slash)),
+                /// Image
+                Image(
+                  image:
+                      const AssetImage(MedicaImages.deliveredEmailIllustration),
+                  width: MedicaHelperFunctions.screenWidth() * 0.6,
                 ),
                 const SizedBox(
                   height: MedicaSizes.spaceBetweenSections,
                 ),
 
+                /// Email, title and subtitle
+                Text(
+                  email,
+                  style: Theme.of(context).textTheme.bodyMedium,
+                  textAlign: TextAlign.center,
+                ),
+                const SizedBox(
+                  height: MedicaSizes.spaceBetweenItems,
+                ),
+                Text(
+                  MedicaTexts.changePasswordTitle,
+                  style: Theme.of(context).textTheme.headlineMedium,
+                  textAlign: TextAlign.center,
+                ),
+                const SizedBox(
+                  height: MedicaSizes.spaceBetweenItems,
+                ),
+                Text(
+                  MedicaTexts.changePasswordSubtitle,
+                  style: Theme.of(context).textTheme.labelMedium,
+                  textAlign: TextAlign.center,
+                ),
+                const SizedBox(
+                  height: MedicaSizes.spaceBetweenSections,
+                ),
+
+                /// Buttons
                 SizedBox(
                   width: double.infinity,
                   child: ElevatedButton(
-                      onPressed: () => Get.to(() => const LoginScreen()),
-                      child: const Text('Confirm')),
+                    onPressed: () => Get.offAll(() => const LoginScreen()),
+                    child: const Text(MedicaTexts.done),
+                  ),
                 ),
+                const SizedBox(
+                  height: MedicaSizes.spaceBetweenSections,
+                ),
+                SizedBox(
+                  width: double.infinity,
+                  child: TextButton(
+                    onPressed: () => ForgetPasswordController.instance
+                        .resendPasswordResetEmail(email),
+                    child: const Text(MedicaTexts.resendEmail),
+                  ),
+                )
               ],
             ),
           ),
-        ],
-      ),
-    ));
+        ));
   }
 }
