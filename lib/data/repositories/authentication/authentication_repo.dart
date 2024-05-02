@@ -115,8 +115,22 @@ class AuthenticationRepository extends GetxController {
     }
   }
 
-  /// [EmailAuthentication] - ReAuthenticate User
   /// [EmailAuthentication] - Forget Password
+  Future<void> sendPasswordResetEmail(String email) async {
+    try {
+      await _auth.sendPasswordResetEmail(email: email);
+    } on FirebaseAuthException catch (e) {
+      throw MedicaFirebaseAuthException(e.code).message;
+    } on FirebaseException catch (e) {
+      throw MedicaFirebaseException(e.code).message;
+    } on FormatException catch (_) {
+      throw const MedicaFormatException();
+    } on PlatformException catch (e) {
+      throw MedicaPlatformException(e.code).message;
+    } catch (e) {
+      throw 'Something went wrong. Please try again!';
+    }
+  }
 /* --------- Federated identity & social sign-in --------- */
 
   /// [Google Authentication] - Google
