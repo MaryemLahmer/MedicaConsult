@@ -2,6 +2,7 @@ import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:medica_consult/features/personalization/controllers/user_controller.dart';
 import 'package:medica_consult/utils/constants/sizes.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:medica_consult/utils/device/device_utility.dart';
@@ -30,6 +31,7 @@ class _UserProfileCardState extends State<UserProfileCard> {
 
   @override
   Widget build(BuildContext context) {
+    final controller = UserController.instance;
     return Column(
       children: [
         Stack(
@@ -57,14 +59,14 @@ class _UserProfileCardState extends State<UserProfileCard> {
           ],
         ),
         Text(
-          'User Disney Style',
+          controller.user.value.fullName,
           style: Theme.of(context)
               .textTheme
               .headlineMedium!
               .apply(color: MedicaColors.black),
         ),
         Text(
-          '+999 999 999 ',
+          controller.user.value.phoneNumber,
           style: Theme.of(context).textTheme.bodySmall,
         ),
         const SizedBox(
