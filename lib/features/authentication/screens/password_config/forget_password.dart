@@ -38,7 +38,6 @@ class ForgetPassword extends StatelessWidget {
             ),
 
             /// Text Field
-
             Form(
               key: controller.forgetPasswordFormKey,
               child: TextFormField(

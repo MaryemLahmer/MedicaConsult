@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:get/get.dart';
-import 'package:medica_consult/features/authentication/screens/password_config/forget_bottom_sheet.dart';
-import 'package:medica_consult/features/authentication/screens/signup/signup.dart';
 import 'package:medica_consult/utils/validators/validation.dart';
-import '../../../../../navigation.dart';
 import '../../../../../utils/constants/sizes.dart';
 import '../../../../../utils/constants/text_strings.dart';
+import '../../../../personalization/screens/settings/edit_profile.dart';
 import '../../../controllers/login/login_controller.dart';
+import '../../password_config/forget_password.dart';
 
 class LoginForm extends StatelessWidget {
   const LoginForm({
@@ -72,9 +71,7 @@ class LoginForm extends StatelessWidget {
 
               /// Forgot Password
               TextButton(
-                  onPressed: () {
-                    ForgetPasswordScreen.buildShowModalBottomSheet(context);
-                  },
+                  onPressed: () => Get.to(() => const ForgetPassword()),
                   child: const Text(MedicaTexts.forgotPassword)),
             ],
           ),
@@ -97,7 +94,7 @@ class LoginForm extends StatelessWidget {
           SizedBox(
             width: double.infinity,
             child: OutlinedButton(
-                onPressed: () => Get.to(() => const SignupScreen()),
+                onPressed: () => Get.to(() => const EditProfileDetails()),
                 child: const Text(MedicaTexts.createAccount)),
           ),
         ],

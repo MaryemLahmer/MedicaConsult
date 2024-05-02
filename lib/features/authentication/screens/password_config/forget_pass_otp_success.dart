@@ -45,7 +45,7 @@ class OTPSuccess extends StatelessWidget {
               SizedBox(
                   width: double.infinity,
                   child: ElevatedButton(
-                      onPressed: () => Get.to(() => const ResetScreen()),
+                      onPressed: () => Get.to(() => const ResetPasswordScreen(email: '')),
                       child: const Text(MedicaTexts.tContinue))),
             ],
           )),
