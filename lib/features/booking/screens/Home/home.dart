@@ -36,7 +36,6 @@ class Home extends StatelessWidget {
                   children: [
                     UserImageAndNameWIthIcon(
                       title: 'Welcome Back',
-                      subtitle: 'The Three Mosquitoes',
                       width: MedicaSizes.imageThumbSize,
                       height: MedicaSizes.imageThumbSize,
                       radius: 50,
