@@ -5,6 +5,7 @@ import 'package:medica_consult/features/booking/screens/Home/widgets/top_doctor_
 import 'package:medica_consult/features/booking/screens/article/article.dart';
 import 'package:medica_consult/features/booking/screens/article/widgets/article_interf.dart';
 import 'package:medica_consult/features/booking/screens/doctor/top_doctor.dart';
+import 'package:medica_consult/features/personalization/controllers/user_controller.dart';
 import 'package:medica_consult/utils/constants/sizes.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:medica_consult/data/data.dart';
@@ -24,6 +25,7 @@ class Home extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final controller = Get.put(UserController());
     return Scaffold(
       body: SingleChildScrollView(
         /// Header: user image + greeting message + notification icon
@@ -36,7 +38,7 @@ class Home extends StatelessWidget {
                   children: [
                     UserImageAndNameWIthIcon(
                       title: 'Welcome Back',
-                      subtitle: 'The Three Mosquitoes',
+                      subtitle: controller.user.value.fullName,
                       width: MedicaSizes.imageThumbSize,
                       height: MedicaSizes.imageThumbSize,
                       radius: 50,
