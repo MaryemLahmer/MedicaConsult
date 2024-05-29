@@ -1,16 +1,8 @@
 # medica_consult
 
-A new Flutter project.
+Combing both enginnering and medical fields, MedicaConsult was conceived as a solution to bridge the gap between patients and healthcare providers.
+This mobile application provides a platform for patients to connect with healthcare professionals remotely, enabling consultations via video calls, chat, or phone.
+It offers a range of services, from booking appointments and prescribing medication to enabling online payment and having an all-time access to medical health information.
+Benefiting from pharmaceutical partnerships, the platform facilitates the home delivery of medicines, ensuring patients receive their medications promptly and safely without needing to visit a pharmacy.
 
-## Getting Started
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
