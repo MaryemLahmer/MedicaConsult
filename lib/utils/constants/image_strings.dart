@@ -49,28 +49,24 @@ class MedicaImages {
   static const String add_card = "assets/images/payment/add_card.png";
 
   // -- User Profile
-  static const String user1 = "assets/images/doc1.jpg";
-  static const String user2 = "assets/images/doc2.jpg";
-  static const String user3 = "assets/images/doc3.jpg";
-  static const String cuteUser = "assets/images/user/cuteUser.jpg";
-  static const String cuteUser1 = "assets/images/user/cuteUser1.jpg";
-  static const String cuteUser3 = "assets/images/user/cuteUser3.jpg";
-  static const String dominantUser = "assets/images/user/dominantUser.jpg";
-  static const String lunetteUser = "assets/images/user/cuteUser.webp";
-  static const String manUser = "assets/images/user/manUser.avif";
-  static const String oldUser = "assets/images/user/oldUser.avif";
-  static const String userTegher = "assets/images/user/userTegher.webp";
+  static const String userF1 = "assets/images/doctors/userF1.jpg";
+  static const String userF2 = "assets/images/doctors/userF2.jpg";
+  static const String userF3 = "assets/images/doctors/userF3.jpg";
+  static const String userF4 = "assets/images/doctors/userF4.jpg";
+  static const String userM1 = "assets/images/doctors/userM1.jpg";
+  static const String userM2 = "assets/images/doctors/userM2.jpg";
+  static const String userM3 = "assets/images/doctors/userM3.jpg";
+  static const String userM4 = "assets/images/doctors/userM4.jpg";
 
   // -- Doctor Images
-  static const String doctorFemale1 =
-      "assets/images/doctors/doctorFemale1.avif";
-  static const String doctorFemale2 =
-      "assets/images/doctors/doctorFemale2.webp";
-  static const String doctorFemale3 = "assets/images/doctors/doctorFemale3.jpg";
-  static const String doctorMale1 = "assets/images/doctors/doctorMale1.webp";
-  static const String doctorMale2 = "assets/images/doctors/doctorMale2.avif";
+  static const String docF1 = "assets/images/doctors/docF1.jpg";
+  static const String docF2 = "assets/images/doctors/docF2.jpg";
+  static const String docF3 = "assets/images/doctors/docF3.jpg";
+  static const String docF4 = "assets/images/doctors/docF4.jpg";
+  static const String docM1 = "assets/images/doctors/docM1.jpg";
+  static const String docM2 = "assets/images/doctors/docM2.jpg";
+  static const String docM3 = "assets/images/doctors/docM5.jpg";
   static const String doctorBanner = "assets/images/doctors/doctorBanner.png";
-  static const String doctorReal = "assets/images/doctors/doctorReal.avif";
 
   // -- Article Images
   static const String dna = "assets/images/article/dna.png";

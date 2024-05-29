@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:medica_consult/features/booking/screens/pharmacy/pharmacy.dart';
 import 'package:medica_consult/features/personalization/screens/settings/settings.dart';
+import 'package:medica_consult/utils/constants/image_strings.dart';
 import 'features/booking/screens/Home/home.dart';
 import 'features/booking/screens/notification/notifications.dart';
 import 'features/booking/screens/appointment/schedual.dart';
