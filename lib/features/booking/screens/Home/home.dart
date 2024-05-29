@@ -35,11 +35,11 @@ class Home extends StatelessWidget {
                 child: Column(
                   children: [
                     UserImageAndNameWIthIcon(
-                      title: 'Welcome Back',
+                      title: 'Maryem Lahmer',
                       width: MedicaSizes.imageThumbSize,
                       height: MedicaSizes.imageThumbSize,
                       radius: 50,
-                      imageName: MedicaImages.user3,
+                      imageName: MedicaImages.userF4,
                       icon: Iconsax.notification,
                       onPressed: () => Get.to(() => const NotificationsPage()),
                     ),
