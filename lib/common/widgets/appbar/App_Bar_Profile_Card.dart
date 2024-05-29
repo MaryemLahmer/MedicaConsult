@@ -53,7 +53,7 @@ class UserImageAndNameWIthIcon extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    title,
+                    "Welcome Back",
                     style: Theme.of(context)
                         .textTheme
                         .labelMedium!
@@ -67,16 +67,21 @@ class UserImageAndNameWIthIcon extends StatelessWidget {
                       // Display a shimmer loader while user profile is being loaded
                       return const ShimmerEffect(width: 80, height: 15);
                     } else {
-                      return Text(controller.user.value.fullName,
+                      return Text(//controller.user.value.fullName,
+                        title,
                           style: Theme.of(context)
                               .textTheme
-                              .headlineSmall!
-                              .apply(
-                                  color: dark
-                                      ? MedicaColors.white
-                                      : MedicaColors.black));
+                              .headlineSmall);
+                              // !.apply(
+                              //     color: dark
+                              //         ? MedicaColors.white
+                              //         : MedicaColors.black))
+                      //         ;
                     }
                   }),
+                  const SizedBox(
+                    height: MedicaSizes.md,
+                  ),
                   Padding(
                     padding: const EdgeInsets.all(MedicaSizes.xs / 3),
                     child: rating,
