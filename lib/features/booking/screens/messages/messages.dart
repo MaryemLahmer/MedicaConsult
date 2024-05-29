@@ -44,7 +44,7 @@ class _MessagesScreenState extends State<MessagesScreen> {
   void addMessage(String? content, String type) {
     final currentTime = DateTime.now();
     final message = {
-      'sender': 'bob', // Assuming the sender is the user for now
+      'sender': 'Dr. Slimen Labyedh', // Assuming the sender is the user for now
       'content': content,
       'time': currentTime,
       'type': type
@@ -74,7 +74,7 @@ class _MessagesScreenState extends State<MessagesScreen> {
                   width: 40.0,
                   height: 40.0,
                   fit: BoxFit.cover,
-                  image: AssetImage(MedicaImages.user1),
+                  image: AssetImage(MedicaImages.docM2),
                 ),
               ),
               const SizedBox(
@@ -82,7 +82,7 @@ class _MessagesScreenState extends State<MessagesScreen> {
               ),
               Expanded(
                 child: Text(
-                  'Firas Riahi',
+                  'Dr. Slimen Labyedh',
                   overflow: TextOverflow.ellipsis,
                   style: Theme.of(context).textTheme.titleSmall,
                 ),
@@ -133,7 +133,7 @@ class _MessagesScreenState extends State<MessagesScreen> {
                 child: Column(
                   children: messageArray.asMap().entries.map((entry) {
                     final data = entry.value;
-                    return data["sender"] == "bob"
+                    return data["sender"] == "Maryem"
                         ? SentMessageBox(
                             content: data["content"],
                             time: data["time"],
