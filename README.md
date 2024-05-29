@@ -6,3 +6,4 @@ It offers a range of services, from booking appointments and prescribing medicat
 Benefiting from pharmaceutical partnerships, the platform facilitates the home delivery of medicines, ensuring patients receive their medications promptly and safely without needing to visit a pharmacy.
 
 
+![splash](https://github.com/MaryemLahmer/MedicaConsult/assets/121202537/d79d1071-b435-430c-bd71-ae68b8d74c7b)
