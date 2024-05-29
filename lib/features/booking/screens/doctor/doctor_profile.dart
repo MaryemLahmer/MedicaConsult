@@ -39,10 +39,10 @@ class DoctorProfile extends StatelessWidget {
                     ),
                   ),
                   const DoctorProfileCard(
-                    drImage: MedicaImages.doctorReal,
-                    drName: 'Dr. Mohsen',
-                    drLocation: 'Bardo, Hogwarts',
-                    drSpeciality: 'Cardiologist',
+                    drImage: MedicaImages.docM2,
+                    drName: 'Dr. Slimen Labyedh',
+                    drLocation: 'Bardo',
+                    drSpeciality: 'Dentist',
                   ),
                   const SizedBox(
                     height: MedicaSizes.spaceBetweenSections,
@@ -97,7 +97,7 @@ class DoctorProfile extends StatelessWidget {
                   ),
                   const TextDescription(
                       textDescription:
-                          'I am Dr.Mohsen from jandouba. I am the best of the best. If you wanna get checked baby girl, just hit that button and let’s chat. I am always free, always available.'),
+                          'I am Dr.Slimen Lakhal, located in Bardo. With 15 years of working, I have gained a lot of experience.'),
                   const SizedBox(
                     height: MedicaSizes.spaceBetweenItems,
                   ),
@@ -120,12 +120,12 @@ class DoctorProfile extends StatelessWidget {
                     onPressed: () => Get.to(() => const DoctorReviewsScreen()),
                   ),
                   const UserReviewCard(
-                    name: 'Madame Karima',
-                    image: MedicaImages.userTegher,
+                    name: 'Sahar Heni',
+                    image: MedicaImages.userF2,
                     date: '30-03-2024',
                     rating: 4.5,
                     feedbackText:
-                        'Oh la la! this one is a player, he knows exactly where i mean what to do. 5 stars you bet !!',
+                        'Dr. Slimen is one of the best dentists.',
                   ),
                   const SizedBox(
                     height: MedicaSizes.spaceBetweenSections,

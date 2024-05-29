@@ -182,9 +182,9 @@ class _FindDoctorsMainScreenState extends State<FindDoctorsMainScreen> {
                     height: MedicaSizes.spaceBetweenItems,
                   ),
                   DoctorHorziontalCard(
-                      profileImage: MedicaImages.user1,
-                      name: "some guy",
-                      speciality: "tbib",
+                      profileImage: MedicaImages.docF1,
+                      name: "Dr. Aziza Othmana",
+                      speciality: "Cardiologist",
                       rating: 4.4,
                       distance: 600,
                       onPressed: (() {})),

@@ -38,14 +38,14 @@ class ConversationInfoScreen extends StatelessWidget {
               width: 112.0,
               height: 112.0,
               fit: BoxFit.cover,
-              image: AssetImage(MedicaImages.user1),
+              image: AssetImage(MedicaImages.docM2),
             ),
           ),
           const SizedBox(
             height: MedicaSizes.spaceBetweenItems,
           ),
           Text(
-            "Gojo Satoru",
+            "Dr. Slimen Labyedh",
             style: Theme.of(context).textTheme.headlineMedium,
           ),
           const SizedBox(
