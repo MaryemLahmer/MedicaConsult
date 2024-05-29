@@ -39,7 +39,6 @@ class UserReviewCard extends StatelessWidget {
                   radius: 30,
                   imageName: image,
                   title: name,
-                  subtitle: date,
                   rating: MRatingBarIndicator(rating: rating),
                 ),
                 const SizedBox(
